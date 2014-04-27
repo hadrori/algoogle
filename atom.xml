@@ -4,7 +4,7 @@
   <title><![CDATA[Algoogle]]></title>
   <link href="http://hadrori.github.io/atom.xml" rel="self"/>
   <link href="http://hadrori.github.io/"/>
-  <updated>2014-04-27T19:02:29+09:00</updated>
+  <updated>2014-04-27T19:05:03+09:00</updated>
   <id>http://hadrori.github.io/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -12,14 +12,5 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[test]]></title>
-    <link href="http://hadrori.github.io/test/"/>
-    <updated>2014-04-27T18:40:42+09:00</updated>
-    <id>http://hadrori.github.io/test</id>
-    <content type="html"><![CDATA[<p>hogehogeh</p>
-]]></content>
-  </entry>
   
 </feed>
