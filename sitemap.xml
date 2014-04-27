@@ -1,27 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://hadrori.github.io/about/</loc>
+        <loc>http://algoogle.hadrori.jp/aho-corasickfa/</loc>
+        <lastmod>2014-04-28T01:09:00+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/about/</loc>
         <lastmod>2014-04-27T17:58:09+09:00</lastmod>
     </url>
     <url>
-        <loc>http://hadrori.github.io/blog/archives/</loc>
-        <lastmod>2014-04-27T17:21:51+09:00</lastmod>
+        <loc>http://algoogle.hadrori.jp/blog/archives/</loc>
+        <lastmod>2014-04-28T01:09:00+09:00</lastmod>
     </url>
     <url>
-        <loc>http://hadrori.github.io/</loc>
-        <lastmod>2014-04-27T17:21:51+09:00</lastmod>
+        <loc>http://algoogle.hadrori.jp/</loc>
+        <lastmod>2014-04-28T01:09:00+09:00</lastmod>
     </url>
     <url>
-        <loc>http://hadrori.github.io/</loc>
-        <lastmod>2014-04-27T17:41:58+09:00</lastmod>
+        <loc>http://algoogle.hadrori.jp/</loc>
+        <lastmod>2014-04-28T01:59:51+09:00</lastmod>
     </url>
     <url>
-        <loc>http://hadrori.github.io/links/</loc>
+        <loc>http://algoogle.hadrori.jp/links/</loc>
         <lastmod>2014-04-27T18:34:07+09:00</lastmod>
     </url>
     <url>
-        <loc>http://hadrori.github.io/robots.txt</loc>
+        <loc>http://algoogle.hadrori.jp/robots.txt</loc>
         <lastmod>2014-04-27T17:21:51+09:00</lastmod>
     </url>
 </urlset>

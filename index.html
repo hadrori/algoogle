@@ -9,7 +9,7 @@
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content=" Algorithm Recent Posts Categories ">
+  <meta name="description" content=" String 検索 Aho-Corasick法 Graph グラフとは 最短路 Worshall-Floyd法 Dijkstra法 フロー Math Geometry Tweet Recent Posts Aho-Corasick法 Categories String (1) ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,9 +18,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://hadrori.github.io/">
+  <link rel="canonical" href="http://algoogle.hadrori.jp/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
@@ -28,8 +29,21 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-47788601-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -49,7 +63,7 @@
   
 <form action="https://www.google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:hadrori.github.io" />
+    <input type="hidden" name="q" value="site:algoogle.hadrori.jp" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -67,8 +81,65 @@
       <div>
 <article role="article">
   
-  <h2>Algorithm</h2>
+  <ol>
+  <li>
+    <h3 id="string">String</h3>
+    <ul>
+      <li>
+        <h4 id="section">検索</h4>
+        <ul>
+          <li><a href="/aho-corasickfa/">Aho-Corasick法</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="graph">Graph</h3>
+    <p><a href="">グラフとは</a></p>
+    <ul>
+      <li>
+        <h4 id="section-1">最短路</h4>
+        <ul>
+          <li><a href="">Worshall-Floyd法</a></li>
+          <li><a href="">Dijkstra法</a></li>
+        </ul>
+      </li>
+      <li>
+        <h4 id="section-2">フロー</h4>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="math">Math</h3>
+  </li>
+  <li>
+    <h3 id="geometry">Geometry</h3>
+  </li>
+</ol>
 
+
+  
+    <footer>
+      
+      
+        <div class="social">
+  <div class="hatena">
+    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/index.html" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  </div>
+  
+  <div class="twitter">
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/index.html" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/index.html" >Tweet</a>
+  </div>
+  
+  
+  <div class="facebook">
+    <div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+  </div>
+  
+</div>
+
+      
+    </footer>
   
 </article>
 
@@ -80,12 +151,17 @@
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
+      <li class="post">
+        <a href="/aho-corasickfa/">Aho-Corasick法</a>
+      </li>
+    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    
+    <li class='category'><a href='/categories/string/'>String (1)</a></li>
+
   </ul>
 </section>
 

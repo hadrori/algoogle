@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://hadrori.github.io/sitemap.xml 
+Sitemap: http://algoogle.hadrori.jp/sitemap.xml 
