@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Graph | Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/categories/graph/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-04-28T20:22:37+09:00</updated>
+  <updated>2014-04-28T21:15:15+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -79,6 +79,110 @@ dist[i][j] = min(dist[i][j], dist[i][k+1] + dist[k+1][j]);<br />
 </span><span class='line'>            <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dijkstra法]]></title>
+    <link href="http://algoogle.hadrori.jp/dijkstrafa/"/>
+    <updated>2014-04-28T00:00:00+09:00</updated>
+    <id>http://algoogle.hadrori.jp/dijkstrafa</id>
+    <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td>計算量</td>
+      <td>O(E log V)</td>
+    </tr>
+    <tr>
+      <td>用途</td>
+      <td>負辺のないグラフで単一始点最短路を求める.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>E := 辺の数<br />
+V := 頂点の数  </p>
+
+<h4 id="section-1">問題</h4>
+
+<hr />
+
+<ul>
+  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1156">AOJ 1157 “Twirling Robot”</a></li>
+  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1162">AOJ 1162 “Discrete Speed”</a></li>
+  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2151">AOJ 2151 “Brave Princess Revisited”</a></li>
+  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1150">AOJ 1150 “Cliff Climbingt”</a></li>
+  <li><a href="http://poj.org/problem?id=2387">POJ 2387 “Til the Cows Come Home”</a></li>
+  <li><a href="http://poj.org/problem?id=3268">POJ 3268 “Silver Cow Party”</a></li>
+  <li><a href="http://poj.org/problem?id=2227">POJ 2227 “The Wedding Juicer”</a></li>
+</ul>
+
+<h4 id="section-2">解説</h4>
+
+<hr />
+
+<p>負辺の無いグラフで始点が決まっている時, その点からグラフ上の各頂点までの最短距離を求めることができる.<br />
+Dijkstra法ではまだ調べていない頂点のうち, 始点から一番近い点を順に見ていき, その点からいける点の最短距離を更新していく.<br />
+負辺がないのですでに調べている点はこれによって更新されることはなく, したがって順に最短路を求めることができる.  </p>
+
+<p>まだ調べていない頂点のうち一番近い点というのは, 到達したかどうかのメモとpriority_queueなどのデータ構造を使うことで効率よく求めることができる.  </p>
+
+<p>またpriority_queueは値が大きいものが基本的に優先されるので, greaterを指定して小さい方から取ってこさせるか, コードのように比較の不等号の意味を逆に定義させる.  </p>
+
+<h4 id="section-3">コード</h4>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (dijkstra.cpp)</span> <a href='/downloads/code/dijkstra.cpp'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">struct</span> <span class="n">node</span><span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">node</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">d</span><span class="p">)</span><span class="o">:</span><span class="n">v</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">d</span><span class="p">(</span><span class="n">d</span><span class="p">){}</span>
+</span><span class='line'>    <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">node</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span><span class="k">const</span><span class="p">{</span> <span class="k">return</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">.</span><span class="n">d</span><span class="p">;}</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'><span class="k">struct</span> <span class="n">edge</span><span class="p">{</span><span class="kt">int</span> <span class="n">to</span><span class="p">,</span> <span class="n">d</span><span class="p">;};</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">V</span><span class="p">;</span>
+</span><span class='line'><span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">dist</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span> <span class="c1">// ここに最短距離が入る</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="n">dijkstra</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">){</span>
+</span><span class='line'>    <span class="n">memset</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">dist</span><span class="p">));</span>
+</span><span class='line'>    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span> <span class="n">que</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">node</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">que</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">que</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">v</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">que</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">d</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">que</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="n">and</span> <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">d</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">node</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">i</span><span class="p">].</span><span class="n">to</span><span class="p">,</span> <span class="n">d</span><span class="o">+</span><span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">i</span><span class="p">].</span><span class="n">d</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   
