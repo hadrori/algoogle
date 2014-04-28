@@ -9,7 +9,7 @@
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content="String 検索 Aho-Corasick法 Graph 最短路 Worshall-Floyd法 Dijkstra法 フロー Math Geometry Tweet Recent Posts Warshall-Floyd法 Dijkstra法 Aho-Corasick法 Categories &hellip;">
+  <meta name="description" content="文字列 検索 Aho-Corasick法(複数文字列検索) グラフ 最短路 Worshall-Floyd法(全点対最短路) Dijkstra法(単一始点最短路) フロー Ford-Fullkerson法(最大流) Dinic法(最大流) 木 Prim法(最小全域木) Kruskal法(最小全域木 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,28 +83,39 @@
   
   <ol>
   <li>
-    <h3 id="string">String</h3>
+    <h3 id="section">文字列</h3>
     <ul>
       <li>
-        <h4 id="section">検索</h4>
+        <h4 id="section-1">検索</h4>
         <ul>
-          <li><a href="/aho-corasickfa/">Aho-Corasick法</a></li>
+          <li><a href="/aho-corasickfa/">Aho-Corasick法(複数文字列検索)</a></li>
         </ul>
       </li>
     </ul>
   </li>
   <li>
-    <h3 id="graph">Graph</h3>
+    <h3 id="section-2">グラフ</h3>
     <ul>
       <li>
-        <h4 id="section-1">最短路</h4>
+        <h4 id="section-3">最短路</h4>
         <ul>
-          <li><a href="/warshall-floydfa/">Worshall-Floyd法</a></li>
-          <li><a href="/dijkstrafa/">Dijkstra法</a></li>
+          <li><a href="/warshall-floydfa/">Worshall-Floyd法(全点対最短路)</a></li>
+          <li><a href="/dijkstrafa/">Dijkstra法(単一始点最短路)</a></li>
         </ul>
       </li>
       <li>
-        <h4 id="section-2">フロー</h4>
+        <h4 id="section-4">フロー</h4>
+        <ul>
+          <li><a href="">Ford-Fullkerson法(最大流)</a></li>
+          <li><a href="">Dinic法(最大流)</a></li>
+        </ul>
+      </li>
+      <li>
+        <h4 id="section-5">木</h4>
+        <ul>
+          <li><a href="">Prim法(最小全域木)</a></li>
+          <li><a href="">Kruskal法(最小全域木)</a></li>
+        </ul>
       </li>
     </ul>
   </li>
@@ -112,10 +123,22 @@
     <h3 id="math">Math</h3>
   </li>
   <li>
-    <h3 id="geometry">Geometry</h3>
+    <h3 id="section-6">幾何</h3>
+  </li>
+  <li>
+    <h3 id="section-7">データ構造</h3>
+    <ul>
+      <li><a href="">Segment Tree</a></li>
+      <li><a href="">Binary Indexed Tree</a></li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="section-8">テクニック</h3>
+    <ul>
+      <li><a href="">座標圧縮</a></li>
+    </ul>
   </li>
 </ol>
-
 
   
     <footer>
@@ -155,6 +178,14 @@
       </li>
     
       <li class="post">
+        <a href="/ford-fulkersonfa/">Ford-Fulkerson法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/dinicfa/">Dinic法</a>
+      </li>
+    
+      <li class="post">
         <a href="/dijkstrafa/">Dijkstra法</a>
       </li>
     
@@ -167,7 +198,8 @@
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/categories/graph/'>Graph (2)</a></li>
+    <li class='category'><a href='/categories/flow/'>Flow (2)</a></li>
+<li class='category'><a href='/categories/graph/'>Graph (4)</a></li>
 <li class='category'><a href='/categories/string/'>String (1)</a></li>
 
   </ul>

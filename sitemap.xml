@@ -2,15 +2,23 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://algoogle.hadrori.jp/aho-corasickfa/</loc>
-        <lastmod>2014-04-28T20:33:26+09:00</lastmod>
+        <lastmod>2014-04-28T22:02:51+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/dijkstrafa/</loc>
-        <lastmod>2014-04-28T21:11:52+09:00</lastmod>
+        <lastmod>2014-04-28T21:56:25+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/dinicfa/</loc>
+        <lastmod>2014-04-28T23:28:03+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/ford-fulkersonfa/</loc>
+        <lastmod>2014-04-28T23:23:07+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/warshall-floydfa/</loc>
-        <lastmod>2014-04-28T20:20:46+09:00</lastmod>
+        <lastmod>2014-04-28T21:56:16+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/about/</loc>
@@ -18,15 +26,15 @@
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/blog/archives/</loc>
-        <lastmod>2014-04-28T21:11:52+09:00</lastmod>
+        <lastmod>2014-04-28T23:28:03+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/</loc>
-        <lastmod>2014-04-28T21:11:52+09:00</lastmod>
+        <lastmod>2014-04-28T23:28:03+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/</loc>
-        <lastmod>2014-04-28T21:12:22+09:00</lastmod>
+        <lastmod>2014-04-28T23:29:19+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/links/</loc>
