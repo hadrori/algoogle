@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tree | Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/categories/tree/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-04-29T16:39:07+09:00</updated>
+  <updated>2014-04-29T16:39:50+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -405,7 +405,7 @@ V := 頂点数  </p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Biniry Indexed Tree]]></title>
+    <title type="html"><![CDATA[Binary Indexed Tree]]></title>
     <link href="http://algoogle.hadrori.jp/binary-indexed-tree/"/>
     <updated>2014-04-29T00:00:00+09:00</updated>
     <id>http://algoogle.hadrori.jp/binary-indexed-tree</id>
