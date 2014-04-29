@@ -4,7 +4,7 @@
   <title><![CDATA[Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-04-29T14:22:40+09:00</updated>
+  <updated>2014-04-29T14:35:55+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -334,10 +334,9 @@ V := 頂点数  </p>
 <hr />
 
 <ul>
-  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1127">AOJ 1127 “Building a Space Station”</a>  </li>
-  <li><a href="http://poj.org/problem?id=1258">POJ 1258 “Agri-Net”</a>  </li>
-  <li><a href="http://poj.org/problem?id=2377">POJ 2377 “Bad Cowtractors”</a>  </li>
-  <li><a href="http://poj.org/problem?id=3625">POJ 3625 “Building Roads”</a>  </li>
+  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1337">AOJ 1337 “Count the Regions”</a>  </li>
+  <li><a href="http://poj.org/problem?id=2430">POJ 2430 “Lazy Cow”</a>  </li>
+  <li><a href="http://poj.org/problem?id=3666">POJ 3666 “Making the Grade”</a>  </li>
 </ul>
 
 <h4 id="section-2">解説</h4>
