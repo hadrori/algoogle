@@ -1,8 +1,8 @@
-struct binay_it{
+struct binary_it{
     int bit[MAX+1];
     int N;
 
-    binary(int N):N(N){
+    binary_it(int N):N(N){
         memset(bit, 0, sizeof(bit));
     }
 
