@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Data Structure | Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/categories/data-structure/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-04-29T14:52:14+09:00</updated>
+  <updated>2014-04-29T16:32:53+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -108,6 +108,213 @@ a := アッカーマン関数の逆関数</p>
 </span><span class='line'>    <span class="kt">bool</span> <span class="n">same</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">){</span>
 </span><span class='line'>        <span class="n">x</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">y</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
 </span><span class='line'>        <span class="k">return</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Segment Tree]]></title>
+    <link href="http://algoogle.hadrori.jp/segment-tree/"/>
+    <updated>2014-04-29T00:00:00+09:00</updated>
+    <id>http://algoogle.hadrori.jp/segment-tree</id>
+    <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td>計算量</td>
+      <td>O(log N)</td>
+    </tr>
+    <tr>
+      <td>用途</td>
+      <td>区間に対するクエリの処理</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>N := 区間の幅  </p>
+
+<h4 id="section-1">問題</h4>
+
+<hr />
+
+<h4 id="section-2">解説</h4>
+
+<hr />
+
+<p>Segment Treeは主に区間に対するクエリを処理するために使われる.<br />
+完全二分木で実装されるので各クエリの計算量はO(log N)になる.<br />
+自由度が高く, 区間を扱う様々なものに利用される.<br />
+コードではRMQの実装.  </p>
+
+<h4 id="section-3">コード</h4>
+
+<hr />
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (segtree.cpp)</span> <a href='/downloads/code/segtree.cpp'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">struct</span> <span class="n">segment_tree</span><span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="n">dat</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">MAX</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">segment_tree</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+</span><span class='line'>        <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="n">N</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="n">N</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">dat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inf</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="c1">// update k th element</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a</span><span class="p">){</span>
+</span><span class='line'>        <span class="n">k</span> <span class="o">+=</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// leaf</span>
+</span><span class='line'>        <span class="n">dat</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+</span><span class='line'>            <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">dat</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="n">k</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">dat</span><span class="p">[</span><span class="n">k</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">]);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="c1">// min [a, b)</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span> <span class="k">return</span> <span class="n">query</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">);}</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">){</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">r</span> <span class="o">&lt;=</span> <span class="n">a</span> <span class="n">or</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">l</span><span class="p">)</span> <span class="k">return</span> <span class="n">inf</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="n">l</span> <span class="n">and</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">)</span> <span class="k">return</span> <span class="n">dat</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">min</span><span class="p">(</span><span class="n">query</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">k</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">),</span> <span class="n">query</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">k</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">r</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Biniry Indexed Tree]]></title>
+    <link href="http://algoogle.hadrori.jp/biniry-indexed-tree/"/>
+    <updated>2014-04-29T00:00:00+09:00</updated>
+    <id>http://algoogle.hadrori.jp/biniry-indexed-tree</id>
+    <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td>計算量</td>
+      <td>O(log N)</td>
+    </tr>
+    <tr>
+      <td>用途</td>
+      <td>区間の和を求める. 値を加える.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>N := 区間の幅  </p>
+
+<h4 id="section-1">問題</h4>
+
+<hr />
+
+<ul>
+  <li><a href="http://poj.org/problem?id=1990">POJ 1990 “Agri-Net”</a>  </li>
+</ul>
+
+<h4 id="section-2">解説</h4>
+
+<hr />
+<p>BIT(Binary Indexed Tree)は区間の和を求めるのと1つの場所の値に加算するのををO(log N)で行えるデータ構造. 
+実現にビットを用いていて実装が非常に楽.<br />
+値の加算はi番目の値に加えたい場合は立っているビットの最後のビットを繰り上げていきながらその経路全てを更新する.<br />
+和の計算は1からi番目までの値の和の場合, 立っているビットの最後のbitを0にしながらその経路全ての和を返す.  </p>
+
+<p>BITでは1-indexedなので注意する.</p>
+
+<h4 id="section-3">コード</h4>
+
+<hr />
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (bit.cpp)</span> <a href='/downloads/code/bit.cpp'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">struct</span> <span class="n">binay_it</span><span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">bit</span><span class="p">[</span><span class="n">MAX</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">binary</span><span class="p">(</span><span class="kt">int</span> <span class="n">N</span><span class="p">)</span><span class="o">:</span><span class="n">N</span><span class="p">(</span><span class="n">N</span><span class="p">){</span>
+</span><span class='line'>        <span class="n">memset</span><span class="p">(</span><span class="n">bit</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">bit</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">){</span> <span class="c1">// sum [1,i]</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
+</span><span class='line'>            <span class="n">ret</span> <span class="o">+=</span> <span class="n">bit</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>            <span class="n">i</span> <span class="o">-=</span> <span class="n">i</span><span class="o">&amp;-</span><span class="n">i</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">){</span> <span class="c1">// sum (i,j]</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">sum</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="n">sum</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">){</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">){</span>
+</span><span class='line'>            <span class="n">bit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">x</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">i</span> <span class="o">+=</span> <span class="n">i</span><span class="o">&amp;-</span><span class="n">i</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">};</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
