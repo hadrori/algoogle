@@ -4,7 +4,7 @@
   <title><![CDATA[Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-04-29T12:48:24+09:00</updated>
+  <updated>2014-04-29T14:22:40+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -116,6 +116,99 @@ a := アッカーマン関数の逆関数</p>
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[Prim法]]></title>
+    <link href="http://algoogle.hadrori.jp/prim/"/>
+    <updated>2014-04-29T00:00:00+09:00</updated>
+    <id>http://algoogle.hadrori.jp/prim</id>
+    <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td>計算量</td>
+      <td>O(E log V)</td>
+    </tr>
+    <tr>
+      <td>用途</td>
+      <td>最小全域木を求める</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>E := 辺の数<br />
+V := 頂点数  </p>
+
+<h4 id="section-1">問題</h4>
+
+<hr />
+
+<ul>
+  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1127">AOJ 1127 “Building a Space Station”</a>  </li>
+  <li><a href="http://poj.org/problem?id=1258">POJ 1258 “Agri-Net”</a>  </li>
+  <li><a href="http://poj.org/problem?id=2377">POJ 2377 “Bad Cowtractors”</a>  </li>
+  <li><a href="http://poj.org/problem?id=3625">POJ 3625 “Building Roads”</a>  </li>
+</ul>
+
+<h4 id="section-2">解説</h4>
+
+<hr />
+
+<p>すでに到達した頂点の集合からまだ到達していない頂点の集合への辺のうち, コストが最小のものを選んでいくことで最小全域木を構成する.<br />
+Dijkstra法と似ている.  </p>
+
+<h4 id="section-3">コード</h4>
+
+<hr />
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (prim.cpp)</span> <a href="http://algoogle.hadrori.jp/downloads/code/prim.cpp">download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span> <span class="c1">// (cst, to)</span>
+</span><span class="line"><span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
+</span><span class="line"><span class="kt">bool</span> <span class="n">used</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
+</span><span class="line">
+</span><span class="line"><span class="kt">int</span> <span class="n">prim</span><span class="p">(){</span>
+</span><span class="line">    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pii</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">que</span><span class="p">;</span>
+</span><span class="line">    <span class="n">memset</span><span class="p">(</span><span class="n">used</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">used</span><span class="p">));</span>
+</span><span class="line">    <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">pii</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
+</span><span class="line">    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">que</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+</span><span class="line">        <span class="kt">int</span> <span class="n">cst</span> <span class="o">=</span> <span class="n">que</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">first</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">que</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">second</span><span class="p">;</span>
+</span><span class="line">        <span class="n">que</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">used</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>
+</span><span class="line">        <span class="n">used</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="line">        <span class="n">ret</span> <span class="o">+=</span> <span class="n">cst</span><span class="p">;</span>
+</span><span class="line">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class="line">            <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Kruskal法]]></title>
     <link href="http://algoogle.hadrori.jp/kruskal/"/>
     <updated>2014-04-29T00:00:00+09:00</updated>
@@ -206,6 +299,82 @@ V := 頂点数  </p>
 </span><span class="line">        <span class="n">T</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
 </span><span class="line">    <span class="p">}</span>
 </span><span class="line">    <span class="k">return</span> <span class="n">w</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[座標圧縮]]></title>
+    <link href="http://algoogle.hadrori.jp/compress/"/>
+    <updated>2014-04-29T00:00:00+09:00</updated>
+    <id>http://algoogle.hadrori.jp/compress</id>
+    <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td>計算量</td>
+      <td>初期化 O(N log N), 取り出し O(log N)</td>
+    </tr>
+    <tr>
+      <td>用途</td>
+      <td>座標を圧縮する</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>N := 圧縮する座標の数  </p>
+
+<h4 id="section-1">問題</h4>
+
+<hr />
+
+<ul>
+  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1127">AOJ 1127 “Building a Space Station”</a>  </li>
+  <li><a href="http://poj.org/problem?id=1258">POJ 1258 “Agri-Net”</a>  </li>
+  <li><a href="http://poj.org/problem?id=2377">POJ 2377 “Bad Cowtractors”</a>  </li>
+  <li><a href="http://poj.org/problem?id=3625">POJ 3625 “Building Roads”</a>  </li>
+</ul>
+
+<h4 id="section-2">解説</h4>
+
+<hr />
+
+<p>入力の個数に対して考えられる座標の範囲が広い時, 座標の大小関係を維持しつつ値の範囲を狭める.<br />
+コードではzipで圧縮後の座標, unzipで圧縮前の座標を受け取る.  </p>
+
+<h4 id="section-3">コード</h4>
+
+<hr />
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (compress.cpp)</span> <a href="http://algoogle.hadrori.jp/downloads/code/compress.cpp">download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">zip</span><span class="p">;</span>
+</span><span class="line"><span class="kt">int</span> <span class="n">unzip</span><span class="p">[</span><span class="n">MAP</span><span class="p">];</span>
+</span><span class="line">
+</span><span class="line"><span class="kt">int</span> <span class="n">compress</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">){</span>
+</span><span class="line">    <span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span><span class="line">    <span class="n">x</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">()),</span><span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class="line">        <span class="n">zip</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span><span class="line">        <span class="n">unzip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 </span><span class="line"><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 

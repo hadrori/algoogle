@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Kruskal法 - Algoogle</title>
+  <title>Prim法 - Algoogle</title>
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content="基本情報 計算量 O(E log V) 用途 最小全域木(森)を求める E := 辺の数
-V := 頂点数 問題 AOJ 1127 “Building a Space Station” POJ 1258 “Agri-Net” POJ 2377 “Bad Cowtractors” POJ 3625 &hellip;">
+  <meta name="description" content="基本情報 計算量 O(E log V) 用途 最小全域木を求める E := 辺の数
+V := 頂点数 問題 AOJ 1127 “Building a Space Station” POJ 1258 “Agri-Net” POJ 2377 “Bad Cowtractors” POJ 3625 “ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ V := 頂点数 問題 AOJ 1127 “Building a Space Station” POJ 1258 “Agri-N
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://algoogle.hadrori.jp/kruskal/">
+  <link rel="canonical" href="http://algoogle.hadrori.jp/prim/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
@@ -84,7 +84,7 @@ V := 頂点数 問題 AOJ 1127 “Building a Space Station” POJ 1258 “Agri-N
   
   <header>
     
-      <h1 class="entry-title">Kruskal法</h1>
+      <h1 class="entry-title">Prim法</h1>
     
     
       <p class="meta">
@@ -118,7 +118,7 @@ V := 頂点数 問題 AOJ 1127 “Building a Space Station” POJ 1258 “Agri-N
     </tr>
     <tr>
       <td>用途</td>
-      <td>最小全域木(森)を求める</td>
+      <td>最小全域木を求める</td>
     </tr>
   </tbody>
 </table>
@@ -141,14 +141,14 @@ V := 頂点数  </p>
 
 <hr />
 
-<p>グラフの辺のリストをコストの小さい方から処理していき, 辺の両端の頂点が同じ木に属していなければその辺を使う.<br />
-同じ木に属しているかどうかの判定には<a href="/union-find/">Union-Find</a>を利用する.  </p>
+<p>すでに到達した頂点の集合からまだ到達していない頂点の集合への辺のうち, コストが最小のものを選んでいくことで最小全域木を構成する.<br />
+Dijkstra法と似ている.  </p>
 
 <h4 id="section-3">コード</h4>
 
 <hr />
 
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (kruskal.cpp)</span> <a href="/downloads/code/kruskal.cpp">download</a></figcaption>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (prim.cpp)</span> <a href="/downloads/code/prim.cpp">download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
@@ -169,29 +169,25 @@ V := 頂点数  </p>
 <span class="line-number">18</span>
 <span class="line-number">19</span>
 <span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="k">struct</span> <span class="n">edge</span><span class="p">{</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">cst</span><span class="p">;</span>
-</span><span class="line">    <span class="n">edge</span><span class="p">(){}</span>
-</span><span class="line">    <span class="n">edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cst</span><span class="p">)</span><span class="o">:</span><span class="n">from</span><span class="p">(</span><span class="n">from</span><span class="p">),</span><span class="n">to</span><span class="p">(</span><span class="n">to</span><span class="p">),</span><span class="n">cst</span><span class="p">(</span><span class="n">cst</span><span class="p">){}</span>
-</span><span class="line">    <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">edge</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">)</span><span class="k">const</span><span class="p">{</span><span class="k">return</span> <span class="n">cst</span> <span class="o">&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">cst</span><span class="p">;}</span>
-</span><span class="line"><span class="p">};</span>
+</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span> <span class="c1">// (cst, to)</span>
+</span><span class="line"><span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
+</span><span class="line"><span class="kt">bool</span> <span class="n">used</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
 </span><span class="line">
-</span><span class="line"><span class="c1">// Eが連結ならTに最小全域木が入る</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">kruskal</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">E</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">){</span>
-</span><span class="line">    <span class="n">sort</span><span class="p">(</span><span class="n">E</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-</span><span class="line">    <span class="n">T</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
-</span><span class="line">    <span class="n">union_find</span> <span class="n">uf</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">;</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">E</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-</span><span class="line">        <span class="n">edge</span> <span class="o">&amp;</span><span class="n">e</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">same</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">from</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">))</span> <span class="k">continue</span><span class="p">;</span>
-</span><span class="line">        <span class="n">uf</span><span class="p">.</span><span class="n">unite</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">from</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">);</span>
-</span><span class="line">        <span class="n">w</span> <span class="o">+=</span> <span class="n">e</span><span class="p">.</span><span class="n">cst</span><span class="p">;</span>
-</span><span class="line">        <span class="n">T</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span><span class="line"><span class="kt">int</span> <span class="n">prim</span><span class="p">(){</span>
+</span><span class="line">    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pii</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">que</span><span class="p">;</span>
+</span><span class="line">    <span class="n">memset</span><span class="p">(</span><span class="n">used</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">used</span><span class="p">));</span>
+</span><span class="line">    <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">pii</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
+</span><span class="line">    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">que</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+</span><span class="line">        <span class="kt">int</span> <span class="n">cst</span> <span class="o">=</span> <span class="n">que</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">first</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">que</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">second</span><span class="p">;</span>
+</span><span class="line">        <span class="n">que</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">used</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>
+</span><span class="line">        <span class="n">used</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="line">        <span class="n">ret</span> <span class="o">+=</span> <span class="n">cst</span><span class="p">;</span>
+</span><span class="line">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class="line">            <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
 </span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="k">return</span> <span class="n">w</span><span class="p">;</span>
+</span><span class="line">    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
 </span><span class="line"><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
@@ -233,11 +229,11 @@ Category: <span class="categories">
     
       <div class="social">
   <div class="hatena">
-    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/kruskal/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/prim/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   </div>
   
   <div class="twitter">
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/kruskal/" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/kruskal/" >Tweet</a>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/prim/" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/prim/" >Tweet</a>
   </div>
   
   
@@ -321,8 +317,8 @@ Category: <span class="categories">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://algoogle.hadrori.jp/kruskal/';
-        var disqus_url = 'http://algoogle.hadrori.jp/kruskal/';
+        var disqus_identifier = 'http://algoogle.hadrori.jp/prim/';
+        var disqus_url = 'http://algoogle.hadrori.jp/prim/';
         var disqus_script = 'embed.js';
       
     (function () {
