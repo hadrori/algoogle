@@ -4,7 +4,7 @@
   <title><![CDATA[Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-04-29T14:35:55+09:00</updated>
+  <updated>2014-04-29T14:52:14+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -318,7 +318,7 @@ V := 頂点数  </p>
   <tbody>
     <tr>
       <td>計算量</td>
-      <td>初期化 O(N log N), 取り出し O(log N)</td>
+      <td>初期化 O(N log N), 圧縮 O(log N), 展開 O(1)</td>
     </tr>
     <tr>
       <td>用途</td>
