@@ -4,7 +4,7 @@
   <title><![CDATA[Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-04-29T16:39:50+09:00</updated>
+  <updated>2014-04-29T16:40:37+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -508,7 +508,7 @@ V := 頂点数  </p>
 <hr />
 
 <ul>
-  <li><a href="http://poj.org/problem?id=1990">POJ 1990 “Agri-Net”</a>  </li>
+  <li><a href="http://poj.org/problem?id=1990">POJ 1990 “MooFest”</a>  </li>
 </ul>
 
 <h4 id="section-2">解説</h4>
