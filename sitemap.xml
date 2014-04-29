@@ -1,24 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://algoogle.hadrori.jp/aho-corasickfa/</loc>
+        <loc>http://algoogle.hadrori.jp/aho-corasick/</loc>
         <lastmod>2014-04-28T22:02:51+09:00</lastmod>
     </url>
     <url>
-        <loc>http://algoogle.hadrori.jp/dijkstrafa/</loc>
+        <loc>http://algoogle.hadrori.jp/dijkstra/</loc>
         <lastmod>2014-04-28T21:56:25+09:00</lastmod>
     </url>
     <url>
-        <loc>http://algoogle.hadrori.jp/dinicfa/</loc>
-        <lastmod>2014-04-28T23:28:03+09:00</lastmod>
+        <loc>http://algoogle.hadrori.jp/dinic/</loc>
+        <lastmod>2014-04-29T12:18:19+09:00</lastmod>
     </url>
     <url>
-        <loc>http://algoogle.hadrori.jp/ford-fulkersonfa/</loc>
-        <lastmod>2014-04-28T23:23:07+09:00</lastmod>
+        <loc>http://algoogle.hadrori.jp/ford-fulkerson/</loc>
+        <lastmod>2014-04-29T12:18:03+09:00</lastmod>
     </url>
     <url>
-        <loc>http://algoogle.hadrori.jp/warshall-floydfa/</loc>
+        <loc>http://algoogle.hadrori.jp/warshall-floyd/</loc>
         <lastmod>2014-04-28T21:56:16+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/kruskal/</loc>
+        <lastmod>2014-04-29T12:48:20+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/union-find/</loc>
+        <lastmod>2014-04-29T12:47:29+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/about/</loc>
@@ -26,15 +34,15 @@
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/blog/archives/</loc>
-        <lastmod>2014-04-28T23:28:03+09:00</lastmod>
+        <lastmod>2014-04-29T12:48:20+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/</loc>
-        <lastmod>2014-04-28T23:28:03+09:00</lastmod>
+        <lastmod>2014-04-29T12:48:20+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/</loc>
-        <lastmod>2014-04-28T23:31:42+09:00</lastmod>
+        <lastmod>2014-04-29T12:20:17+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/links/</loc>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flow | Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/categories/flow/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-04-28T23:31:45+09:00</updated>
+  <updated>2014-04-29T12:48:24+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ford-Fulkerson法]]></title>
-    <link href="http://algoogle.hadrori.jp/ford-fulkersonfa/"/>
+    <link href="http://algoogle.hadrori.jp/ford-fulkerson/"/>
     <updated>2014-04-28T00:00:00+09:00</updated>
-    <id>http://algoogle.hadrori.jp/ford-fulkersonfa</id>
+    <id>http://algoogle.hadrori.jp/ford-fulkerson</id>
     <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
 
 <hr />
@@ -42,7 +42,7 @@ E := 辺の数</p>
 
 <hr />
 
-<p><a href="/dinicfa/">Dinic法</a>参照.</p>
+<p><a href="/dinic/">Dinic法</a>参照.</p>
 
 <h4 id="section-2">解説</h4>
 
@@ -135,9 +135,9 @@ E := 辺の数</p>
   
   <entry>
     <title type="html"><![CDATA[Dinic法]]></title>
-    <link href="http://algoogle.hadrori.jp/dinicfa/"/>
+    <link href="http://algoogle.hadrori.jp/dinic/"/>
     <updated>2014-04-28T00:00:00+09:00</updated>
-    <id>http://algoogle.hadrori.jp/dinicfa</id>
+    <id>http://algoogle.hadrori.jp/dinic</id>
     <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
 
 <hr />
@@ -178,7 +178,7 @@ V := 頂点数</p>
 
 <hr />
 
-<p>基本的な部分では<a href="/ford-fulkersonfa/">Ford-Fulkerson</a>と同じ.<br />
+<p>基本的な部分では<a href="/ford-fulkerson/">Ford-Fulkerson</a>と同じ.<br />
 levelグラフ(ソースからの最短距離)を構築することで増加パスのうち最短のパスにフローを流す.<br />
 そのような経路が存在しなくなったら残余ネットワークでもう一度構築する.<br />
 それでも存在しなくなったら終了.  </p>

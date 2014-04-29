@@ -4,7 +4,7 @@
   <title><![CDATA[Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-04-28T23:31:45+09:00</updated>
+  <updated>2014-04-29T12:48:24+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -14,10 +14,209 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Union Find Tree]]></title>
+    <link href="http://algoogle.hadrori.jp/union-find/"/>
+    <updated>2014-04-29T00:00:00+09:00</updated>
+    <id>http://algoogle.hadrori.jp/union-find</id>
+    <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td>計算量</td>
+      <td>O(a(N))</td>
+    </tr>
+    <tr>
+      <td>用途</td>
+      <td>データの集合の併合と同じ集合に属しているかの判定</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>N := 頂点数<br />
+a := アッカーマン関数の逆関数</p>
+
+<h4 id="section-1">問題</h4>
+
+<hr />
+
+<ul>
+  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1127">AOJ 1127 “Building a Space Station”</a>  </li>
+  <li><a href="http://poj.org/problem?id=1258">POJ 1258 “Agri-Net”</a>  </li>
+  <li><a href="http://poj.org/problem?id=1984">POJ 1984 “Navigation-Nightmare”</a>  </li>
+  <li><a href="http://poj.org/problem?id=2377">POJ 2377 “Bad Cowtractors”</a>  </li>
+  <li><a href="http://poj.org/problem?id=3625">POJ 3625 “Building Roads”</a>  </li>
+</ul>
+
+<h4 id="section-2">解説</h4>
+
+<hr />
+
+<p>Union Find木では共通の親を持つかどうかで同じ木に属しているか判定する.<br />
+また, 2つの要素を併合する場合は片方の親の子にもう片方の木を入れる.<br />
+偏りをなくすために木のランクを保存しておいてランクの高い方に小さい方を併合するようにする.<br />
+親を見つけるときにその途中結果をメモする(親に直接つなぐ).</p>
+
+<h4 id="section-3">コード</h4>
+
+<hr />
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (union_find.cpp)</span> <a href="http://algoogle.hadrori.jp/downloads/code/union_find.cpp">download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="k">struct</span> <span class="n">union_find</span><span class="p">{</span>
+</span><span class="line">    <span class="kt">int</span> <span class="n">rnk</span><span class="p">[</span><span class="n">MAX</span><span class="p">],</span> <span class="n">par</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
+</span><span class="line">
+</span><span class="line">    <span class="n">union_find</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span> <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">rnk</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">par</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;}</span>
+</span><span class="line">
+</span><span class="line">    <span class="kt">int</span> <span class="n">find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">par</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+</span><span class="line">        <span class="k">else</span> <span class="k">return</span> <span class="n">par</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">par</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="kt">void</span> <span class="n">unite</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">){</span>
+</span><span class="line">        <span class="n">x</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">y</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">rnk</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">rnk</span><span class="p">[</span><span class="n">y</span><span class="p">])</span> <span class="n">par</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+</span><span class="line">        <span class="k">else</span><span class="p">{</span>
+</span><span class="line">            <span class="n">par</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+</span><span class="line">            <span class="k">if</span><span class="p">(</span><span class="n">rnk</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="n">rnk</span><span class="p">[</span><span class="n">y</span><span class="p">])</span> <span class="n">rnk</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span><span class="line">        <span class="p">}</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="kt">bool</span> <span class="n">same</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">){</span>
+</span><span class="line">        <span class="n">x</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">y</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</span><span class="line">        <span class="k">return</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">;</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line"><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Kruskal法]]></title>
+    <link href="http://algoogle.hadrori.jp/kruskal/"/>
+    <updated>2014-04-29T00:00:00+09:00</updated>
+    <id>http://algoogle.hadrori.jp/kruskal</id>
+    <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
+
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td>計算量</td>
+      <td>O(E log V)</td>
+    </tr>
+    <tr>
+      <td>用途</td>
+      <td>最小全域木(森)を求める</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>E := 辺の数<br />
+V := 頂点数  </p>
+
+<h4 id="section-1">問題</h4>
+
+<hr />
+
+<ul>
+  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1127">AOJ 1127 “Building a Space Station”</a>  </li>
+  <li><a href="http://poj.org/problem?id=1258">POJ 1258 “Agri-Net”</a>  </li>
+  <li><a href="http://poj.org/problem?id=2377">POJ 2377 “Bad Cowtractors”</a>  </li>
+  <li><a href="http://poj.org/problem?id=3625">POJ 3625 “Building Roads”</a>  </li>
+</ul>
+
+<h4 id="section-2">解説</h4>
+
+<hr />
+
+<p>グラフの辺のリストをコストの小さい方から処理していき, 辺の両端の頂点が同じ木に属していなければその辺を使う.<br />
+同じ木に属しているかどうかの判定には<a href="http://algoogle.hadrori.jp/union-find/">Union-Find</a>を利用する.  </p>
+
+<h4 id="section-3">コード</h4>
+
+<hr />
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (kruskal.cpp)</span> <a href="http://algoogle.hadrori.jp/downloads/code/kruskal.cpp">download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="k">struct</span> <span class="n">edge</span><span class="p">{</span>
+</span><span class="line">    <span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">cst</span><span class="p">;</span>
+</span><span class="line">    <span class="n">edge</span><span class="p">(){}</span>
+</span><span class="line">    <span class="n">edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cst</span><span class="p">)</span><span class="o">:</span><span class="n">from</span><span class="p">(</span><span class="n">from</span><span class="p">),</span><span class="n">to</span><span class="p">(</span><span class="n">to</span><span class="p">),</span><span class="n">cst</span><span class="p">(</span><span class="n">cst</span><span class="p">){}</span>
+</span><span class="line">    <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">edge</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">)</span><span class="k">const</span><span class="p">{</span><span class="k">return</span> <span class="n">cst</span> <span class="o">&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">cst</span><span class="p">;}</span>
+</span><span class="line"><span class="p">};</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// Eが連結ならTに最小全域木が入る</span>
+</span><span class="line"><span class="kt">int</span> <span class="n">kruskal</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">E</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">){</span>
+</span><span class="line">    <span class="n">sort</span><span class="p">(</span><span class="n">E</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">E</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span><span class="line">    <span class="n">T</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+</span><span class="line">    <span class="n">union_find</span> <span class="n">uf</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">;</span>
+</span><span class="line">    <span class="kt">int</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">E</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class="line">        <span class="n">edge</span> <span class="o">&amp;</span><span class="n">e</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">same</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">from</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">))</span> <span class="k">continue</span><span class="p">;</span>
+</span><span class="line">        <span class="n">uf</span><span class="p">.</span><span class="n">unite</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">from</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">);</span>
+</span><span class="line">        <span class="n">w</span> <span class="o">+=</span> <span class="n">e</span><span class="p">.</span><span class="n">cst</span><span class="p">;</span>
+</span><span class="line">        <span class="n">T</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="k">return</span> <span class="n">w</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Warshall-Floyd法]]></title>
-    <link href="http://algoogle.hadrori.jp/warshall-floydfa/"/>
+    <link href="http://algoogle.hadrori.jp/warshall-floyd/"/>
     <updated>2014-04-28T00:00:00+09:00</updated>
-    <id>http://algoogle.hadrori.jp/warshall-floydfa</id>
+    <id>http://algoogle.hadrori.jp/warshall-floyd</id>
     <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
 
 <hr />
@@ -84,9 +283,9 @@ dist[i][j] = min(dist[i][j], dist[i][k+1] + dist[k+1][j]);<br />
   
   <entry>
     <title type="html"><![CDATA[Ford-Fulkerson法]]></title>
-    <link href="http://algoogle.hadrori.jp/ford-fulkersonfa/"/>
+    <link href="http://algoogle.hadrori.jp/ford-fulkerson/"/>
     <updated>2014-04-28T00:00:00+09:00</updated>
-    <id>http://algoogle.hadrori.jp/ford-fulkersonfa</id>
+    <id>http://algoogle.hadrori.jp/ford-fulkerson</id>
     <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
 
 <hr />
@@ -111,7 +310,7 @@ E := 辺の数</p>
 
 <hr />
 
-<p><a href="http://algoogle.hadrori.jp/dinicfa/">Dinic法</a>参照.</p>
+<p><a href="http://algoogle.hadrori.jp/dinic/">Dinic法</a>参照.</p>
 
 <h4 id="section-2">解説</h4>
 
@@ -204,9 +403,9 @@ E := 辺の数</p>
   
   <entry>
     <title type="html"><![CDATA[Dinic法]]></title>
-    <link href="http://algoogle.hadrori.jp/dinicfa/"/>
+    <link href="http://algoogle.hadrori.jp/dinic/"/>
     <updated>2014-04-28T00:00:00+09:00</updated>
-    <id>http://algoogle.hadrori.jp/dinicfa</id>
+    <id>http://algoogle.hadrori.jp/dinic</id>
     <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
 
 <hr />
@@ -247,7 +446,7 @@ V := 頂点数</p>
 
 <hr />
 
-<p>基本的な部分では<a href="http://algoogle.hadrori.jp/ford-fulkersonfa/">Ford-Fulkerson</a>と同じ.<br />
+<p>基本的な部分では<a href="http://algoogle.hadrori.jp/ford-fulkerson/">Ford-Fulkerson</a>と同じ.<br />
 levelグラフ(ソースからの最短距離)を構築することで増加パスのうち最短のパスにフローを流す.<br />
 そのような経路が存在しなくなったら残余ネットワークでもう一度構築する.<br />
 それでも存在しなくなったら終了.  </p>
@@ -364,9 +563,9 @@ levelグラフ(ソースからの最短距離)を構築することで増加パ�
   
   <entry>
     <title type="html"><![CDATA[Dijkstra法]]></title>
-    <link href="http://algoogle.hadrori.jp/dijkstrafa/"/>
+    <link href="http://algoogle.hadrori.jp/dijkstra/"/>
     <updated>2014-04-28T00:00:00+09:00</updated>
-    <id>http://algoogle.hadrori.jp/dijkstrafa</id>
+    <id>http://algoogle.hadrori.jp/dijkstra</id>
     <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
 
 <hr />
@@ -468,9 +667,9 @@ Dijkstra法ではまだ調べていない頂点のうち, 始点から一番近�
   
   <entry>
     <title type="html"><![CDATA[Aho-Corasick法]]></title>
-    <link href="http://algoogle.hadrori.jp/aho-corasickfa/"/>
+    <link href="http://algoogle.hadrori.jp/aho-corasick/"/>
     <updated>2014-04-27T00:00:00+09:00</updated>
-    <id>http://algoogle.hadrori.jp/aho-corasickfa</id>
+    <id>http://algoogle.hadrori.jp/aho-corasick</id>
     <content type="html"><![CDATA[<h4 id="section">基本情報</h4>
 
 <hr />
