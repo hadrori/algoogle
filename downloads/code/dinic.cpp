@@ -3,8 +3,8 @@ vector<edge> G[MAX];
 int level[MAX], itr[MAX];
 
 void add_edge(int from, int to, int cap){
-    G[from].push_back(edge{to, cap, int(G[to].size())});
-    G[to].push_back(edge{from, 0, int(G[from].size()-1)});
+    G[from].push_back((edge){to, cap, int(G[to].size())});
+    G[to].push_back((edge){from, 0, int(G[from].size()-1)});
 }
 
 void build_level(int s, int t){
