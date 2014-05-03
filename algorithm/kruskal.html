@@ -9,8 +9,9 @@
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content="基本情報 計算量 O(E log V) 用途 最小全域木(森)を求める E := 辺の数
-V := 頂点数 問題 AOJ 1127 “Building a Space Station” POJ 1258 “Agri-Net” POJ 2377 “Bad Cowtractors” POJ 3625 &hellip;">
+  <meta name="description" content="Kruskal法 基本情報 計算量 O(E log V) 用途 最小全域木(森)を求める E := 辺の数
+V := 頂点数 解説 グラフの辺のリストをコストの小さい方から処理していき, 辺の両端の頂点が同じ木に属していなければその辺を使う.
+同じ木に属しているかどうかの判定にはUnion- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@ V := 頂点数 問題 AOJ 1127 “Building a Space Station” POJ 1258 “Agri-N
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://algoogle.hadrori.jp/kruskal/">
+  <link rel="canonical" href="http://algoogle.hadrori.jp/algorithm/kruskal.html">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
@@ -80,33 +81,14 @@ V := 頂点数 問題 AOJ 1127 “Building a Space Station” POJ 1258 “Agri-N
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">Kruskal法</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-29T00:00:00+09:00" pubdate data-updated="true"></time>
-      </p>
+    <h1 class="entry-title">Kruskal法</h1>
     
   </header>
-
-
-<div class="entry-content"><h4 id="section">基本情報</h4>
+  
+  <h4 id="section">基本情報</h4>
 
 <hr />
 
@@ -126,25 +108,14 @@ V := 頂点数 問題 AOJ 1127 “Building a Space Station” POJ 1258 “Agri-N
 <p>E := 辺の数<br />
 V := 頂点数  </p>
 
-<h4 id="section-1">問題</h4>
-
-<hr />
-
-<ul>
-  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1127">AOJ 1127 “Building a Space Station”</a>  </li>
-  <li><a href="http://poj.org/problem?id=1258">POJ 1258 “Agri-Net”</a>  </li>
-  <li><a href="http://poj.org/problem?id=2377">POJ 2377 “Bad Cowtractors”</a>  </li>
-  <li><a href="http://poj.org/problem?id=3625">POJ 3625 “Building Roads”</a>  </li>
-</ul>
-
-<h4 id="section-2">解説</h4>
+<h4 id="section-1">解説</h4>
 
 <hr />
 
 <p>グラフの辺のリストをコストの小さい方から処理していき, 辺の両端の頂点が同じ木に属していなければその辺を使う.<br />
-同じ木に属しているかどうかの判定には<a href="/union-find/">Union-Find</a>を利用する.  </p>
+同じ木に属しているかどうかの判定には<a href="./union-find.html">Union-Find</a>を利用する.  </p>
 
-<h4 id="section-3">コード</h4>
+<h4 id="section-2">コード</h4>
 
 <hr />
 
@@ -195,49 +166,21 @@ V := 頂点数  </p>
 </span><span class="line"><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-</div>
+<h4 id="section-3">問題</h4>
 
-
-  <footer>
-    <p class="meta">
-      <!--
+<hr />
 
   
-
-<span class="byline author vcard">Posted by <span class="fn">hadrori</span></span>
--->
-
+    <footer>
       
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-29T00:00:00+09:00" pubdate data-updated="true"></time>
       
-
-Category: <span class="categories">
-  
-    <a class='category' href='/categories//graph/'>Graph</a>, <a class='category' href='/categories//tree/'>Tree</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="social">
+        <div class="social">
   <div class="hatena">
-    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/kruskal/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/algorithm/kruskal.html" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   </div>
   
   <div class="twitter">
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/kruskal/" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/kruskal/" >Tweet</a>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/algorithm/kruskal.html" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/algorithm/kruskal.html" >Tweet</a>
   </div>
   
   
@@ -247,8 +190,9 @@ Category: <span class="categories">
   
 </div>
 
-    
-  </footer>
+      
+    </footer>
+  
 </article>
 
   <section>
@@ -265,38 +209,12 @@ Category: <span class="categories">
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
-      <li class="post">
-        <a href="/union-find/">Union Find Tree</a>
-      </li>
-    
-      <li class="post">
-        <a href="/segment-tree/">Segment Tree</a>
-      </li>
-    
-      <li class="post">
-        <a href="/prim/">Prim法</a>
-      </li>
-    
-      <li class="post">
-        <a href="/kruskal/">Kruskal法</a>
-      </li>
-    
-      <li class="post">
-        <a href="/compress/">座標圧縮</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/categories/data-structure/'>Data Structure (3)</a></li>
-<li class='category'><a href='/categories/flow/'>Flow (2)</a></li>
-<li class='category'><a href='/categories/graph/'>Graph (6)</a></li>
-<li class='category'><a href='/categories/string/'>String (1)</a></li>
-<li class='category'><a href='/categories/technique/'>Technique (1)</a></li>
-<li class='category'><a href='/categories/tree/'>Tree (5)</a></li>
-
+    
   </ul>
 </section>
 
@@ -321,8 +239,8 @@ Category: <span class="categories">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://algoogle.hadrori.jp/kruskal/';
-        var disqus_url = 'http://algoogle.hadrori.jp/kruskal/';
+        var disqus_identifier = 'http://algoogle.hadrori.jp/algorithm/kruskal.html';
+        var disqus_url = 'http://algoogle.hadrori.jp/algorithm/kruskal.html';
         var disqus_script = 'embed.js';
       
     (function () {

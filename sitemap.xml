@@ -1,64 +1,64 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://algoogle.hadrori.jp/aho-corasick/</loc>
-        <lastmod>2014-04-28T22:02:51+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://algoogle.hadrori.jp/dijkstra/</loc>
-        <lastmod>2014-04-28T21:56:25+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://algoogle.hadrori.jp/dinic/</loc>
-        <lastmod>2014-04-29T12:18:19+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://algoogle.hadrori.jp/ford-fulkerson/</loc>
-        <lastmod>2014-04-29T12:18:03+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://algoogle.hadrori.jp/warshall-floyd/</loc>
-        <lastmod>2014-04-28T21:56:16+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://algoogle.hadrori.jp/binary-indexed-tree/</loc>
-        <lastmod>2014-04-29T16:40:34+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://algoogle.hadrori.jp/compress/</loc>
-        <lastmod>2014-04-29T14:51:57+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://algoogle.hadrori.jp/kruskal/</loc>
-        <lastmod>2014-04-29T12:48:20+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://algoogle.hadrori.jp/prim/</loc>
-        <lastmod>2014-04-29T14:01:16+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://algoogle.hadrori.jp/segment-tree/</loc>
-        <lastmod>2014-04-29T15:48:15+09:00</lastmod>
-    </url>
-    <url>
-        <loc>http://algoogle.hadrori.jp/union-find/</loc>
-        <lastmod>2014-04-29T12:47:29+09:00</lastmod>
-    </url>
-    <url>
         <loc>http://algoogle.hadrori.jp/about/</loc>
-        <lastmod>2014-04-27T17:58:09+09:00</lastmod>
+        <lastmod>2014-05-03T20:55:37+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/algorithm/aho-corasick.html</loc>
+        <lastmod>2014-05-03T20:46:57+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/algorithm/binary-indexed-tree.html</loc>
+        <lastmod>2014-05-03T20:47:16+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/algorithm/compress.html</loc>
+        <lastmod>2014-05-03T20:52:15+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/algorithm/dijkstra.html</loc>
+        <lastmod>2014-05-03T20:52:12+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/algorithm/dinic.html</loc>
+        <lastmod>2014-05-03T20:57:08+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/algorithm/ford-fulkerson.html</loc>
+        <lastmod>2014-05-03T20:52:05+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/algorithm/kruskal.html</loc>
+        <lastmod>2014-05-03T20:56:47+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/algorithm/prim.html</loc>
+        <lastmod>2014-05-03T20:51:58+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/algorithm/segment-tree.html</loc>
+        <lastmod>2014-05-03T20:51:42+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/algorithm/union-find.html</loc>
+        <lastmod>2014-05-03T20:51:37+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://algoogle.hadrori.jp/algorithm/warshall-floyd.html</loc>
+        <lastmod>2014-05-03T20:51:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/blog/archives/</loc>
-        <lastmod>2014-04-29T16:40:34+09:00</lastmod>
+        <lastmod>2014-04-27T17:21:51+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/</loc>
-        <lastmod>2014-04-29T16:40:34+09:00</lastmod>
+        <lastmod>2014-04-27T17:21:51+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/</loc>
-        <lastmod>2014-04-29T16:57:30+09:00</lastmod>
+        <lastmod>2014-05-03T20:07:30+09:00</lastmod>
     </url>
     <url>
         <loc>http://algoogle.hadrori.jp/links/</loc>

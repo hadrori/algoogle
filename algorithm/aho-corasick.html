@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Algoogle</title>
+  <title>Aho-Corasick法 - Algoogle</title>
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content="基本情報 計算量 O(N+M) 用途 入力文字列に対してマッチするパターンを検索 N := 入力文字列の長さ
-M := パターンの文字列の長さの合計 問題 AOJ 2212 “Stolen Juwel” POJ 1204 “Word Puzzles” POJ 3373 “String- &hellip;">
+  <meta name="description" content="Aho-Corasick法 基本情報 計算量 O(N+M) 用途 入力文字列に対してマッチするパターンを検索 N := 入力文字列の長さ
+M := パターンの文字列の長さの合計 解説 まず各パターンからトライ木を作成する. トライ木というのは例えば6つの文字列{a, ab, aca, ba, c &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ M := パターンの文字列の長さの合計 問題 AOJ 2212 “Stolen Juwel�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://algoogle.hadrori.jp/page/2/">
+  <link rel="canonical" href="http://algoogle.hadrori.jp/algorithm/aho-corasick.html">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
@@ -79,37 +79,15 @@ M := パターンの文字列の長さの合計 問題 AOJ 2212 “Stolen Juwel�
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article role="article">
   
-  
-  
-    <article>
-      
   <header>
-    
-      <h1 class="entry-title"><a href="/aho-corasick/">Aho-Corasick法</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-27T00:00:00+09:00" pubdate data-updated="true"></time>
-      </p>
+    <h1 class="entry-title">Aho-Corasick法</h1>
     
   </header>
-
-
-  <div class="entry-content"><h4 id="section">基本情報</h4>
+  
+  <h4 id="section">基本情報</h4>
 
 <hr />
 
@@ -129,18 +107,7 @@ M := パターンの文字列の長さの合計 問題 AOJ 2212 “Stolen Juwel�
 <p>N := 入力文字列の長さ<br />
 M := パターンの文字列の長さの合計  </p>
 
-<h4 id="section-1">問題</h4>
-
-<hr />
-
-<ul>
-  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2212">AOJ 2212 “Stolen Juwel”</a></li>
-  <li><a href="http://poj.org/problem?id=1204">POJ 1204 “Word Puzzles”</a></li>
-  <li><a href="http://poj.org/problem?id=3773">POJ 3373 “String-Matching Automata”</a></li>
-  <li><a href="http://poj.org/problem?id=3691">POJ 3691 “DNA repair”</a></li>
-</ul>
-
-<h4 id="section-2">解説</h4>
+<h4 id="section-1">解説</h4>
 
 <hr />
 
@@ -156,7 +123,7 @@ Aho-Corasick法では, このトライ木を利用してで入力文字列の連
 <img src="/images/suffix_link.jpg" alt="suffix_link" /><br />
 しかしこのままだと短い文字列に一致していてもわからない場合があるので(例えばcabまで一致したとき, abに辺を張るがaには張らないので見落とす), 各ノードはその祖先が一致した文字列の情報も持つようにする.  </p>
 
-<h4 id="section-3">コード</h4>
+<h4 id="section-2">コード</h4>
 
 <hr />
 
@@ -285,64 +252,62 @@ Aho-Corasick法では, このトライ木を利用してで入力文字列の連
 </span><span class="line"><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-</div>
-  
-  
+<h4 id="section-3">問題</h4>
+
+<hr />
 
 
-    </article>
   
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-    <a class="next" href="/">Newer &rarr;</a>
-    
+    <footer>
+      
+      
+        <div class="social">
+  <div class="hatena">
+    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/algorithm/aho-corasick.html" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   </div>
+  
+  <div class="twitter">
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/algorithm/aho-corasick.html" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/algorithm/aho-corasick.html" >Tweet</a>
+  </div>
+  
+  
+  <div class="facebook">
+    <div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+  </div>
+  
 </div>
+
+      
+    </footer>
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
-      <li class="post">
-        <a href="/union-find/">Union Find Tree</a>
-      </li>
-    
-      <li class="post">
-        <a href="/segment-tree/">Segment Tree</a>
-      </li>
-    
-      <li class="post">
-        <a href="/prim/">Prim法</a>
-      </li>
-    
-      <li class="post">
-        <a href="/kruskal/">Kruskal法</a>
-      </li>
-    
-      <li class="post">
-        <a href="/compress/">座標圧縮</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/categories/data-structure/'>Data Structure (3)</a></li>
-<li class='category'><a href='/categories/flow/'>Flow (2)</a></li>
-<li class='category'><a href='/categories/graph/'>Graph (6)</a></li>
-<li class='category'><a href='/categories/string/'>String (1)</a></li>
-<li class='category'><a href='/categories/technique/'>Technique (1)</a></li>
-<li class='category'><a href='/categories/tree/'>Tree (5)</a></li>
-
+    
   </ul>
 </section>
 
   
 </aside>
+
 
     </div>
   </div>
@@ -360,7 +325,10 @@ Aho-Corasick法では, このトライ木を利用してで入力文字列の連
       var disqus_shortname = 'algoogle';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://algoogle.hadrori.jp/algorithm/aho-corasick.html';
+        var disqus_url = 'http://algoogle.hadrori.jp/algorithm/aho-corasick.html';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

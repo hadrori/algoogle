@@ -5,15 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ford-Fulkerson法 - Algoogle</title>
+  <title>Dinic法 - Algoogle</title>
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content="基本情報 計算量 O(FE) 用途 最大流を求める F := 最大流の流量
-E := 辺の数 問題 Dinic法参照. 解説 始点から終点までにフローを流せるパスが存在する限りそこに流し続ける.
-パスに使った辺の容量は減らし, 逆辺の容量を増やす.
-非常に単純.
-欠点として容量が無理数である場合 &hellip;">
+  <meta name="description" content="Dinic法 基本情報 計算量 O(EV^2) 用途 最大流を求める E := 辺の数
+V := 頂点数 解説 基本的な部分ではFord-Fulkersonと同じ.
+levelグラフ(ソースからの最短距離)を構築することで増加パスのうち最短のパスにフローを流す. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +20,7 @@ E := 辺の数 問題 Dinic法参照. 解説 始点から終点までにフロ�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://algoogle.hadrori.jp/ford-fulkerson/">
+  <link rel="canonical" href="http://algoogle.hadrori.jp/algorithm/dinic.html">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
@@ -83,33 +81,14 @@ E := 辺の数 問題 Dinic法参照. 解説 始点から終点までにフロ�
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">Ford-Fulkerson法</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-28T00:00:00+09:00" pubdate data-updated="true"></time>
-      </p>
+    <h1 class="entry-title">Dinic法</h1>
     
   </header>
-
-
-<div class="entry-content"><h4 id="section">基本情報</h4>
+  
+  <h4 id="section">基本情報</h4>
 
 <hr />
 
@@ -117,7 +96,7 @@ E := 辺の数 問題 Dinic法参照. 解説 始点から終点までにフロ�
   <tbody>
     <tr>
       <td>計算量</td>
-      <td>O(FE)</td>
+      <td>O(EV^2)</td>
     </tr>
     <tr>
       <td>用途</td>
@@ -126,31 +105,23 @@ E := 辺の数 問題 Dinic法参照. 解説 始点から終点までにフロ�
   </tbody>
 </table>
 
-<p>F := 最大流の流量
-E := 辺の数</p>
+<p>E := 辺の数
+V := 頂点数</p>
 
-<h4 id="section-1">問題</h4>
-
-<hr />
-
-<p><a href="/dinic/">Dinic法</a>参照.</p>
-
-<h4 id="section-2">解説</h4>
+<h4 id="section-1">解説</h4>
 
 <hr />
 
-<p>始点から終点までにフローを流せるパスが存在する限りそこに流し続ける.<br />
-パスに使った辺の容量は減らし, 逆辺の容量を増やす.<br />
-非常に単純.<br />
-欠点として容量が無理数である場合, 有限回の操作で終了しないことが知られているが, 競技プログラミングにおいてはそのようなケースは稀.  </p>
+<p>基本的な部分では<a href="ford-fulkerson.html">Ford-Fulkerson</a>と同じ.<br />
+levelグラフ(ソースからの最短距離)を構築することで増加パスのうち最短のパスにフローを流す.<br />
+そのような経路が存在しなくなったら残余ネットワークでもう一度構築する.<br />
+それでも存在しなくなったら終了.  </p>
 
-<p>また最大流を利用することで, 2部グラフの最大マッチング問題を解くことができる. ソース-&gt;集合A-&gt;集合B-&gt;シンク と容量1の辺を張ることで最大流が最大マッチングに対応する.</p>
-
-<h4 id="section-3">コード</h4>
+<h4 id="section-2">コード</h4>
 
 <hr />
 
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (ford_fulkerson.cpp)</span> <a href="/downloads/code/ford_fulkerson.cpp">download</a></figcaption>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (dinic.cpp)</span> <a href="/downloads/code/dinic.cpp">download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
@@ -185,21 +156,53 @@ E := 辺の数</p>
 <span class="line-number">32</span>
 <span class="line-number">33</span>
 <span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+<span class="line-number">41</span>
+<span class="line-number">42</span>
+<span class="line-number">43</span>
+<span class="line-number">44</span>
+<span class="line-number">45</span>
+<span class="line-number">46</span>
+<span class="line-number">47</span>
+<span class="line-number">48</span>
+<span class="line-number">49</span>
+<span class="line-number">50</span>
 </pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="k">struct</span> <span class="n">edge</span><span class="p">{</span><span class="kt">int</span> <span class="n">to</span><span class="p">,</span> <span class="n">cap</span><span class="p">,</span> <span class="n">rev</span><span class="p">;};</span>
 </span><span class="line"><span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
-</span><span class="line"><span class="kt">bool</span> <span class="n">used</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
+</span><span class="line"><span class="kt">int</span> <span class="n">level</span><span class="p">[</span><span class="n">MAX</span><span class="p">],</span> <span class="n">itr</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
 </span><span class="line">
 </span><span class="line"><span class="kt">void</span> <span class="n">add_edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cap</span><span class="p">){</span>
 </span><span class="line">    <span class="n">G</span><span class="p">[</span><span class="n">from</span><span class="p">].</span><span class="n">push_back</span><span class="p">((</span><span class="n">edge</span><span class="p">){</span><span class="n">to</span><span class="p">,</span> <span class="n">cap</span><span class="p">,</span> <span class="kt">int</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">to</span><span class="p">].</span><span class="n">size</span><span class="p">())});</span>
 </span><span class="line">    <span class="n">G</span><span class="p">[</span><span class="n">to</span><span class="p">].</span><span class="n">push_back</span><span class="p">((</span><span class="n">edge</span><span class="p">){</span><span class="n">from</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">int</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="n">from</span><span class="p">].</span><span class="n">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">)});</span>
 </span><span class="line"><span class="p">}</span>
 </span><span class="line">
+</span><span class="line"><span class="kt">void</span> <span class="n">build_level</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">){</span>
+</span><span class="line">    <span class="n">memset</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">level</span><span class="p">));</span>
+</span><span class="line">    <span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">que</span><span class="p">;</span>
+</span><span class="line">    <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span><span class="line">    <span class="n">level</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">que</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+</span><span class="line">        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">que</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">que</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">v</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span><span class="line">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class="line">            <span class="n">edge</span> <span class="o">&amp;</span><span class="n">e</span> <span class="o">=</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+</span><span class="line">            <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">cap</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="n">or</span> <span class="n">level</span><span class="p">[</span><span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+</span><span class="line">            <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">);</span>
+</span><span class="line">            <span class="n">level</span><span class="p">[</span><span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">level</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span><span class="line">        <span class="p">}</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
 </span><span class="line"><span class="kt">int</span> <span class="n">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">,</span> <span class="kt">int</span> <span class="n">f</span><span class="p">){</span>
 </span><span class="line">    <span class="k">if</span><span class="p">(</span><span class="n">v</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span> <span class="k">return</span> <span class="n">f</span><span class="p">;</span>
-</span><span class="line">    <span class="n">used</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">i</span> <span class="o">=</span> <span class="n">itr</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
 </span><span class="line">        <span class="n">edge</span> <span class="o">&amp;</span><span class="n">e</span> <span class="o">=</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
-</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">used</span><span class="p">[</span><span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">]</span> <span class="n">or</span> <span class="n">e</span><span class="p">.</span><span class="n">cap</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">level</span><span class="p">[</span><span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">level</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="n">or</span> <span class="n">e</span><span class="p">.</span><span class="n">cap</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
 </span><span class="line">        <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">min</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">cap</span><span class="p">));</span>
 </span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
 </span><span class="line">            <span class="n">e</span><span class="p">.</span><span class="n">cap</span> <span class="o">-=</span> <span class="n">d</span><span class="p">;</span>
@@ -210,60 +213,33 @@ E := 辺の数</p>
 </span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class="line"><span class="p">}</span>
 </span><span class="line">
-</span><span class="line"><span class="kt">int</span> <span class="n">ford_fulkerson</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">){</span>
+</span><span class="line"><span class="kt">int</span> <span class="n">dinic</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">t</span><span class="p">){</span>
 </span><span class="line">    <span class="kt">int</span> <span class="n">flow</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">f</span><span class="p">;</span>
 </span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-</span><span class="line">        <span class="n">memset</span><span class="p">(</span><span class="n">used</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">used</span><span class="p">));</span>
-</span><span class="line">        <span class="n">f</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">inf</span><span class="p">);</span>
-</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">f</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">flow</span><span class="p">;</span>
-</span><span class="line">        <span class="n">flow</span> <span class="o">+=</span> <span class="n">f</span><span class="p">;</span>
+</span><span class="line">        <span class="n">build_level</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">level</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">flow</span><span class="p">;</span>
+</span><span class="line">        <span class="n">memset</span><span class="p">(</span><span class="n">itr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">itr</span><span class="p">));</span>
+</span><span class="line">        <span class="k">while</span><span class="p">(</span><span class="n">f</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">inf</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">flow</span> <span class="o">+=</span> <span class="n">f</span><span class="p">;;</span>
 </span><span class="line">    <span class="p">}</span>
 </span><span class="line"><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-</div>
+<h4 id="section-3">問題</h4>
 
+<hr />
 
-  <footer>
-    <p class="meta">
-      <!--
 
   
-
-<span class="byline author vcard">Posted by <span class="fn">hadrori</span></span>
--->
-
+    <footer>
       
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-28T00:00:00+09:00" pubdate data-updated="true"></time>
       
-
-Category: <span class="categories">
-  
-    <a class='category' href='/categories//flow/'>Flow</a>, <a class='category' href='/categories//graph/'>Graph</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="social">
+        <div class="social">
   <div class="hatena">
-    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/ford-fulkerson/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/algorithm/dinic.html" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   </div>
   
   <div class="twitter">
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/ford-fulkerson/" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/ford-fulkerson/" >Tweet</a>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/algorithm/dinic.html" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/algorithm/dinic.html" >Tweet</a>
   </div>
   
   
@@ -273,8 +249,9 @@ Category: <span class="categories">
   
 </div>
 
-    
-  </footer>
+      
+    </footer>
+  
 </article>
 
   <section>
@@ -291,38 +268,12 @@ Category: <span class="categories">
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
-      <li class="post">
-        <a href="/union-find/">Union Find Tree</a>
-      </li>
-    
-      <li class="post">
-        <a href="/segment-tree/">Segment Tree</a>
-      </li>
-    
-      <li class="post">
-        <a href="/prim/">Prim法</a>
-      </li>
-    
-      <li class="post">
-        <a href="/kruskal/">Kruskal法</a>
-      </li>
-    
-      <li class="post">
-        <a href="/compress/">座標圧縮</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/categories/data-structure/'>Data Structure (3)</a></li>
-<li class='category'><a href='/categories/flow/'>Flow (2)</a></li>
-<li class='category'><a href='/categories/graph/'>Graph (6)</a></li>
-<li class='category'><a href='/categories/string/'>String (1)</a></li>
-<li class='category'><a href='/categories/technique/'>Technique (1)</a></li>
-<li class='category'><a href='/categories/tree/'>Tree (5)</a></li>
-
+    
   </ul>
 </section>
 
@@ -347,8 +298,8 @@ Category: <span class="categories">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://algoogle.hadrori.jp/ford-fulkerson/';
-        var disqus_url = 'http://algoogle.hadrori.jp/ford-fulkerson/';
+        var disqus_identifier = 'http://algoogle.hadrori.jp/algorithm/dinic.html';
+        var disqus_url = 'http://algoogle.hadrori.jp/algorithm/dinic.html';
         var disqus_script = 'embed.js';
       
     (function () {

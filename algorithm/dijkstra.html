@@ -9,8 +9,8 @@
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content="基本情報 計算量 O(E log V) 用途 負辺のないグラフで単一始点最短路を求める. E := 辺の数
-V := 頂点の数 問題 AOJ 1157 “Twirling Robot” AOJ 1162 “Discrete Speed” AOJ 2151 “Brave Princess &hellip;">
+  <meta name="description" content="Dijkstra法 基本情報 計算量 O(E log V) 用途 負辺のないグラフで単一始点最短路を求める. E := 辺の数
+V := 頂点の数 解説 負辺の無いグラフで始点が決まっている時, その点からグラフ上の各頂点までの最短距離を求めることができる. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ V := 頂点の数 問題 AOJ 1157 “Twirling Robot” AOJ 1162 “Discrete Spee
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://algoogle.hadrori.jp/dijkstra/">
+  <link rel="canonical" href="http://algoogle.hadrori.jp/algorithm/dijkstra.html">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
@@ -80,33 +80,14 @@ V := 頂点の数 問題 AOJ 1157 “Twirling Robot” AOJ 1162 “Discrete Spee
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">Dijkstra法</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-28T00:00:00+09:00" pubdate data-updated="true"></time>
-      </p>
+    <h1 class="entry-title">Dijkstra法</h1>
     
   </header>
-
-
-<div class="entry-content"><h4 id="section">基本情報</h4>
+  
+  <h4 id="section">基本情報</h4>
 
 <hr />
 
@@ -126,21 +107,7 @@ V := 頂点の数 問題 AOJ 1157 “Twirling Robot” AOJ 1162 “Discrete Spee
 <p>E := 辺の数<br />
 V := 頂点の数  </p>
 
-<h4 id="section-1">問題</h4>
-
-<hr />
-
-<ul>
-  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1156">AOJ 1157 “Twirling Robot”</a></li>
-  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1162">AOJ 1162 “Discrete Speed”</a></li>
-  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2151">AOJ 2151 “Brave Princess Revisited”</a></li>
-  <li><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1150">AOJ 1150 “Cliff Climbingt”</a></li>
-  <li><a href="http://poj.org/problem?id=2387">POJ 2387 “Til the Cows Come Home”</a></li>
-  <li><a href="http://poj.org/problem?id=3268">POJ 3268 “Silver Cow Party”</a></li>
-  <li><a href="http://poj.org/problem?id=2227">POJ 2227 “The Wedding Juicer”</a></li>
-</ul>
-
-<h4 id="section-2">解説</h4>
+<h4 id="section-1">解説</h4>
 
 <hr />
 
@@ -152,7 +119,7 @@ Dijkstra法ではまだ調べていない頂点のうち, 始点から一番近�
 
 <p>またpriority_queueは値が大きいものが基本的に優先されるので, greaterを指定して小さい方から取ってこさせるか, コードのように比較の不等号の意味を逆に定義させる.  </p>
 
-<h4 id="section-3">コード</h4>
+<h4 id="section-2">コード</h4>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (dijkstra.cpp)</span> <a href="/downloads/code/dijkstra.cpp">download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
@@ -202,49 +169,23 @@ Dijkstra法ではまだ調べていない頂点のうち, 始点から一番近�
 </span><span class="line">    <span class="p">}</span>
 </span><span class="line"><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
-</div>
 
+<h4 id="section-3">問題</h4>
 
-  <footer>
-    <p class="meta">
-      <!--
+<hr />
+
 
   
-
-<span class="byline author vcard">Posted by <span class="fn">hadrori</span></span>
--->
-
+    <footer>
       
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-28T00:00:00+09:00" pubdate data-updated="true"></time>
       
-
-Category: <span class="categories">
-  
-    <a class='category' href='/categories//graph/'>Graph</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="social">
+        <div class="social">
   <div class="hatena">
-    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/dijkstra/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/algorithm/dijkstra.html" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   </div>
   
   <div class="twitter">
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/dijkstra/" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/dijkstra/" >Tweet</a>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/algorithm/dijkstra.html" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/algorithm/dijkstra.html" >Tweet</a>
   </div>
   
   
@@ -254,8 +195,9 @@ Category: <span class="categories">
   
 </div>
 
-    
-  </footer>
+      
+    </footer>
+  
 </article>
 
   <section>
@@ -272,38 +214,12 @@ Category: <span class="categories">
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
-      <li class="post">
-        <a href="/union-find/">Union Find Tree</a>
-      </li>
-    
-      <li class="post">
-        <a href="/segment-tree/">Segment Tree</a>
-      </li>
-    
-      <li class="post">
-        <a href="/prim/">Prim法</a>
-      </li>
-    
-      <li class="post">
-        <a href="/kruskal/">Kruskal法</a>
-      </li>
-    
-      <li class="post">
-        <a href="/compress/">座標圧縮</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/categories/data-structure/'>Data Structure (3)</a></li>
-<li class='category'><a href='/categories/flow/'>Flow (2)</a></li>
-<li class='category'><a href='/categories/graph/'>Graph (6)</a></li>
-<li class='category'><a href='/categories/string/'>String (1)</a></li>
-<li class='category'><a href='/categories/technique/'>Technique (1)</a></li>
-<li class='category'><a href='/categories/tree/'>Tree (5)</a></li>
-
+    
   </ul>
 </section>
 
@@ -328,8 +244,8 @@ Category: <span class="categories">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://algoogle.hadrori.jp/dijkstra/';
-        var disqus_url = 'http://algoogle.hadrori.jp/dijkstra/';
+        var disqus_identifier = 'http://algoogle.hadrori.jp/algorithm/dijkstra.html';
+        var disqus_url = 'http://algoogle.hadrori.jp/algorithm/dijkstra.html';
         var disqus_script = 'embed.js';
       
     (function () {
