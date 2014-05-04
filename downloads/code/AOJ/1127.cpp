@@ -1,52 +1,18 @@
-#include <cstring>
 #include <algorithm>
 #include <cstdio>
 #include <iostream>
 #include <vector>
-#include <map>
-#include <set>
-#include <complex>
-#include <queue>
-#include <stack>
-#include <string>
-#include <cmath>
-#include <bitset>
-
-#define rep(i,a) for(int i = 0;i < (a); i++)
-#define repi(i,a,b) for(int i = (a); i < (b); i++)
-#define repd(i,a,b) for(int i = (a); i >= (b); i--)
-#define repit(i,a) for(__typeof((a).begin()) i = (a).begin(); i != (a).end(); i++)
-#define all(u) (u).begin(),(u).end()
-#define rall(u) (u).rbegin(),(u).rend()
-#define UNIQUE(u) (u).erase(unique(all(u)),(u).end())
-#define pb push_back
-#define mp make_pair
-#define INF 1e8
-#define EPS 1e-10
-#define PI acos(-1.0)
-
 using namespace std;
+#define rep(i,a) for(int i = 0;i < (a); i++)
+#define pb push_back
+#define INF 1e9
 
-typedef long long ll;
-typedef vector<int> vi;
+struct Sphere{ double x, y, z, r;};
 
-struct Sphere{
-    double x, y, z, r;
-};
-
-double pow2(double a){
-    return a*a;
-}
-
-double center_distance(Sphere a, Sphere b){
-    return sqrt(pow2(a.x-b.x)+pow2(a.y-b.y)+pow2(a.z-b.z));
-}
-
-bool overrap(Sphere a, Sphere b){
-    return center_distance(a,b) <= (a.r + b.r);
-}
-
-double distanceSS(Sphere a, Sphere b){
+inline double sq(double a){ return a*a;}
+inline double center_distance(Sphere a, Sphere b){ return sqrt(sq(a.x-b.x)+sq(a.y-b.y)+sq(a.z-b.z));}
+inline bool overrap(Sphere a, Sphere b){ return center_distance(a,b) <= (a.r + b.r);}
+inline double distanceSS(Sphere a, Sphere b){
     if(overrap(a,b)) return 0.0;
     return center_distance(a,b)-(a.r+b.r);
 }
