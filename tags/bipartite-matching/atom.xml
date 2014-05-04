@@ -4,7 +4,7 @@
   <title><![CDATA[Tag: bipartite-matching | Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/tags/bipartite-matching/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-05-05T00:36:35+09:00</updated>
+  <updated>2014-05-05T00:39:22+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -180,77 +180,16 @@
 <span class='line-number'>134</span>
 <span class='line-number'>135</span>
 <span class='line-number'>136</span>
-<span class='line-number'>137</span>
-<span class='line-number'>138</span>
-<span class='line-number'>139</span>
-<span class='line-number'>140</span>
-<span class='line-number'>141</span>
-<span class='line-number'>142</span>
-<span class='line-number'>143</span>
-<span class='line-number'>144</span>
-<span class='line-number'>145</span>
-<span class='line-number'>146</span>
-<span class='line-number'>147</span>
-<span class='line-number'>148</span>
-<span class='line-number'>149</span>
-<span class='line-number'>150</span>
-<span class='line-number'>151</span>
-<span class='line-number'>152</span>
-<span class='line-number'>153</span>
-<span class='line-number'>154</span>
-<span class='line-number'>155</span>
-<span class='line-number'>156</span>
-<span class='line-number'>157</span>
-<span class='line-number'>158</span>
-<span class='line-number'>159</span>
-<span class='line-number'>160</span>
-<span class='line-number'>161</span>
-<span class='line-number'>162</span>
-<span class='line-number'>163</span>
-<span class='line-number'>164</span>
-<span class='line-number'>165</span>
-<span class='line-number'>166</span>
-<span class='line-number'>167</span>
-<span class='line-number'>168</span>
-<span class='line-number'>169</span>
-<span class='line-number'>170</span>
-<span class='line-number'>171</span>
-<span class='line-number'>172</span>
-</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#include &lt;cstring&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;algorithm&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;cstdio&gt;</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#include &lt;algorithm&gt;</span>
 </span><span class='line'><span class="cp">#include &lt;iostream&gt;</span>
 </span><span class='line'><span class="cp">#include &lt;vector&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;map&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;set&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;complex&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;queue&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;stack&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;string&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;cmath&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;bitset&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="cp">#define rep(i,a) for(int i = 0;i &lt; (a); i++)</span>
-</span><span class='line'><span class="cp">#define repi(i,a,b) for(int i = (a); i &lt; (b); i++)</span>
-</span><span class='line'><span class="cp">#define repd(i,a,b) for(int i = (a); i &gt;= (b); i--)</span>
-</span><span class='line'><span class="cp">#define repit(i,a) for(__typeof((a).begin()) i = (a).begin(); i != (a).end(); i++)</span>
-</span><span class='line'><span class="cp">#define all(u) (u).begin(),(u).end()</span>
-</span><span class='line'><span class="cp">#define rall(u) (u).rbegin(),(u).rend()</span>
-</span><span class='line'><span class="cp">#define UNIQUE(u) (u).erase(unique(all(u)),(u).end())</span>
-</span><span class='line'><span class="cp">#define pb push_back</span>
-</span><span class='line'><span class="cp">#define mp make_pair</span>
-</span><span class='line'><span class="cp">#define lb lower_bound</span>
-</span><span class='line'><span class="cp">#define ub upper_bound</span>
-</span><span class='line'><span class="cp">#define INF 1e9</span>
-</span><span class='line'><span class="cp">#define EPS 1e-10</span>
-</span><span class='line'><span class="cp">#define PI acos(-1.0)</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class='line'><span class="cp">#define rep(i,a) for(int i = 0;i &lt; (a); i++)</span>
+</span><span class='line'><span class="cp">#define repi(i,a,b) for(int i = (a); i &lt; (b); i++)</span>
+</span><span class='line'><span class="cp">#define pb push_back</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
 </span><span class='line'><span class="k">typedef</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vi</span><span class="p">;</span>
-</span><span class='line'><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span>
-</span><span class='line'><span class="k">typedef</span> <span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">P</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">struct</span> <span class="n">Line</span><span class="p">{</span>
 </span><span class='line'>    <span class="kt">bool</span> <span class="n">tate</span><span class="p">;</span>
@@ -373,17 +312,6 @@
 </span><span class='line'>	    <span class="k">if</span><span class="p">(</span><span class="n">crossline</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">lines</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span> <span class="n">add_edge</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">);</span>
 </span><span class='line'>	<span class="p">}</span>
 </span><span class='line'>	<span class="n">V</span> <span class="o">=</span> <span class="n">lines</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-</span><span class='line'>	<span class="cm">/*</span>
-</span><span class='line'><span class="cm">	cout &lt;&lt; &quot;V size = &quot; &lt;&lt; V &lt;&lt; endl;</span>
-</span><span class='line'><span class="cm">	rep(i,V){</span>
-</span><span class='line'><span class="cm">	    cout &lt;&lt; &quot;v = &quot; &lt;&lt; i &lt;&lt; &quot; : &quot;;</span>
-</span><span class='line'><span class="cm">	    cout &lt;&lt; &quot;(&quot; &lt;&lt; lines[i].sx &lt;&lt; &quot;,&quot; &lt;&lt; lines[i].sy &lt;&lt; &quot;) to &quot;;</span>
-</span><span class='line'><span class="cm">	    cout &lt;&lt; &quot;(&quot; &lt;&lt; lines[i].tx &lt;&lt; &quot;,&quot; &lt;&lt; lines[i].ty &lt;&lt; &quot;)&quot; &lt;&lt; endl;;</span>
-</span><span class='line'><span class="cm">	    rep(j,G[i].size()) cout &lt;&lt; G[i][j] &lt;&lt; &#39; &#39;;</span>
-</span><span class='line'><span class="cm">	    cout &lt;&lt; endl;</span>
-</span><span class='line'><span class="cm">	}</span>
-</span><span class='line'><span class="cm">	cout &lt;&lt; &quot;ans = &quot;;</span>
-</span><span class='line'><span class="cm">	*/</span>
 </span><span class='line'>	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">corner</span><span class="p">()</span> <span class="o">-</span> <span class="n">lines</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">+</span> <span class="n">bipartie_matching</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
