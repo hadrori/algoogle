@@ -4,7 +4,7 @@
   <title><![CDATA[Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-05-03T22:55:20+09:00</updated>
+  <updated>2014-05-04T14:24:24+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[AOJ 2555 Everlasting Zero]]></title>
-    <link href="http://algoogle.hadrori.jp/AOJ/aoj2555/"/>
+    <link href="http://algoogle.hadrori.jp/AOJ/2555/"/>
     <updated>2014-05-03T22:00:00+09:00</updated>
-    <id>http://algoogle.hadrori.jp/AOJ/aoj2555</id>
+    <id>http://algoogle.hadrori.jp/AOJ/2555</id>
     <content type="html"><![CDATA[<h4 id="section">問題概要</h4>
 
 <hr />
