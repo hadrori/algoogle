@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>PKU 3041 Asteroids - Algoogle</title>
+  <title>PKU 2226 Muddy Fields - Algoogle</title>
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content="Asteroids 問題概要 N*Nのテーブル上にK個点がある.
-縦, もしくは横に無限に長い線を引くとき, すべての点をカバーするには最小何本の線が必要か. 解法 2部グラフの最小点カバーなので最大マッチングを求めれば良い.
-縦線を0~N-1, 横線をN~2*N- &hellip;">
+  <meta name="description" content="Muddy Fields 問題概要 R*Cのエリアに, 泥がある. 泥の部分のみを幅1, 長さ自由の板を乗せて覆うとき, 最小の板の枚数を求めよ. 解法 泥の各点はできるだけ長く縦に置いた板か横に置いた板に覆われる.
+縦と横それぞれに付いて板を決めるために一番端をグラフの頂点とする. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://algoogle.hadrori.jp/PKU/3041/">
+  <link rel="canonical" href="http://algoogle.hadrori.jp/PKU/2226/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
@@ -85,7 +84,7 @@
   
   <header>
     
-      <h1 class="entry-title">PKU 3041 Asteroids</h1>
+      <h1 class="entry-title">PKU 2226 Muddy Fields</h1>
     
     
       <p class="meta">
@@ -101,7 +100,7 @@
   
 
 
-<time datetime="2014-05-04T16:19:46+09:00" pubdate data-updated="true">May 4<span>th</span>, 2014</time>
+<time datetime="2014-05-04T16:27:13+09:00" pubdate data-updated="true">May 4<span>th</span>, 2014</time>
       </p>
     
     
@@ -125,27 +124,28 @@ Tag: <span class="tags">
   </header>
 
 
-<div class="entry-content"><p><a href="http://poj.org/problem?id=3041">Asteroids</a></p>
+<div class="entry-content"><p><a href="http://poj.org/problem?id=2226">Muddy Fields</a></p>
 
 <h4 id="section">問題概要</h4>
 
 <hr />
 
-<p>N*Nのテーブル上にK個点がある.<br />
-縦, もしくは横に無限に長い線を引くとき, すべての点をカバーするには最小何本の線が必要か.</p>
+<p>R*Cのエリアに, 泥がある. 泥の部分のみを幅1, 長さ自由の板を乗せて覆うとき, 最小の板の枚数を求めよ.<br /></p>
 
 <h4 id="section-1">解法</h4>
 
 <hr />
 
-<p>2部グラフの最小点カバーなので最大マッチングを求めれば良い.<br />
-縦線を0~N-1, 横線をN~2*N-1と2つにわけて縦線と横線でマッチングする.</p>
+<p>泥の各点はできるだけ長く縦に置いた板か横に置いた板に覆われる.<br />
+縦と横それぞれに付いて板を決めるために一番端をグラフの頂点とする.<br />
+また縦と横を区別をするためにどちらかにR*Cを足すことにする.<br />
+そして2部グラフの最小点カバーは最大マッチングに帰着できることが広く知られているので最大マッチングをやる.<br /></p>
 
 <h4 id="section-2">コード</h4>
 
 <hr />
 
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (3041.cpp)</span> <a href="/downloads/code/PKU/3041.cpp">download</a></figcaption>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (2226.cpp)</span> <a href="/downloads/code/PKU/2226.cpp">download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
@@ -191,16 +191,44 @@ Tag: <span class="tags">
 <span class="line-number">43</span>
 <span class="line-number">44</span>
 <span class="line-number">45</span>
+<span class="line-number">46</span>
+<span class="line-number">47</span>
+<span class="line-number">48</span>
+<span class="line-number">49</span>
+<span class="line-number">50</span>
+<span class="line-number">51</span>
+<span class="line-number">52</span>
+<span class="line-number">53</span>
+<span class="line-number">54</span>
+<span class="line-number">55</span>
+<span class="line-number">56</span>
+<span class="line-number">57</span>
+<span class="line-number">58</span>
+<span class="line-number">59</span>
+<span class="line-number">60</span>
+<span class="line-number">61</span>
+<span class="line-number">62</span>
+<span class="line-number">63</span>
+<span class="line-number">64</span>
+<span class="line-number">65</span>
 </pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="cp">#include &lt;cstdio&gt;</span>
+</span><span class="line"><span class="cp">#include &lt;queue&gt;</span>
+</span><span class="line"><span class="cp">#include &lt;algorithm&gt;</span>
 </span><span class="line"><span class="cp">#include &lt;vector&gt;</span>
 </span><span class="line"><span class="cp">#include &lt;cstring&gt;</span>
 </span><span class="line">
 </span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span><span class="line">
-</span><span class="line"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">;</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">match</span><span class="p">[</span><span class="mi">1024</span><span class="p">],</span> <span class="n">used</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-</span><span class="line">
+</span><span class="line"><span class="k">const</span> <span class="kt">int</span> <span class="n">inf</span> <span class="o">=</span> <span class="mf">1e9</span><span class="p">;</span>
+</span><span class="line"><span class="kt">int</span> <span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">base</span><span class="p">;</span>
+</span><span class="line"><span class="kt">bool</span> <span class="n">table</span><span class="p">[</span><span class="mi">64</span><span class="p">][</span><span class="mi">64</span><span class="p">];</span>
+</span><span class="line"><span class="kr">inline</span> <span class="kt">bool</span> <span class="n">in</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">){</span> <span class="k">return</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="n">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">R</span> <span class="n">and</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="n">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">C</span><span class="p">;}</span>
+</span><span class="line"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="mi">5010</span><span class="p">];</span>
+</span><span class="line"><span class="kt">int</span> <span class="n">match</span><span class="p">[</span><span class="mi">5010</span><span class="p">],</span> <span class="n">used</span><span class="p">[</span><span class="mi">5010</span><span class="p">];</span>
+</span><span class="line"><span class="kt">void</span> <span class="n">add_edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">){</span>
+</span><span class="line">    <span class="n">G</span><span class="p">[</span><span class="n">from</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">to</span><span class="p">);</span>
+</span><span class="line">    <span class="n">G</span><span class="p">[</span><span class="n">to</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
+</span><span class="line"><span class="p">}</span>
 </span><span class="line"><span class="kt">bool</span> <span class="n">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">){</span>
 </span><span class="line">    <span class="n">used</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
@@ -216,7 +244,7 @@ Tag: <span class="tags">
 </span><span class="line"><span class="kt">int</span> <span class="n">b_match</span><span class="p">(){</span>
 </span><span class="line">    <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class="line">    <span class="n">memset</span><span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">match</span><span class="p">));</span>
-</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">;</span> <span class="n">v</span><span class="o">++</span><span class="p">){</span>
+</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">C</span><span class="p">;</span> <span class="n">v</span><span class="o">++</span><span class="p">){</span>
 </span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">match</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
 </span><span class="line">            <span class="n">memset</span><span class="p">(</span><span class="n">used</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">used</span><span class="p">));</span>
 </span><span class="line">            <span class="k">if</span><span class="p">(</span><span class="n">dfs</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="n">res</span><span class="o">++</span><span class="p">;</span>
@@ -226,13 +254,25 @@ Tag: <span class="tags">
 </span><span class="line"><span class="p">}</span>
 </span><span class="line">
 </span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
-</span><span class="line">    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">N</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">K</span><span class="p">);</span>
-</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">K</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-</span><span class="line">        <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
-</span><span class="line">        <span class="n">r</span><span class="o">--</span><span class="p">;</span> <span class="n">c</span><span class="o">--</span><span class="p">;</span>
-</span><span class="line">        <span class="n">G</span><span class="p">[</span><span class="n">r</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="n">c</span><span class="p">);</span>
-</span><span class="line">        <span class="n">G</span><span class="p">[</span><span class="n">N</span><span class="o">+</span><span class="n">c</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+</span><span class="line">    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">R</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">C</span><span class="p">);</span>
+</span><span class="line">    <span class="n">base</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="n">C</span><span class="p">;</span>
+</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">R</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class="line">        <span class="kt">char</span> <span class="n">c</span><span class="p">;</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+</span><span class="line">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">C</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span><span class="line">            <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+</span><span class="line">            <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span><span class="sc">&#39;*&#39;</span><span class="p">);</span>
+</span><span class="line">        <span class="p">}</span>
 </span><span class="line">    <span class="p">}</span>
+</span><span class="line">
+</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">R</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span class="line">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">C</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span><span class="line">            <span class="k">if</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]){</span>
+</span><span class="line">                <span class="kt">int</span> <span class="n">nj</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">ni</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span><span class="line">                <span class="k">while</span><span class="p">(</span><span class="n">in</span><span class="p">(</span><span class="n">ni</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="n">and</span> <span class="n">table</span><span class="p">[</span><span class="n">ni</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="n">ni</span><span class="o">++</span><span class="p">;</span>
+</span><span class="line">                <span class="k">while</span><span class="p">(</span><span class="n">in</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">nj</span><span class="p">)</span> <span class="n">and</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">nj</span><span class="p">])</span> <span class="n">nj</span><span class="o">++</span><span class="p">;</span>
+</span><span class="line">                <span class="n">ni</span><span class="o">--</span><span class="p">;</span> <span class="n">nj</span><span class="o">--</span><span class="p">;</span>
+</span><span class="line">                <span class="n">add_edge</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">C</span><span class="o">+</span><span class="n">nj</span><span class="p">,</span> <span class="n">base</span><span class="o">+</span><span class="n">ni</span><span class="o">*</span><span class="n">C</span><span class="o">+</span><span class="n">j</span><span class="p">);</span>
+</span><span class="line">            <span class="p">}</span>
 </span><span class="line">    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">b_match</span><span class="p">());</span>
 </span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class="line"><span class="p">}</span>
@@ -262,7 +302,7 @@ Tag: <span class="tags">
   
 
 
-<time datetime="2014-05-04T16:19:46+09:00" pubdate data-updated="true">May 4<span>th</span>, 2014</time>
+<time datetime="2014-05-04T16:27:13+09:00" pubdate data-updated="true">May 4<span>th</span>, 2014</time>
       
 
 Category: <span class="categories">
@@ -285,11 +325,11 @@ Tag: <span class="tags">
     
       <div class="social">
   <div class="hatena">
-    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/PKU/3041/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/PKU/2226/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   </div>
   
   <div class="twitter">
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/PKU/3041/" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/PKU/3041/" >Tweet</a>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/PKU/2226/" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/PKU/2226/" >Tweet</a>
   </div>
   
   
@@ -369,8 +409,8 @@ Tag: <span class="tags">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://algoogle.hadrori.jp/PKU/3041/';
-        var disqus_url = 'http://algoogle.hadrori.jp/PKU/3041/';
+        var disqus_identifier = 'http://algoogle.hadrori.jp/PKU/2226/';
+        var disqus_url = 'http://algoogle.hadrori.jp/PKU/2226/';
         var disqus_script = 'embed.js';
       
     (function () {
