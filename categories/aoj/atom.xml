@@ -4,7 +4,7 @@
   <title><![CDATA[Category: AOJ | Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/categories/aoj/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-05-05T00:39:22+09:00</updated>
+  <updated>2014-05-05T00:40:54+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -30,9 +30,11 @@
 
 <p>凹になっている角に注目する.<br />
 凹になっている角を通るように切ればとりあえず長方形になるように切れるから.<br />
-その時一つの凹な角だけでなく, 2つの凹な角を通るように切れば効率がいい.<br />
-<img src="./images/aoj1185-01.png" alt="aoj1185-01" /><br />
-凹な角から垂直, もしくは水平に線を伸ばして, 凹になっている角にぶつかるような線分をリストアップする.<br />
+その時一つの凹な角だけでなく, 2つの凹な角を通るように切れば効率がいい.  </p>
+
+<p><img src="/images/aoj1185-01.png" alt="aoj1185-01" />  </p>
+
+<p>凹な角から垂直, もしくは水平に線を伸ばして, 凹になっている角にぶつかるような線分をリストアップする.<br />
 それらの線分で交わるものに辺を張ったものは2部グラフになる(縦と横の線しかないから)ので
 その最大マッチング問題を解く.<br />
 その値を2部グラフの頂点数から引けば, 一緒に切られた凹な角の数がわかるので<br />
