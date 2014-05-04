@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
 
-#define INF 5000000
-
+const int INF = 1e9;
 #define rep(i, b) for(int i = 0; i < b; i++)
 #define repi(i, a, b) for(int i = a; i < b; i++)
 
@@ -11,9 +10,8 @@ using namespace std;
 int main(){
     int n, m;
     while(cin >> n >> m, n || m){
-        vector<vector<vector<pair<int,int> > > > cst(m+1,vector<vector<pair<int,int> > >(2));
-        
-        vector<vector<vector<int> > > w(m+1,vector<vector<int> >(m+1,vector<int>(2,INF)));
+        int w[128][128][2];
+        rep(i,m+1)rep(j,m+1)rep(k,2) w[i][j][k] = INF;
         
         rep(i,n){
             int a, b, c, t;
@@ -23,22 +21,15 @@ int main(){
             w[a][b][1] = t;
             w[b][a][1] = t;
         }
-        rep(l,2){
-            repi(k, 1, m+1){
-                repi(i, 1, m+1){
-                    repi(j, 1, m+1){
-                        w[i][j][l] = min(w[i][j][l], w[i][k][l] + w[k][j][l]);
-                    }
-                }
-            }
-        }
+        rep(l,2) repi(k, 1, m+1) repi(i, 1, m+1) repi(j, 1, m+1)
+            w[i][j][l] = min(w[i][j][l], w[i][k][l] + w[k][j][l]);
+
         int k;
         cin >> k;
         
         rep(i,k){
             int p, q, r;
-            cin >> p >> q >> r;
-            
+            cin >> p >> q >> r;            
             cout << w[p][q][r] << endl;
         }
     }

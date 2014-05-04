@@ -4,27 +4,18 @@
 #include <algorithm>
 #include <vector>
 #include <cmath>
-
+using namespace std;
 #define rep(i,a) for(int i = 0; i < a; i++)
-#define repi(i,a,b) for(int i = a; i < b; i++)
 #define repd(i,a,b) for(int i = a; i > b; i--)
-
-#define mp make_pair
 #define pb push_back
 #define INF 10000000
-
-using namespace std;
-
-typedef long long ll;
 
 int main(){
     string str;
     while(getline(cin,str)){
         vector<int> r;
-        stringstream s;
-        s << str;
-        int n = 0;
-        int w;
+        stringstream s(str);
+        int n = 0, w;
         s >> w;
         while(!s.eof()){
             int t;
@@ -44,7 +35,6 @@ int main(){
         }
         double ans = INF;
         rep(i,n) ans = min(ans,dp[0][i]+r[i]);
-//        cout << ans << endl;
         cout << ((ans <= w)? "OK": "NA") << endl;
     }
 }
