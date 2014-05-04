@@ -4,7 +4,7 @@
   <title><![CDATA[Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-05-05T01:42:04+09:00</updated>
+  <updated>2014-05-05T01:44:19+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -36,7 +36,7 @@
 また, 牛の数がセルの横幅に対して小さいので位置を座圧します.  </p>
 
 <p>各列について, その列を四角形が覆うパターンは5通り.<br />
-<img src="http://algoogle.hadrori.jp/images/poj2430-01.png" alt="poj2430-01" />
+<img src="http://algoogle.hadrori.jp/images/poj2430-01.png" alt="poj2430-01" /><br />
 この内一つも覆われていないパターンの列は座圧で牛がいる列を詰めるので存在しない.<br />
 またこの事から左からセルをなめていくと, 各列は前の列の状態だけから更新されるようなDPを考えられる.<br />
 dp[i][k][u] := i列目でk個四角形が存在して状態がuであるものの最小の面積<br />
