@@ -4,7 +4,7 @@
   <title><![CDATA[Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-05-05T00:10:53+09:00</updated>
+  <updated>2014-05-05T00:13:38+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -32,11 +32,11 @@ m回のステップが終了した時, 数列にある順序が正しくない�
 
 <hr />
 
-<p>期待値DP.<br />
+<p>DP<br />
 dp[i][j] := i番目がj番目より大きい確率<br />
 として入れ替える場所をa, bとする. <br />
-まずa, bはの位置を入れ替えるかどうかなので2つの大小関係は1/2の確率でどちらにもなりうる.<br />
-またiとa, iとbの大小関係が1/2の確率で入れ替わるので<br />
+まずa, bの位置を入れ替えるかどうかなので2つの大小関係は1/2の確率でどちらにもなりうる.<br />
+またiとa, iとbの大小関係が1/2の確率でそれぞれ入れ替わってiとb, iとaの大小関係になるので<br />
 dp[i][a] = dp[i][b] = (dp[i][a] + dp[i][b]) / 2<br />
 dp[a][i] = dp[b][i] = (dp[a][i] + dp[b][i]) / 2<br />
 となる.<br />
