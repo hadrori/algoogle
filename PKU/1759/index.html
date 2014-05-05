@@ -5,12 +5,27 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>PKU 1984 Navigation Nightmare - Algoogle</title>
+  <title>PKU 1759 Garland - Algoogle</title>
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content="Navigation Nightmare 問題概要 時系列順に辺が与えられる. 最終的に全域木なる.
-クエリが与えられて, ある時刻に2つの節点のマンハッタン距離が欲しい. 連結でないなら-1を出力する. 解法 まず1点を固定してそこからの相対座標をだす. 木なので適当にdfsしてやればよい. &hellip;">
+  <meta name="description" content="Garland 問題概要 解法 H2を決めればBが一意に決まる.
+基本的にH2を小さくすればBも小さくなるのでH2を二分探索する.
+判定部分は途中のHが負になる場合は失敗, それ以外は成功. (1759.cpp) download
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +34,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://algoogle.hadrori.jp/PKU/1984/">
+  <link rel="canonical" href="http://algoogle.hadrori.jp/PKU/1759/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
@@ -84,7 +99,7 @@
   
   <header>
     
-      <h1 class="entry-title">PKU 1984 Navigation Nightmare</h1>
+      <h1 class="entry-title">PKU 1759 Garland</h1>
     
     
       <p class="meta">
@@ -100,7 +115,7 @@
   
 
 
-<time datetime="2014-05-05T00:21:12+09:00" pubdate data-updated="true">May 5<span>th</span>, 2014</time>
+<time datetime="2014-05-05T23:55:28+09:00" pubdate data-updated="true">May 5<span>th</span>, 2014</time>
       </p>
     
     
@@ -116,7 +131,7 @@ Category: <span class="categories">
 
 Tag: <span class="tags">
   
-    <a class='tag' href='/tags/union-find/'>union-find</a>
+    <a class='tag' href='/tags/binary-search/'>binary-search</a>
   
 </span>
 
@@ -124,28 +139,88 @@ Tag: <span class="tags">
   </header>
 
 
-<div class="entry-content"><p><a href="http://poj.org/problem?id=1984">Navigation Nightmare</a></p>
+<div class="entry-content"><p><a href="http://poj.org/problem?id=1759">Garland</a></p>
 
 <h4 id="section">問題概要</h4>
 
 <hr />
 
-<p>時系列順に辺が与えられる. 最終的に全域木なる.<br />
-クエリが与えられて, ある時刻に2つの節点のマンハッタン距離が欲しい. 連結でないなら-1を出力する.  </p>
-
 <h4 id="section-1">解法</h4>
 
 <hr />
 
-<p>まず1点を固定してそこからの相対座標をだす. 木なので適当にdfsしてやればよい.<br />
-つぎに各クエリを時刻順にソートして各時刻までunion-findしてやれば連結かどうかの判定は簡単にできる.<br />
-マンハッタン距離はdfsしてだした相対座標からすぐ出せる.  </p>
+<p>H2を決めればBが一意に決まる.<br />
+基本的にH2を小さくすればBも小さくなるのでH2を二分探索する.<br />
+判定部分は途中のHが負になる場合は失敗, それ以外は成功.</p>
 
-<h4 id="section-2">コード</h4>
+<h4 id="section-2"></h4>
 
 <hr />
 
-<p>File /Users/hadrori/Programming/Web/octopress/source/downloads/code/PKU/1984.cpp could not be found</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (1759.cpp)</span> <a href="/downloads/code/PKU/1759.cpp">download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="cp">#include &lt;iostream&gt;</span>
+</span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class="line"><span class="cp">#define rep(i,a) for(int i = 0;i &lt; (a); i++)</span>
+</span><span class="line"><span class="cp">#define repi(i,a,b) for(int i = (a); i &lt; (b); i++)</span>
+</span><span class="line">
+</span><span class="line"><span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
+</span><span class="line"><span class="kt">double</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">;</span>
+</span><span class="line"><span class="kt">double</span> <span class="n">H</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+</span><span class="line">
+</span><span class="line"><span class="kt">bool</span> <span class="n">ok</span><span class="p">(</span><span class="kt">double</span> <span class="n">h</span><span class="p">){</span>
+</span><span class="line">    <span class="n">H</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">;</span>
+</span><span class="line">    <span class="n">repi</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="p">){</span>
+</span><span class="line">	<span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">];</span>
+</span><span class="line">	<span class="k">if</span><span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="n">B</span> <span class="o">=</span> <span class="n">H</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+</span><span class="line">    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class="line">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span> <span class="o">&gt;&gt;</span> <span class="n">A</span><span class="p">;</span>
+</span><span class="line">    <span class="n">H</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+</span><span class="line">    <span class="kt">double</span> <span class="n">lb</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ub</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">;</span>
+</span><span class="line">    <span class="n">rep</span><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="mi">100</span><span class="p">){</span>
+</span><span class="line">        <span class="kt">double</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lb</span> <span class="o">+</span> <span class="n">ub</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">ok</span><span class="p">(</span><span class="n">mid</span><span class="p">))</span> <span class="n">ub</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>
+</span><span class="line">        <span class="k">else</span> <span class="n">lb</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">);</span>
+</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 </div>
 
@@ -171,7 +246,7 @@ Tag: <span class="tags">
   
 
 
-<time datetime="2014-05-05T00:21:12+09:00" pubdate data-updated="true">May 5<span>th</span>, 2014</time>
+<time datetime="2014-05-05T23:55:28+09:00" pubdate data-updated="true">May 5<span>th</span>, 2014</time>
       
 
 Category: <span class="categories">
@@ -185,7 +260,7 @@ Category: <span class="categories">
 
 Tag: <span class="tags">
   
-    <a class='tag' href='/tags/union-find/'>union-find</a>
+    <a class='tag' href='/tags/binary-search/'>binary-search</a>
   
 </span>
 
@@ -194,11 +269,11 @@ Tag: <span class="tags">
     
       <div class="social">
   <div class="hatena">
-    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/PKU/1984/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/PKU/1759/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   </div>
   
   <div class="twitter">
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/PKU/1984/" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/PKU/1984/" >Tweet</a>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/PKU/1759/" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/PKU/1759/" >Tweet</a>
   </div>
   
   
@@ -283,8 +358,8 @@ Tag: <span class="tags">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://algoogle.hadrori.jp/PKU/1984/';
-        var disqus_url = 'http://algoogle.hadrori.jp/PKU/1984/';
+        var disqus_identifier = 'http://algoogle.hadrori.jp/PKU/1759/';
+        var disqus_url = 'http://algoogle.hadrori.jp/PKU/1759/';
         var disqus_script = 'embed.js';
       
     (function () {
