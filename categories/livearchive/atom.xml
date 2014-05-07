@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: LiveArchive | Algoogle]]></title>
+  <link href="http://algoogle.hadrori.jp/categories/livearchive/atom.xml" rel="self"/>
+  <link href="http://algoogle.hadrori.jp/"/>
+  <updated>2014-05-07T11:25:13+09:00</updated>
+  <id>http://algoogle.hadrori.jp/</id>
+  <author>
+    <name><![CDATA[hadrori]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[LiveArchive 5760 Alice and Bob]]></title>
+    <link href="http://algoogle.hadrori.jp/LiveArchive/5760/"/>
+    <updated>2014-05-07T11:21:04+09:00</updated>
+    <id>http://algoogle.hadrori.jp/LiveArchive/5760</id>
+    <content type="html"><![CDATA[<p><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&amp;Itemid=9">Alice and Bob</a></p>
+
+<h4 id="section">問題概要</h4>
+
+<hr />
+
+<p>N個の山にそれぞれAi個石が置いてある.<br />
+AliceとBobはAliceから交互に以下の操作のどちらかを行う.  </p>
+
+<ul>
+  <li>1つの山から1つ石を取る</li>
+  <li>2つの山をマージする</li>
+</ul>
+
+<p>先に操作が出来なくなった方の負け.<br />
+N &lt;= 50<br />
+Ai &lt;= 1000<br />
+テストケース &lt;= 4000  </p>
+
+<h4 id="section-1">解法</h4>
+
+<hr />
+
+<p>操作に制限を加えて考えてメモ化再帰します.<br />
+dp[i][j] := 残り1つの山がi個, それ以外の山の石の和とその山の数-1の和がjのときの勝敗<br />
+こうするとマージに関して, 残り1つでない山のマージは石を1つ取り除くことに対応する.<br />
+あとは全パターンメモ化再帰で試す.<br />
+次が負け状態のやつに移動できる場合は勝ち. それ以外は負け.<br />
+毎ステップとれる行動は  </p>
+
+<ul>
+  <li>石が1つだけの山から取る</li>
+  <li>石が2つ以上ある山から取る</li>
+  <li>石が1つだけの山と2つ以上の山をマージする</li>
+  <li>石が1つだけの山同士でマージする</li>
+</ul>
+
+<p>またそのメモは使いまわせるのでテストケースごとに初期化しないようにする(初期化すると間に合わない)</p>
+
+<h4 id="section-2">コード</h4>
+
+<hr />
+
+<p>File /Users/hadrori/Programming/Web/octopress/source/downloads/code/livearchive/5760.cpp could not be found</p>
+
+]]></content>
+  </entry>
+  
+</feed>

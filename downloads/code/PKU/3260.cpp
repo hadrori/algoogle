@@ -12,8 +12,6 @@ int N, T, V[128], C[128];
 int change[20010], pay[20010];
 pii deq[20010];
 
-#include <iostream>
-
 int main(){
     scanf("%d%d", &N, &T);
     for(int i = 0; i < N; i++)
@@ -36,11 +34,6 @@ int main(){
                     pay[k] = pay[k] > 0? min(pay[k], pay[k-mul*V[i]]+mul): pay[k-mul*V[i]]+mul;
         }
     }
-    /*
-    for(int i = 0; i <= M; i++)
-        if(pay[i] or change[i])
-            printf("%4d %4d %4d\n", i, pay[i], change[i]);
-    */
     int ans = int(1e9);
     for(int i = T; i <= M; i++)
         if(pay[i] and (change[i-T] or i == T))
