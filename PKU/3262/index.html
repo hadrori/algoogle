@@ -5,28 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>AOJ 0200 Traveling Alone: One-way Ticket of Youth - Algoogle</title>
+  <title>PKU 3262 Protecting the Flowers - Algoogle</title>
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content="Traveling Alone: One-way Ticket of Youth 問題概要 解法 始めにwarshall-floydで予め全点対最短路を求めておく. コード (0200.cpp) download
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17 &hellip;">
+  <meta name="description" content="Protecting the Flowers 問題概要 いろんなところに牛がいて, 牛を連れて帰るのにそれぞれ2*T分かかる.
+また, それぞれの牛は毎分Dだけ花を破壊する.
+花の破壊が最小になるように牛を連れて帰る時, 破壊される花の数を求めよ. 解法 2頭の牛のどちらかを連れて帰る時, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -35,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://algoogle.hadrori.jp/AOJ/0200/">
+  <link rel="canonical" href="http://algoogle.hadrori.jp/PKU/3262/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
@@ -100,7 +85,7 @@
   
   <header>
     
-      <h1 class="entry-title">AOJ 0200 Traveling Alone: One-way Ticket of Youth</h1>
+      <h1 class="entry-title">PKU 3262 Protecting the Flowers</h1>
     
     
       <p class="meta">
@@ -116,14 +101,14 @@
   
 
 
-<time datetime="2014-05-04T16:59:43+09:00" pubdate data-updated="true">May 4<span>th</span>, 2014</time>
+<time datetime="2014-05-09T01:38:16+09:00" pubdate data-updated="true">May 9<span>th</span>, 2014</time>
       </p>
     
     
 
 Category: <span class="categories">
   
-    <a class='category' href='/categories/aoj/'>AOJ</a>
+    <a class='category' href='/categories/pku/'>PKU</a>
   
 </span>
 
@@ -132,7 +117,7 @@ Category: <span class="categories">
 
 Tag: <span class="tags">
   
-    <a class='tag' href='/tags/warshall-floyd/'>warshall-floyd</a>
+    <a class='tag' href='/tags/greedy/'>greedy</a>
   
 </span>
 
@@ -140,23 +125,30 @@ Tag: <span class="tags">
   </header>
 
 
-<div class="entry-content"><p><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0200">Traveling Alone: One-way Ticket of Youth</a></p>
+<div class="entry-content"><p><a href="http://poj.org/problem?id=3262">Protecting the Flowers</a></p>
 
 <h4 id="section">問題概要</h4>
 
 <hr />
 
+<p>いろんなところに牛がいて, 牛を連れて帰るのにそれぞれ2*T分かかる.<br />
+また, それぞれの牛は毎分Dだけ花を破壊する.<br />
+花の破壊が最小になるように牛を連れて帰る時, 破壊される花の数を求めよ.<br /></p>
+
 <h4 id="section-1">解法</h4>
 
 <hr />
 
-<p>始めにwarshall-floydで予め全点対最短路を求めておく.</p>
+<p>2頭の牛のどちらかを連れて帰る時, どちらを連れて帰るのがいいかを考えるとよい.<br />
+2頭の牛をi, jとすると, 牛iを連れて帰る時牛jによって破壊される花の数は2<em>T[i]</em>D[j]<br />
+逆の場合は2<em>T[j]</em>D[i]<br />
+よってその値が大きい方から連れて帰るべきなのでその値でソートしてgreedyに選択していく.</p>
 
 <h4 id="section-2">コード</h4>
 
 <hr />
 
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (0200.cpp)</span> <a href="/downloads/code/AOJ/0200.cpp">download</a></figcaption>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (3262.cpp)</span> <a href="/downloads/code/PKU/3262.cpp">download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
@@ -189,45 +181,37 @@ Tag: <span class="tags">
 <span class="line-number">30</span>
 <span class="line-number">31</span>
 <span class="line-number">32</span>
-<span class="line-number">33</span>
-<span class="line-number">34</span>
-<span class="line-number">35</span>
-<span class="line-number">36</span>
-</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="cp">#include &lt;iostream&gt;</span>
-</span><span class="line"><span class="cp">#include &lt;vector&gt;</span>
-</span><span class="line">
-</span><span class="line"><span class="k">const</span> <span class="kt">int</span> <span class="n">INF</span> <span class="o">=</span> <span class="mf">1e9</span><span class="p">;</span>
-</span><span class="line"><span class="cp">#define rep(i, b) for(int i = 0; i &lt; b; i++)</span>
-</span><span class="line"><span class="cp">#define repi(i, a, b) for(int i = a; i &lt; b; i++)</span>
+</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="cp">#include &lt;cstdio&gt;</span>
+</span><span class="line"><span class="cp">#include &lt;algorithm&gt;</span>
 </span><span class="line">
 </span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span><span class="line">
-</span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span>
-</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">||</span> <span class="n">m</span><span class="p">){</span>
-</span><span class="line">        <span class="kt">int</span> <span class="n">w</span><span class="p">[</span><span class="mi">128</span><span class="p">][</span><span class="mi">128</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
-</span><span class="line">        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="n">rep</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="n">rep</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">INF</span><span class="p">;</span>
+</span><span class="line"><span class="cp">#define int long long</span>
+</span><span class="line"><span class="k">struct</span> <span class="n">cow</span><span class="p">{</span>
+</span><span class="line">    <span class="kt">int</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
+</span><span class="line">    <span class="n">cow</span><span class="p">(){}</span>
+</span><span class="line">    <span class="n">cow</span><span class="p">(</span><span class="kt">int</span> <span class="n">t</span><span class="p">,</span> <span class="kt">int</span> <span class="n">d</span><span class="p">)</span><span class="o">:</span><span class="n">t</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">d</span><span class="p">(</span><span class="n">d</span><span class="p">){}</span>
+</span><span class="line">    <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">cow</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">)</span><span class="k">const</span><span class="p">{</span> <span class="k">return</span> <span class="n">c</span><span class="p">.</span><span class="n">t</span><span class="o">*</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">t</span><span class="o">*</span><span class="n">c</span><span class="p">.</span><span class="n">d</span><span class="p">;}</span>
+</span><span class="line"><span class="p">};</span>
 </span><span class="line">
-</span><span class="line">        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">){</span>
-</span><span class="line">            <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">t</span><span class="p">;</span>
-</span><span class="line">            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
-</span><span class="line">            <span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">b</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
-</span><span class="line">            <span class="n">w</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">a</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
-</span><span class="line">            <span class="n">w</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">b</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
-</span><span class="line">            <span class="n">w</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">a</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
-</span><span class="line">        <span class="p">}</span>
-</span><span class="line">        <span class="n">rep</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="n">repi</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="n">repi</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="n">repi</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-</span><span class="line">            <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">l</span><span class="p">],</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">l</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">l</span><span class="p">]);</span>
+</span><span class="line"><span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="n">dest</span><span class="p">;</span>
+</span><span class="line"><span class="n">cow</span> <span class="n">C</span><span class="p">[</span><span class="mi">100010</span><span class="p">];</span>
 </span><span class="line">
-</span><span class="line">        <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
-</span><span class="line">        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">;</span>
-</span><span class="line">
-</span><span class="line">        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">){</span>
-</span><span class="line">            <span class="kt">int</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">;</span>
-</span><span class="line">            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p</span> <span class="o">&gt;&gt;</span> <span class="n">q</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">;</span>
-</span><span class="line">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">w</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">q</span><span class="p">][</span><span class="n">r</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class="line">        <span class="p">}</span>
+</span><span class="line"><span class="kt">signed</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class="line">    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">N</span><span class="p">);</span>
+</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class="line">        <span class="kt">int</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld%lld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">);</span>
+</span><span class="line">        <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">cow</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</span><span class="line">        <span class="n">dest</span> <span class="o">+=</span> <span class="n">d</span><span class="p">;</span>
 </span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="n">sort</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">C</span><span class="o">+</span><span class="n">N</span><span class="p">);</span>
+</span><span class="line">    <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class="line">        <span class="n">dest</span> <span class="o">-=</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">d</span><span class="p">;</span>
+</span><span class="line">        <span class="n">ans</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">*</span><span class="n">dest</span><span class="o">*</span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">t</span><span class="p">;</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ans</span><span class="p">);</span>
+</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class="line"><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
@@ -255,12 +239,12 @@ Tag: <span class="tags">
   
 
 
-<time datetime="2014-05-04T16:59:43+09:00" pubdate data-updated="true">May 4<span>th</span>, 2014</time>
+<time datetime="2014-05-09T01:38:16+09:00" pubdate data-updated="true">May 9<span>th</span>, 2014</time>
       
 
 Category: <span class="categories">
   
-    <a class='category' href='/categories/aoj/'>AOJ</a>
+    <a class='category' href='/categories/pku/'>PKU</a>
   
 </span>
 
@@ -269,7 +253,7 @@ Category: <span class="categories">
 
 Tag: <span class="tags">
   
-    <a class='tag' href='/tags/warshall-floyd/'>warshall-floyd</a>
+    <a class='tag' href='/tags/greedy/'>greedy</a>
   
 </span>
 
@@ -278,11 +262,11 @@ Tag: <span class="tags">
     
       <div class="social">
   <div class="hatena">
-    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/AOJ/0200/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <a href="http://b.hatena.ne.jp/entry/http://algoogle.hadrori.jp/PKU/3262/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   </div>
   
   <div class="twitter">
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/AOJ/0200/" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/AOJ/0200/" >Tweet</a>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://algoogle.hadrori.jp/PKU/3262/" data-via="hadrori" data-counturl="http://algoogle.hadrori.jp/PKU/3262/" >Tweet</a>
   </div>
   
   
@@ -367,8 +351,8 @@ Tag: <span class="tags">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://algoogle.hadrori.jp/AOJ/0200/';
-        var disqus_url = 'http://algoogle.hadrori.jp/AOJ/0200/';
+        var disqus_identifier = 'http://algoogle.hadrori.jp/PKU/3262/';
+        var disqus_url = 'http://algoogle.hadrori.jp/PKU/3262/';
         var disqus_script = 'embed.js';
       
     (function () {
