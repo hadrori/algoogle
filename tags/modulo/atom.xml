@@ -4,7 +4,7 @@
   <title><![CDATA[Tag: modulo | Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/tags/modulo/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-05-09T01:30:33+09:00</updated>
+  <updated>2014-05-09T01:32:17+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -24,14 +24,14 @@
 
 <hr />
 
-<p><script type="math/tex"> _NP_{N-M} </script> の計算結果の各桁の数のうち, 0でないものの中で一番右側にある数を求めよ</p>
+<p><script type="math/tex"> {}<em>{N}P</em>{N-M} </script> の計算結果の各桁の数のうち, 0でないものの中で一番右側にある数を求めよ</p>
 
 <h4 id="section-1">解法</h4>
 
 <hr />
 
 <p>M = N - Mとする.<br />
-<script type="math/tex; mode=display"> N! = a \times p^{e} </script><br />
+<script type="math/tex"> N! = a \times p^{e} </script><br />
 は蟻本にもあるように簡単に求まる.<br />
 そこでN!とM!それぞれについてp=2, 5のときのa, eを求める.<br />
 そうするとN!/M!に含まれる2と5の数がわかるのでそれをe2, e5とする.<br />
