@@ -1,45 +1,23 @@
-#include <cstring>
 #include <algorithm>
-#include <cstdio>
 #include <iostream>
 #include <vector>
-#include <map>
-#include <set>
-#include <complex>
 #include <queue>
-#include <stack>
-#include <string>
-#include <cmath>
-#include <bitset>
-
+using namespace std;
 #define rep(i,a) for(int i = 0;i < (a); i++)
 #define repi(i,a,b) for(int i = (a); i < (b); i++)
 #define repd(i,a,b) for(int i = (a); i > (b); i--)
-#define repit(i,a) for(__typeof((a).begin()) i = (a).begin(); i != (a).end(); i++)
-#define all(u) (u).begin(),(u).end()
-#define rall(u) (u).rbegin(),(u).rend()
-#define UNIQUE(u) (u).erase(unique(all(u)),(u).end())
 #define pb push_back
 #define mp make_pair
 #define INF 1e8
-#define EPS 1e-10
-#define PI acos(-1.0)
-
-using namespace std;
-
-typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int,int> pii;
 
+const int di[] = {1,0,-1,0};
+const int dj[] = {0,1,0,-1};
 int w, h;
-
 char field[25][25];
-int di[] = {1,0,-1,0};
-int dj[] = {0,1,0,-1};
 
-bool inrange(int i, int j){
-    return (i>=0 && i<h && j>=0 && j<w);
-}
+inline bool in(int i, int j){ return i>=0 && i<h && j>=0 && j<w;}
 
 int make_path(pii a, pii b){
     bool visited[25][25] = {false};
@@ -54,7 +32,7 @@ int make_path(pii a, pii b){
         int ti = s.first, tj = s.second;
         rep(i,4){
             int ni = ti + di[i], nj = tj + dj[i];
-            if(inrange(ni,nj) && !visited[ni][nj] && field[ni][nj]!='x'){
+            if(in(ni,nj) && !visited[ni][nj] && field[ni][nj]!='x'){
                 bfs.push(mp(mp(ni,nj),turn+1));
                 visited[ni][nj] = true;
             }
@@ -65,7 +43,6 @@ int make_path(pii a, pii b){
 
 int main(){
     while(cin>>w>>h,w||h){
-
         vector<pii> v;
         int start;
         rep(i,h)rep(j,w) cin>>field[i][j];
@@ -95,7 +72,6 @@ int main(){
         if(flag) continue;
         vector<vi> dp(1<<t,vi(t,INF));
         rep(i,t) dp[(1<<t) - 1][i] = path[0][i];
-//        dp[(1<<t)-1][0] = 0;
         repd(i,(1<<t)-2,-1)rep(j,t)rep(k,t){
             if(!(i >> k & 1)){
                 dp[i][j] = min(dp[i][j], dp[i | 1 << k][k] + path[j][k]);
@@ -106,14 +82,3 @@ int main(){
         cout << ans << endl;
     }
 }
-/*
-int saiki(int S, int v){
-    if(dp[S][v]>=0) return dp[S][v]; 
-    if(S==(1<<t)-1) return dp[S][v] = 0;
-    
-    int res = INF;
-    rep(i,t){
-        
-    }
-}
-*/
