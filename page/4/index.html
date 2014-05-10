@@ -9,9 +9,9 @@
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content="Fence Repair 問題概要 長さがsum(L)の板をN本のそれぞれの長さがL[i]の板になるように切りたい.
-ただし板を長さxとy切断するときにx+yだけコストがかかる.
-コストの最小を求めよ. 解法 蟻本にあるとおり, 切断されたものをマージすると考える. &hellip;">
+  <meta name="description" content="The Cow Lineup 問題概要 与えられる数列からできるの部分列を考える.
+K以下の正整数を使った数列をその部分列から作るとき, 作れない数列が存在する最小の長さはいくらか. 解法 頭から1からKまで全て現れる連続した部分を1つと数えて,
+そこからまた1からKまで全て現れる…… &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +82,142 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/PKU/1989/">PKU 1989 The Cow Lineup</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-10T00:54:17+09:00" pubdate data-updated="true">May 10<span>th</span>, 2014</time>
+      </p>
+    
+    
+
+Category: <span class="categories">
+  
+    <a class='category' href='/categories/pku/'>PKU</a>
+  
+</span>
+
+
+    
+
+Tag: <span class="tags">
+  
+    <a class='tag' href='/tags/greedy/'>greedy</a>
+  
+</span>
+
+
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://poj.org/problem?id=1989">The Cow Lineup</a></p>
+
+<h4 id="section">問題概要</h4>
+
+<hr />
+
+<p>与えられる数列からできるの部分列を考える.<br />
+K以下の正整数を使った数列をその部分列から作るとき, 作れない数列が存在する最小の長さはいくらか.  </p>
+
+<h4 id="section-1">解法</h4>
+
+<hr />
+
+<p>頭から1からKまで全て現れる連続した部分を1つと数えて,<br />
+そこからまた1からKまで全て現れる……としてその塊を数える.
+明らかに全ての数列が作れる最大の長さはその数なので, その数+1が答え.</p>
+
+<h4 id="section-2">コード</h4>
+
+<hr />
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (1989.cpp)</span> <a href="/downloads/code/PKU/1989.cpp">download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="cp">#include &lt;cstdio&gt;</span>
+</span><span class="line"><span class="cp">#include &lt;cstring&gt;</span>
+</span><span class="line">
+</span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line"><span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">;</span>
+</span><span class="line"><span class="kt">int</span> <span class="n">seq</span><span class="p">[</span><span class="mi">100010</span><span class="p">];</span>
+</span><span class="line"><span class="kt">bool</span> <span class="n">used</span><span class="p">[</span><span class="mi">10010</span><span class="p">];</span>
+</span><span class="line">
+</span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class="line">    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">N</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">K</span><span class="p">);</span>
+</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class="line">        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">seq</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
+</span><span class="line">        <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">used</span><span class="p">[</span><span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="p">{</span>
+</span><span class="line">            <span class="n">used</span><span class="p">[</span><span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="line">            <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+</span><span class="line">        <span class="p">}</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="n">K</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">            <span class="n">ans</span><span class="o">++</span><span class="p">;</span>
+</span><span class="line">            <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line">            <span class="n">memset</span><span class="p">(</span><span class="n">used</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">used</span><span class="p">));</span>
+</span><span class="line">        <span class="p">}</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ans</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1513,156 +1649,6 @@ Tag: <span class="tags">
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/PKU/3280/">PKU 3280 Cheapest Palindrome</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-05-09T01:13:15+09:00" pubdate data-updated="true">May 9<span>th</span>, 2014</time>
-      </p>
-    
-    
-
-Category: <span class="categories">
-  
-    <a class='category' href='/categories/pku/'>PKU</a>
-  
-</span>
-
-
-    
-
-Tag: <span class="tags">
-  
-    <a class='tag' href='/tags/dp/'>dp</a>
-  
-</span>
-
-
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://poj.org/problem?id=3280">Cheapest Palindrome</a></p>
-
-<h4 id="section">問題概要</h4>
-
-<hr />
-
-<p>文字列が与えられるのでその文字列に文字を挿入もしくは削除の操作をして回文にする際のコストの最小を求める.<br />
-各文字には挿入と削除のコストがそれぞれ決まっている.  </p>
-
-<h4 id="section-1">解法</h4>
-
-<hr />
-
-<p>回文を生成するために文字列の両端だけをみるとき, 片方の文字を削除する場合というのはもう片方の外側に文字を付け加えるのと同じ.<br />
-例えばabcdeという文字列を両端から回文にしていくときにeを削除する場合abcdとeabcdeは同じ.<br />
-この文字列に文字を挿入または削除することで回文を作る場合は外側のeは無視して考えるのは明らか.<br />
-よってコストはどちらかの小さい方だけ使う.<br />
-あとはこの要領で始めは両端から見ていって, 毎回どちらかの端だけ操作して範囲を縮めるように再帰すればいい.  </p>
-
-<h4 id="section-2">コード</h4>
-
-<hr />
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (3280.cpp)</span> <a href="/downloads/code/PKU/3280.cpp">download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-<span class="line-number">23</span>
-<span class="line-number">24</span>
-<span class="line-number">25</span>
-<span class="line-number">26</span>
-<span class="line-number">27</span>
-<span class="line-number">28</span>
-<span class="line-number">29</span>
-<span class="line-number">30</span>
-<span class="line-number">31</span>
-<span class="line-number">32</span>
-<span class="line-number">33</span>
-<span class="line-number">34</span>
-<span class="line-number">35</span>
-<span class="line-number">36</span>
-</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="cp">#include &lt;algorithm&gt;</span>
-</span><span class="line"><span class="cp">#include &lt;iostream&gt;</span>
-</span><span class="line"><span class="cp">#include &lt;cstring&gt;</span>
-</span><span class="line"><span class="cp">#include &lt;string&gt;</span>
-</span><span class="line">
-</span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span><span class="line">
-</span><span class="line"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span>
-</span><span class="line">
-</span><span class="line"><span class="k">const</span> <span class="kt">int</span> <span class="n">inf</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span><span class="mf">1e9</span><span class="p">);</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">L</span><span class="p">;</span>
-</span><span class="line"><span class="n">string</span> <span class="n">str</span><span class="p">;</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">cst</span><span class="p">[</span><span class="mi">26</span><span class="p">];</span>
-</span><span class="line">
-</span><span class="line"><span class="kt">int</span> <span class="n">memo</span><span class="p">[</span><span class="mi">2048</span><span class="p">][</span><span class="mi">2048</span><span class="p">];</span>
-</span><span class="line">
-</span><span class="line"><span class="kt">int</span> <span class="n">rec</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">){</span>
-</span><span class="line">    <span class="k">if</span><span class="p">(</span><span class="n">memo</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">r</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">r</span><span class="p">];</span>
-</span><span class="line">    <span class="k">if</span><span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line">    <span class="k">if</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">==</span> <span class="n">str</span><span class="p">[</span><span class="n">r</span><span class="p">])</span> <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">rec</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-</span><span class="line">    <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">rec</span><span class="p">(</span><span class="n">l</span> <span class="p">,</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">cst</span><span class="p">[</span><span class="n">str</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">],</span> <span class="n">rec</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="o">+</span><span class="n">cst</span><span class="p">[</span><span class="n">str</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]);</span>
-</span><span class="line"><span class="p">}</span>
-</span><span class="line">
-</span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
-</span><span class="line">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span> <span class="o">&gt;&gt;</span> <span class="n">M</span><span class="p">;</span>
-</span><span class="line">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">str</span><span class="p">;</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">L</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-</span><span class="line">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-</span><span class="line">        <span class="kt">char</span> <span class="n">c</span><span class="p">;</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
-</span><span class="line">        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">d</span><span class="p">;</span>
-</span><span class="line">        <span class="n">cst</span><span class="p">[</span><span class="n">c</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="n">memset</span><span class="p">(</span><span class="n">memo</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">memo</span><span class="p">));</span>
-</span><span class="line">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">rec</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/5/">&larr; Older</a>
@@ -1680,6 +1666,10 @@ Tag: <span class="tags">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/AOJ/1244/">AOJ 1244 Molecular Formula</a>
+      </li>
+    
+      <li class="post">
         <a href="/PKU/3111/">PKU 3111 K Best</a>
       </li>
     
@@ -1695,19 +1685,15 @@ Tag: <span class="tags">
         <a href="/PKU/3268/">PKU 3268 Silver Cow Party</a>
       </li>
     
-      <li class="post">
-        <a href="/PKU/2394/">PKU 2394 Checking an Alibi</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/categories/aoj'>AOJ (33)</a></li><li><a href='/categories/codeforces'>Codeforces (2)</a></li><li><a href='/categories/livearchive'>LiveArchive (1)</a></li><li><a href='/categories/pku'>PKU (61)</a></li><li><a href='/categories/projecteuler'>ProjectEuler (1)</a></li><li><a href='/categories/topcoder'>TopCoder (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/categories/aoj'>AOJ (34)</a></li><li><a href='/categories/codeforces'>Codeforces (2)</a></li><li><a href='/categories/livearchive'>LiveArchive (1)</a></li><li><a href='/categories/pku'>PKU (61)</a></li><li><a href='/categories/projecteuler'>ProjectEuler (1)</a></li><li><a href='/categories/topcoder'>TopCoder (1)</a></li></ul>
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/tags/aho-corasick' style='font-size: 103.0%'>aho-corasick(1)</a> <a href='/tags/bellman-ford' style='font-size: 106.0%'>bellman-ford(2)</a> <a href='/tags/bfs' style='font-size: 103.0%'>bfs(1)</a> <a href='/tags/binary-indexed-tree' style='font-size: 106.0%'>binary-indexed-tree(2)</a> <a href='/tags/binary-search' style='font-size: 136.0%'>binary-search(12)</a> <a href='/tags/bipartite-matching' style='font-size: 118.0%'>bipartite-matching(6)</a> <a href='/tags/centroid-decomposition' style='font-size: 103.0%'>centroid-decomposition(1)</a> <a href='/tags/compress' style='font-size: 109.0%'>compress(3)</a> <a href='/tags/dfs' style='font-size: 103.0%'>dfs(1)</a> <a href='/tags/dijkstra' style='font-size: 127.0%'>dijkstra(9)</a> <a href='/tags/divide-and-conquer' style='font-size: 103.0%'>divide-and-conquer(1)</a> <a href='/tags/dp' style='font-size: 160.0%'>dp(20)</a> <a href='/tags/geometory' style='font-size: 103.0%'>geometory(1)</a> <a href='/tags/graph' style='font-size: 103.0%'>graph(1)</a> <a href='/tags/greedy' style='font-size: 124.0%'>greedy(8)</a> <a href='/tags/grundy-number' style='font-size: 109.0%'>grundy-number(3)</a> <a href='/tags/implementation' style='font-size: 121.0%'>implementation(7)</a> <a href='/tags/lowest-common-ancestor' style='font-size: 103.0%'>lowest-common-ancestor(1)</a> <a href='/tags/math' style='font-size: 109.0%'>math(3)</a> <a href='/tags/max-flow' style='font-size: 124.0%'>max-flow(8)</a> <a href='/tags/min-cost-flow' style='font-size: 103.0%'>min-cost-flow(1)</a> <a href='/tags/minimum-steiner-tree' style='font-size: 103.0%'>minimum-steiner-tree(1)</a> <a href='/tags/modulo' style='font-size: 103.0%'>modulo(1)</a> <a href='/tags/parsing' style='font-size: 103.0%'>parsing(1)</a> <a href='/tags/probabilities' style='font-size: 103.0%'>probabilities(1)</a> <a href='/tags/randomized' style='font-size: 103.0%'>randomized(1)</a> <a href='/tags/segment-tree' style='font-size: 109.0%'>segment-tree(3)</a> <a href='/tags/spanning-tree' style='font-size: 112.0%'>spanning-tree(4)</a> <a href='/tags/sqrt-decomposition' style='font-size: 103.0%'>sqrt-decomposition(1)</a> <a href='/tags/strongly-connected-component' style='font-size: 106.0%'>strongly-connected-component(2)</a> <a href='/tags/union-find' style='font-size: 109.0%'>union-find(3)</a> <a href='/tags/warshall-floyd' style='font-size: 121.0%'>warshall-floyd(7)</a> <a href='/tags/zeller' style='font-size: 103.0%'>zeller(1)</a> </span>
+    <span id="tag-cloud"><a href='/tags/aho-corasick' style='font-size: 103.0%'>aho-corasick(1)</a> <a href='/tags/bellman-ford' style='font-size: 106.0%'>bellman-ford(2)</a> <a href='/tags/bfs' style='font-size: 103.0%'>bfs(1)</a> <a href='/tags/binary-indexed-tree' style='font-size: 106.0%'>binary-indexed-tree(2)</a> <a href='/tags/binary-search' style='font-size: 136.0%'>binary-search(12)</a> <a href='/tags/bipartite-matching' style='font-size: 118.0%'>bipartite-matching(6)</a> <a href='/tags/centroid-decomposition' style='font-size: 103.0%'>centroid-decomposition(1)</a> <a href='/tags/compress' style='font-size: 109.0%'>compress(3)</a> <a href='/tags/dfs' style='font-size: 103.0%'>dfs(1)</a> <a href='/tags/dijkstra' style='font-size: 127.0%'>dijkstra(9)</a> <a href='/tags/divide-and-conquer' style='font-size: 103.0%'>divide-and-conquer(1)</a> <a href='/tags/dp' style='font-size: 160.0%'>dp(20)</a> <a href='/tags/geometory' style='font-size: 103.0%'>geometory(1)</a> <a href='/tags/graph' style='font-size: 103.0%'>graph(1)</a> <a href='/tags/greedy' style='font-size: 124.0%'>greedy(8)</a> <a href='/tags/grundy-number' style='font-size: 109.0%'>grundy-number(3)</a> <a href='/tags/implementation' style='font-size: 121.0%'>implementation(7)</a> <a href='/tags/lowest-common-ancestor' style='font-size: 103.0%'>lowest-common-ancestor(1)</a> <a href='/tags/math' style='font-size: 109.0%'>math(3)</a> <a href='/tags/max-flow' style='font-size: 124.0%'>max-flow(8)</a> <a href='/tags/min-cost-flow' style='font-size: 103.0%'>min-cost-flow(1)</a> <a href='/tags/minimum-steiner-tree' style='font-size: 103.0%'>minimum-steiner-tree(1)</a> <a href='/tags/modulo' style='font-size: 103.0%'>modulo(1)</a> <a href='/tags/parsing' style='font-size: 106.0%'>parsing(2)</a> <a href='/tags/probabilities' style='font-size: 103.0%'>probabilities(1)</a> <a href='/tags/randomized' style='font-size: 103.0%'>randomized(1)</a> <a href='/tags/segment-tree' style='font-size: 109.0%'>segment-tree(3)</a> <a href='/tags/spanning-tree' style='font-size: 112.0%'>spanning-tree(4)</a> <a href='/tags/sqrt-decomposition' style='font-size: 103.0%'>sqrt-decomposition(1)</a> <a href='/tags/strongly-connected-component' style='font-size: 106.0%'>strongly-connected-component(2)</a> <a href='/tags/union-find' style='font-size: 109.0%'>union-find(3)</a> <a href='/tags/warshall-floyd' style='font-size: 121.0%'>warshall-floyd(7)</a> <a href='/tags/zeller' style='font-size: 103.0%'>zeller(1)</a> </span>
 </section>
 <section>
   <h1>Twitter Timeline</h1>
