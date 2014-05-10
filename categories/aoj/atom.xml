@@ -4,7 +4,7 @@
   <title><![CDATA[Category: AOJ | Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/categories/aoj/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-05-10T16:30:47+09:00</updated>
+  <updated>2014-05-10T16:32:03+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -331,13 +331,13 @@ dp[i][j] := i日目の3人の出席状況j(ビットが立っていれば出席)
 
 <p>5人の成績の平均を求めよ. ただし, 40点未満の点数は40として扱うこと.</p>
 
-<h4 id="section-1"></h4>
+<h4 id="section-1">解法</h4>
 
 <hr />
 
 <p>足し合わせるときに40とmaxを取る.</p>
 
-<h4 id="section-2"></h4>
+<h4 id="section-2">コード</h4>
 
 <hr />
 
