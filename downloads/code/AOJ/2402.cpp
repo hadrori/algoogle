@@ -1,48 +1,18 @@
-#include <cstring>
-#include <algorithm>
-#include <cstdio>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <set>
-#include <complex>
-#include <queue>
-#include <stack>
-#include <string>
-#include <cmath>
-#include <bitset>
-
+#include <bits/stdc++.h>
 #define rep(i,a) for(int i = 0;i < (a); i++)
 #define repi(i,a,b) for(int i = (a); i < (b); i++)
-#define repd(i,a,b) for(int i = (a); i >= (b); i--)
-#define repit(i,a) for(__typeof((a).begin()) i = (a).begin(); i != (a).end(); i++)
-#define all(u) (u).begin(),(u).end()
-#define rall(u) (u).rbegin(),(u).rend()
-#define UNIQUE(u) (u).erase(unique(all(u)),(u).end())
 #define pb push_back
 #define mp make_pair
-#define INF 1e8
-#define EPS 1e-10
+#define INF 1e9
+#define EPS 1e-9
 #define PI acos(-1.0)
-
 using namespace std;
-
-typedef long long ll;
 typedef vector<int> vi;
-typedef pair<int,int> pii;
 typedef complex<double> P;
 
-/* 内積 */
-double dot(const P& a, const P& b){
-    return real(conj(a)*b);
-}
+inline double dot(const P& a, const P& b){ return real(conj(a)*b);}
+inline double cross(const P& a, const P& b) { return imag(conj(a)*b);}
 
-/* 外積 */
-double cross(const P& a, const P& b) {
-    return imag(conj(a)*b);
-}
-
-/* 線分 */
 struct L {
     P a, b;
     L(const P &a, const P &b) : a(a), b(b){}
@@ -58,7 +28,6 @@ int ccw(P a, P b, P c) {
     return 0;
 }
 
-/* 正射影(Lがスクリーン) */
 P projection(const L &l, const P &p) {
     double t = dot(p-l.a, l.a-l.b) / norm(l.a-l.b);
     return l.a + t*(l.a-l.b);
@@ -66,7 +35,7 @@ P projection(const L &l, const P &p) {
 
 bool intersectSS(const L &s, const L &t) {
     return ccw(s.a,s.b,t.a)*ccw(s.a,s.b,t.b) <= 0 &&
-	ccw(t.a,t.b,s.a)*ccw(t.a,t.b,s.b) <= 0;
+        ccw(t.a,t.b,s.a)*ccw(t.a,t.b,s.b) <= 0;
 }
 bool intersectSP(const L &s, const P &p) {
     return abs(s.a-p)+abs(s.b-p)-abs(s.b-s.a) < EPS; // 三角不等式
@@ -80,7 +49,7 @@ double distanceSP(const L &s, const P &p){
 double distanceSS(const L &s, const L &t){
     if (intersectSS(s, t)) return 0;
     return min(min(distanceSP(s, t.a), distanceSP(s, t.b)),
-	       min(distanceSP(t, s.a), distanceSP(t, s.b)));
+               min(distanceSP(t, s.a), distanceSP(t, s.b)));
 }
 
 int n, m, l;
@@ -88,18 +57,18 @@ int n, m, l;
 struct S{
     vector<L> li;
     S(int x, int y, int a, int r){
-	double theta = PI * a / 180;
-	vector<P> p;
-	rep(i,5){
-	    double dx = r * sin(theta + PI * 72 / 180 * i);
-	    double dy = r * cos(theta + PI * 72 / 180 * i);
-	    p.pb(P(x - dx, y + dy));
-	}
-	li.pb(L(p[0], p[2]));
-	li.pb(L(p[0], p[3]));
-	li.pb(L(p[1], p[3]));
-	li.pb(L(p[1], p[4]));
-	li.pb(L(p[2], p[4]));
+        double theta = PI * a / 180;
+        vector<P> p;
+        rep(i,5){
+            double dx = r * sin(theta + PI * 72 / 180 * i);
+            double dy = r * cos(theta + PI * 72 / 180 * i);
+            p.pb(P(x - dx, y + dy));
+        }
+        li.pb(L(p[0], p[2]));
+        li.pb(L(p[0], p[3]));
+        li.pb(L(p[1], p[3]));
+        li.pb(L(p[1], p[4]));
+        li.pb(L(p[2], p[4]));
     }
 };
 
@@ -107,43 +76,42 @@ typedef pair<double,int> pdi;
 
 int main(){
     while(cin >> n >> m >> l, n || m || l){
-	m--; l--;
-	vector<S> star;
-	rep(i,n){
-	    int x, y, a, r;
-	    cin >> x >> y >> a >> r;
-	    star.pb(S(x,y,a,r));
-	}
-	double path[128][128];
-	rep(i,128)rep(j,128) path[i][j] = INF;
-	rep(i,n)repi(j,i+1,n){
-	    double dist = INF;
-	    rep(a,5)rep(b,5){
-		dist = min(dist,
-			   distanceSS(star[i].li[a], star[j].li[b]));
-	    }
-	    path[i][j] = dist;
-	    path[j][i] = dist;
-	}
-	priority_queue<pdi,vector<pdi>,greater<pdi> > que;
-	bool visited[128] = {false};
-	double d[128];
-	rep(i,128) d[i] = INF;
-	d[m] = 0;
-	que.push(mp(0,m));
-	while(!que.empty()){
-	    pdi p = que.top(); que.pop();
-	    if(p.second == l) break;
-	    if(visited[p.second]) continue;
-	    visited[p.second] = true;
-//	    cerr << "star " << p.second << " " << d[p.second] << endl;
-	    rep(i,n){
-		if(d[i] > path[p.second][i] + p.first){
-		    d[i] = path[p.second][i] + p.first;
-		    que.push(mp(d[i],i));
-		}
-	    }
-	}
-	printf("%.8f\n",d[l]);
+        m--; l--;
+        vector<S> star;
+        rep(i,n){
+            int x, y, a, r;
+            cin >> x >> y >> a >> r;
+            star.pb(S(x,y,a,r));
+        }
+        double path[128][128];
+        rep(i,128)rep(j,128) path[i][j] = INF;
+        rep(i,n)repi(j,i+1,n){
+            double dist = INF;
+            rep(a,5)rep(b,5){
+                dist = min(dist,
+                           distanceSS(star[i].li[a], star[j].li[b]));
+            }
+            path[i][j] = dist;
+            path[j][i] = dist;
+        }
+        priority_queue<pdi,vector<pdi>,greater<pdi> > que;
+        bool visited[128] = {false};
+        double d[128];
+        rep(i,128) d[i] = INF;
+        d[m] = 0;
+        que.push(mp(0,m));
+        while(!que.empty()){
+            pdi p = que.top(); que.pop();
+            if(p.second == l) break;
+            if(visited[p.second]) continue;
+            visited[p.second] = true;
+            rep(i,n){
+                if(d[i] > path[p.second][i] + p.first){
+                    d[i] = path[p.second][i] + p.first;
+                    que.push(mp(d[i],i));
+                }
+            }
+        }
+        printf("%.8f\n",d[l]);
     }
 }
