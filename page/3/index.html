@@ -9,10 +9,10 @@
   <meta name="author" content="hadrori">
 
   
-  <meta name="description" content="Chocolate 問題概要 解法 上が食べられてないとチョコを食べることが出来ないので一番上の行から順に見ていく.
-また, そのことから2行目以降の味をあらかじめ1回反転させておけば
-それぞれの行を独立に考えることができる.
-あとは行の両端を見て甘い方を食べる.どちらも辛かったらどっちかを食べる &hellip;">
+  <meta name="description" content="Carpet 問題概要 解法 すべての長方形はy=0に接していると考えていい.
+それらの長方形の左上の数を数えればいい.
+(与えられた図の左上の角になっている部分をカウントする)
+ある高さの入力があったらそれより高さが大きい長方形はそれ以上横に広がれない. priority_queueを用いる. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,126 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/AOJ/2547/">AOJ 2547 Carpet</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-10T14:11:56+09:00" pubdate data-updated="true">May 10<span>th</span>, 2014</time>
+      </p>
+    
+    
+
+Category: <span class="categories">
+  
+    <a class='category' href='/categories/aoj/'>AOJ</a>
+  
+</span>
+
+
+    
+
+Tag: <span class="tags">
+  
+    <a class='tag' href='/tags/greedy/'>greedy</a>
+  
+</span>
+
+
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2547">Carpet</a></p>
+
+<h4 id="section">問題概要</h4>
+
+<hr />
+
+<h4 id="section-1">解法</h4>
+
+<hr />
+
+<p>すべての長方形はy=0に接していると考えていい.<br />
+それらの長方形の左上の数を数えればいい.<br />
+(与えられた図の左上の角になっている部分をカウントする)<br />
+ある高さの入力があったらそれより高さが大きい長方形はそれ以上横に広がれない.  </p>
+
+<p>priority_queueを用いる.<br />
+毎回の入力aについてaより大きい値はすべてポップする.<br />
+もしトップがaじゃなかったらaをプッシュしてカウントする.  </p>
+
+<h4 id="section-2">コード</h4>
+
+<hr />
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (2547.cpp)</span> <a href="/downloads/code/AOJ/2547.cpp">download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="cp">#include &lt;iostream&gt;</span>
+</span><span class="line"><span class="cp">#include &lt;queue&gt;</span>
+</span><span class="line">
+</span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class="line">
+</span><span class="line">    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+</span><span class="line">    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="o">--</span><span class="p">){</span>
+</span><span class="line">        <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+</span><span class="line">        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>
+</span><span class="line">        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">||</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">()</span> <span class="o">!=</span> <span class="n">a</span><span class="p">){</span>
+</span><span class="line">            <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</span><span class="line">            <span class="n">ans</span><span class="o">++</span><span class="p">;</span>
+</span><span class="line">        <span class="p">}</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ans</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1937,199 +2057,6 @@ dp[i][j] := 集合iに含まれない点を現在地jからすべて回った時
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/AOJ/2567/">AOJ 2567 SIRO Challenge</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-05-10T01:10:26+09:00" pubdate data-updated="true">May 10<span>th</span>, 2014</time>
-      </p>
-    
-    
-
-Category: <span class="categories">
-  
-    <a class='category' href='/categories/aoj/'>AOJ</a>
-  
-</span>
-
-
-    
-
-Tag: <span class="tags">
-  
-    <a class='tag' href='/tags/dp/'>dp</a>, <a class='tag' href='/tags/warshall-floyd/'>warshall-floyd</a>
-  
-</span>
-
-
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2567">SIRO Challenge</a>  </p>
-
-<h4 id="section">問題概要</h4>
-
-<hr />
-
-<h4 id="section-1">解法</h4>
-
-<hr />
-
-<p>ラーメン屋がある駅だけに注目すればいいのでWarshall-Floydでラーメン屋間の最短距離を求めておく.<br />
-あとはTSPの全部回らなくてもいい場合みたいにbitDPする.<br />
-dp[S][v] = すでに行ったラーメン屋の集合Sで, 最後に行った店がvの時の最小の経過時間<br />
-dpの初期化はdp[0][s] = 0と各ラーメン屋iについてdp[1« i][s] = sとiの最短距離+食事時間<br />
-あとはbitDPするだけ.<br />
-結果は, 最後にsに行っていて, かつ時間がt以内であるSのうち, ビットが一番立ってる数をみればよい.<br />
-最後に-1してるのは簡単にするためにsも食事時間0のラーメン屋にしているのでそれを省くため.  </p>
-
-<h4 id="section-2">コード</h4>
-
-<hr />
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span> (2567.cpp)</span> <a href="/downloads/code/AOJ/2567.cpp">download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-<span class="line-number">23</span>
-<span class="line-number">24</span>
-<span class="line-number">25</span>
-<span class="line-number">26</span>
-<span class="line-number">27</span>
-<span class="line-number">28</span>
-<span class="line-number">29</span>
-<span class="line-number">30</span>
-<span class="line-number">31</span>
-<span class="line-number">32</span>
-<span class="line-number">33</span>
-<span class="line-number">34</span>
-<span class="line-number">35</span>
-<span class="line-number">36</span>
-<span class="line-number">37</span>
-<span class="line-number">38</span>
-<span class="line-number">39</span>
-<span class="line-number">40</span>
-<span class="line-number">41</span>
-<span class="line-number">42</span>
-<span class="line-number">43</span>
-<span class="line-number">44</span>
-<span class="line-number">45</span>
-<span class="line-number">46</span>
-<span class="line-number">47</span>
-<span class="line-number">48</span>
-<span class="line-number">49</span>
-<span class="line-number">50</span>
-<span class="line-number">51</span>
-<span class="line-number">52</span>
-<span class="line-number">53</span>
-<span class="line-number">54</span>
-<span class="line-number">55</span>
-<span class="line-number">56</span>
-<span class="line-number">57</span>
-<span class="line-number">58</span>
-</pre></td><td class="code"><pre><code class="cpp"><span class="line"><span class="cp">#include &lt;iostream&gt;</span>
-</span><span class="line">
-</span><span class="line"><span class="cp">#define int long long</span>
-</span><span class="line"><span class="cp">#define repi(i,a,b) for(int i = (a); i &lt; (b); i++)</span>
-</span><span class="line"><span class="cp">#define rep(i,a) repi(i,0,a)</span>
-</span><span class="line"><span class="cp">#define INF 1e9</span>
-</span><span class="line">
-</span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span><span class="line">
-</span><span class="line"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">;</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">wf</span><span class="p">[</span><span class="mi">310</span><span class="p">][</span><span class="mi">310</span><span class="p">],</span> <span class="n">jiro</span><span class="p">[</span><span class="mi">310</span><span class="p">],</span> <span class="n">id</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">17</span><span class="p">][</span><span class="mi">20</span><span class="p">];</span>
-</span><span class="line">
-</span><span class="line"><span class="kt">bool</span> <span class="n">input</span><span class="p">(){</span>
-</span><span class="line">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">m</span> <span class="o">&gt;&gt;</span> <span class="n">l</span> <span class="o">&gt;&gt;</span> <span class="n">s</span> <span class="o">&gt;&gt;</span> <span class="n">t</span><span class="p">;</span>
-</span><span class="line">    <span class="n">s</span><span class="o">--</span><span class="p">;</span>
-</span><span class="line">    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">n</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line">    <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="n">rep</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="n">wf</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">INF</span><span class="p">;</span>
-</span><span class="line">    <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">m</span><span class="p">)</span> <span class="p">{</span>
-</span><span class="line">        <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-</span><span class="line">        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
-</span><span class="line">        <span class="n">a</span><span class="o">--</span><span class="p">;</span> <span class="n">b</span><span class="o">--</span><span class="p">;</span>
-</span><span class="line">        <span class="n">wf</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
-</span><span class="line">        <span class="n">wf</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">l</span><span class="p">)</span> <span class="p">{</span>
-</span><span class="line">        <span class="kt">int</span> <span class="n">j</span><span class="p">,</span> <span class="n">e</span><span class="p">;</span>
-</span><span class="line">        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">j</span> <span class="o">&gt;&gt;</span> <span class="n">e</span><span class="p">;</span>
-</span><span class="line">        <span class="n">jiro</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
-</span><span class="line">        <span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="n">jiro</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line">    <span class="n">id</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
-</span><span class="line">    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span><span class="line">
-</span><span class="line"><span class="kt">int</span> <span class="n">solve</span><span class="p">(){</span>
-</span><span class="line">    <span class="n">rep</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="n">rep</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-</span><span class="line">        <span class="n">wf</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">wf</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">wf</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">wf</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span>
-</span><span class="line">
-</span><span class="line">    <span class="n">rep</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="n">rep</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="n">dp</span><span class="p">[</span><span class="n">S</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">INF</span><span class="p">;</span>
-</span><span class="line">    <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line">    <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">l</span><span class="p">)</span> <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">wf</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+</span> <span class="n">jiro</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span><span class="line">
-</span><span class="line">    <span class="n">repi</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="n">rep</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">((</span><span class="n">S</span> <span class="o">&gt;&gt;</span> <span class="n">v</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">))</span>
-</span><span class="line">        <span class="n">rep</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span><span class="p">((</span><span class="n">S</span> <span class="o">&gt;&gt;</span> <span class="n">u</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span>
-</span><span class="line">            <span class="n">dp</span><span class="p">[</span><span class="n">S</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">)][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">S</span><span class="o">|</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">v</span><span class="p">)][</span><span class="n">v</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">S</span><span class="p">][</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">wf</span><span class="p">[</span><span class="n">id</span><span class="p">[</span><span class="n">u</span><span class="p">]][</span><span class="n">id</span><span class="p">[</span><span class="n">v</span><span class="p">]]</span> <span class="o">+</span> <span class="n">jiro</span><span class="p">[</span><span class="n">v</span><span class="p">]);</span>
-</span><span class="line">
-</span><span class="line">    <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line">    <span class="n">rep</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="k">if</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">S</span><span class="p">][</span><span class="n">l</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">t</span><span class="p">)</span>
-</span><span class="line">        <span class="n">ans</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">__builtin_popcount</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-</span><span class="line">
-</span><span class="line">    <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span><span class="line">
-</span><span class="line"><span class="kt">signed</span> <span class="n">main</span><span class="p">(){</span>
-</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="n">input</span><span class="p">()){</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">solve</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;}</span>
-</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/4/">&larr; Older</a>
@@ -2147,6 +2074,10 @@ dpの初期化はdp[0][s] = 0と各ラーメン屋iについてdp[1« i][s] = s
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/AOJ/2182/">AOJ 2182 Eleven Lover</a>
+      </li>
+    
+      <li class="post">
         <a href="/AOJ/1244/">AOJ 1244 Molecular Formula</a>
       </li>
     
@@ -2162,19 +2093,15 @@ dpの初期化はdp[0][s] = 0と各ラーメン屋iについてdp[1« i][s] = s
         <a href="/PKU/2387/">PKU 2387 Til the Cows Come Home</a>
       </li>
     
-      <li class="post">
-        <a href="/PKU/3268/">PKU 3268 Silver Cow Party</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/categories/aoj'>AOJ (34)</a></li><li><a href='/categories/codeforces'>Codeforces (2)</a></li><li><a href='/categories/livearchive'>LiveArchive (1)</a></li><li><a href='/categories/pku'>PKU (61)</a></li><li><a href='/categories/projecteuler'>ProjectEuler (1)</a></li><li><a href='/categories/topcoder'>TopCoder (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/categories/aoj'>AOJ (35)</a></li><li><a href='/categories/codeforces'>Codeforces (2)</a></li><li><a href='/categories/livearchive'>LiveArchive (1)</a></li><li><a href='/categories/pku'>PKU (61)</a></li><li><a href='/categories/projecteuler'>ProjectEuler (1)</a></li><li><a href='/categories/topcoder'>TopCoder (1)</a></li></ul>
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/tags/aho-corasick' style='font-size: 103.0%'>aho-corasick(1)</a> <a href='/tags/bellman-ford' style='font-size: 106.0%'>bellman-ford(2)</a> <a href='/tags/bfs' style='font-size: 103.0%'>bfs(1)</a> <a href='/tags/binary-indexed-tree' style='font-size: 106.0%'>binary-indexed-tree(2)</a> <a href='/tags/binary-search' style='font-size: 136.0%'>binary-search(12)</a> <a href='/tags/bipartite-matching' style='font-size: 118.0%'>bipartite-matching(6)</a> <a href='/tags/centroid-decomposition' style='font-size: 103.0%'>centroid-decomposition(1)</a> <a href='/tags/compress' style='font-size: 109.0%'>compress(3)</a> <a href='/tags/dfs' style='font-size: 103.0%'>dfs(1)</a> <a href='/tags/dijkstra' style='font-size: 127.0%'>dijkstra(9)</a> <a href='/tags/divide-and-conquer' style='font-size: 103.0%'>divide-and-conquer(1)</a> <a href='/tags/dp' style='font-size: 160.0%'>dp(20)</a> <a href='/tags/geometory' style='font-size: 103.0%'>geometory(1)</a> <a href='/tags/graph' style='font-size: 103.0%'>graph(1)</a> <a href='/tags/greedy' style='font-size: 124.0%'>greedy(8)</a> <a href='/tags/grundy-number' style='font-size: 109.0%'>grundy-number(3)</a> <a href='/tags/implementation' style='font-size: 121.0%'>implementation(7)</a> <a href='/tags/lowest-common-ancestor' style='font-size: 103.0%'>lowest-common-ancestor(1)</a> <a href='/tags/math' style='font-size: 109.0%'>math(3)</a> <a href='/tags/max-flow' style='font-size: 124.0%'>max-flow(8)</a> <a href='/tags/min-cost-flow' style='font-size: 103.0%'>min-cost-flow(1)</a> <a href='/tags/minimum-steiner-tree' style='font-size: 103.0%'>minimum-steiner-tree(1)</a> <a href='/tags/modulo' style='font-size: 103.0%'>modulo(1)</a> <a href='/tags/parsing' style='font-size: 106.0%'>parsing(2)</a> <a href='/tags/probabilities' style='font-size: 103.0%'>probabilities(1)</a> <a href='/tags/randomized' style='font-size: 103.0%'>randomized(1)</a> <a href='/tags/segment-tree' style='font-size: 109.0%'>segment-tree(3)</a> <a href='/tags/spanning-tree' style='font-size: 112.0%'>spanning-tree(4)</a> <a href='/tags/sqrt-decomposition' style='font-size: 103.0%'>sqrt-decomposition(1)</a> <a href='/tags/strongly-connected-component' style='font-size: 106.0%'>strongly-connected-component(2)</a> <a href='/tags/union-find' style='font-size: 109.0%'>union-find(3)</a> <a href='/tags/warshall-floyd' style='font-size: 121.0%'>warshall-floyd(7)</a> <a href='/tags/zeller' style='font-size: 103.0%'>zeller(1)</a> </span>
+    <span id="tag-cloud"><a href='/tags/aho-corasick' style='font-size: 102.85714285714286%'>aho-corasick(1)</a> <a href='/tags/bellman-ford' style='font-size: 105.71428571428571%'>bellman-ford(2)</a> <a href='/tags/bfs' style='font-size: 102.85714285714286%'>bfs(1)</a> <a href='/tags/binary-indexed-tree' style='font-size: 105.71428571428571%'>binary-indexed-tree(2)</a> <a href='/tags/binary-search' style='font-size: 134.28571428571428%'>binary-search(12)</a> <a href='/tags/bipartite-matching' style='font-size: 117.14285714285714%'>bipartite-matching(6)</a> <a href='/tags/centroid-decomposition' style='font-size: 102.85714285714286%'>centroid-decomposition(1)</a> <a href='/tags/compress' style='font-size: 108.57142857142857%'>compress(3)</a> <a href='/tags/dfs' style='font-size: 102.85714285714286%'>dfs(1)</a> <a href='/tags/dijkstra' style='font-size: 125.71428571428572%'>dijkstra(9)</a> <a href='/tags/divide-and-conquer' style='font-size: 102.85714285714286%'>divide-and-conquer(1)</a> <a href='/tags/dp' style='font-size: 160.0%'>dp(21)</a> <a href='/tags/geometory' style='font-size: 102.85714285714286%'>geometory(1)</a> <a href='/tags/graph' style='font-size: 102.85714285714286%'>graph(1)</a> <a href='/tags/greedy' style='font-size: 122.85714285714286%'>greedy(8)</a> <a href='/tags/grundy-number' style='font-size: 108.57142857142857%'>grundy-number(3)</a> <a href='/tags/implementation' style='font-size: 120.0%'>implementation(7)</a> <a href='/tags/lowest-common-ancestor' style='font-size: 102.85714285714286%'>lowest-common-ancestor(1)</a> <a href='/tags/math' style='font-size: 108.57142857142857%'>math(3)</a> <a href='/tags/max-flow' style='font-size: 122.85714285714286%'>max-flow(8)</a> <a href='/tags/min-cost-flow' style='font-size: 102.85714285714286%'>min-cost-flow(1)</a> <a href='/tags/minimum-steiner-tree' style='font-size: 102.85714285714286%'>minimum-steiner-tree(1)</a> <a href='/tags/modulo' style='font-size: 102.85714285714286%'>modulo(1)</a> <a href='/tags/parsing' style='font-size: 105.71428571428571%'>parsing(2)</a> <a href='/tags/probabilities' style='font-size: 102.85714285714286%'>probabilities(1)</a> <a href='/tags/randomized' style='font-size: 102.85714285714286%'>randomized(1)</a> <a href='/tags/segment-tree' style='font-size: 108.57142857142857%'>segment-tree(3)</a> <a href='/tags/spanning-tree' style='font-size: 111.42857142857143%'>spanning-tree(4)</a> <a href='/tags/sqrt-decomposition' style='font-size: 102.85714285714286%'>sqrt-decomposition(1)</a> <a href='/tags/strongly-connected-component' style='font-size: 105.71428571428571%'>strongly-connected-component(2)</a> <a href='/tags/union-find' style='font-size: 108.57142857142857%'>union-find(3)</a> <a href='/tags/warshall-floyd' style='font-size: 120.0%'>warshall-floyd(7)</a> <a href='/tags/zeller' style='font-size: 102.85714285714286%'>zeller(1)</a> </span>
 </section>
 <section>
   <h1>Twitter Timeline</h1>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: AOJ | Algoogle]]></title>
   <link href="http://algoogle.hadrori.jp/categories/aoj/atom.xml" rel="self"/>
   <link href="http://algoogle.hadrori.jp/"/>
-  <updated>2014-05-11T00:30:18+09:00</updated>
+  <updated>2014-05-11T16:23:03+09:00</updated>
   <id>http://algoogle.hadrori.jp/</id>
   <author>
     <name><![CDATA[hadrori]]></name>
@@ -12,6 +12,103 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[AOJ 2182 Eleven Lover]]></title>
+    <link href="http://algoogle.hadrori.jp/AOJ/2182/"/>
+    <updated>2014-05-11T16:15:28+09:00</updated>
+    <id>http://algoogle.hadrori.jp/AOJ/2182</id>
+    <content type="html"><![CDATA[<p><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2182">Eleven Lover</a></p>
+
+<h4 id="section">問題概要</h4>
+
+<hr />
+
+<p>数列が与えられるので, その中の連続する部分列が11の倍数になっている個数を求めよ.</p>
+
+<h4 id="section-1">解法</h4>
+
+<hr />
+
+<p>あまりを考えてdpすればよい.<br />
+dp[i][j] := i-1番目の数であまりがjになる場合の数<br />
+とすれば更新はdを現在の位置の数とすると<br />
+dp[i+1][(10*j+d)%11] += dp[i][j]<br />
+となる.<br />
+部分列は各位置の数字(0を除く)を先頭にした場合を追加していけばいい.<br />
+dp[i+1][d] += d &gt; 0  </p>
+
+<h4 id="section-2">コード</h4>
+
+<hr />
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (2182.cpp)</span> <a href='/downloads/code/AOJ/2182.cpp'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#include &lt;bits/stdc++.h&gt;</span>
+</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class='line'><span class="cp">#define repi(i,a,b) for(int i = (a); i &lt; (b); i++)</span>
+</span><span class='line'><span class="cp">#define rep(i,a) repi(i,0,a)</span>
+</span><span class='line'><span class="n">string</span> <span class="n">s</span><span class="p">;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">dp</span><span class="p">[</span><span class="mi">80010</span><span class="p">][</span><span class="mi">11</span><span class="p">],</span> <span class="n">N</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">bool</span> <span class="n">input</span><span class="p">(){</span>
+</span><span class='line'>    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s">&quot;0&quot;</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="n">solve</span><span class="p">(){</span>
+</span><span class='line'>    <span class="n">memset</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">dp</span><span class="p">));</span>
+</span><span class='line'>    <span class="n">N</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span><span class='line'>    <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">rep</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="k">if</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+</span><span class='line'>            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][(</span><span class="mi">10</span><span class="o">*</span><span class="n">j</span><span class="o">+</span><span class="n">d</span><span class="p">)</span><span class="o">%</span><span class="mi">11</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> <span class="n">ans</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">signed</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">input</span><span class="p">()){</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">solve</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[AOJ 1244 Molecular Formula]]></title>
@@ -491,75 +588,6 @@ dp[i][j] := i日目の3人の出席状況j(ビットが立っていれば出席)
 </span><span class='line'>        <span class="n">ans</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>    <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kt">signed</span> <span class="n">main</span><span class="p">(){</span>
-</span><span class='line'>    <span class="n">input</span><span class="p">();</span>
-</span><span class='line'>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">solve</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[AOJ 0592 Average Score]]></title>
-    <link href="http://algoogle.hadrori.jp/AOJ/0592/"/>
-    <updated>2014-05-10T15:08:48+09:00</updated>
-    <id>http://algoogle.hadrori.jp/AOJ/0592</id>
-    <content type="html"><![CDATA[<p><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0592">Average Score</a></p>
-
-<h4 id="section">問題概要</h4>
-
-<hr />
-
-<p>5人の成績の平均を求めよ. ただし, 40点未満の点数は40として扱うこと.</p>
-
-<h4 id="section-1">解法</h4>
-
-<hr />
-
-<p>足し合わせるときに40とmaxを取る.</p>
-
-<h4 id="section-2">コード</h4>
-
-<hr />
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (0592.cpp)</span> <a href='/downloads/code/AOJ/0592.cpp'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#include &lt;bits/stdc++.h&gt;</span>
-</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span><span class='line'><span class="cp">#define int long long</span>
-</span><span class='line'><span class="cp">#define repi(i,a,b) for(int i = (a); i &lt; (b); i++)</span>
-</span><span class='line'><span class="cp">#define rep(i,a) repi(i,0,a)</span>
-</span><span class='line'>
-</span><span class='line'><span class="kt">int</span> <span class="n">seq</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
-</span><span class='line'><span class="kt">void</span> <span class="n">input</span><span class="p">(){</span> <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">];}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kt">int</span> <span class="n">solve</span><span class="p">(){</span>
-</span><span class='line'>    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">max</span><span class="p">(</span><span class="mi">40LL</span><span class="p">,</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">sum</span> <span class="o">/</span> <span class="mi">5</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="kt">signed</span> <span class="n">main</span><span class="p">(){</span>
