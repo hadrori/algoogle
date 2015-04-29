@@ -1,0 +1,32 @@
+---
+layout: post
+title: "PKU 3254 Corn Fields"
+date: 2014-05-07 11:11:20 +0900
+comments: true
+category: PKU
+tags: [dp]
+---
+
+[Corn Fields](http://poj.org/problem?id=3254)
+
+#### 問題概要
+
+****
+
+M*Nのマスがあって, 各マスは使えるかどうかが決まっている.<br>
+それらのマスを隣り合わないように任意の数選ぶとき, 選び方は何通りあるか.<br>
+(0個選ぶのもあり)<br>
+
+#### 解法
+
+****
+
+bitDP<br>
+dp[i][j] := i-1行目で集合jを選ぶときの場合の数<br>
+
+#### コード
+
+****
+
+{% include_code PKU/3254.cpp %}
+

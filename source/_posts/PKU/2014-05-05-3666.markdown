@@ -1,0 +1,28 @@
+---
+layout: post
+title: "PKU 3666 Making the Grade"
+date: 2014-05-05 01:34:57 +0900
+comments: true
+category: PKU
+tags: [compress, dp]
+---
+
+[Making the Grade](http://poj.org/problem?id=3666)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+dp[i][j] := i番目を高さj以上にするときの最小のコスト  
+高さの種類は高々N個なので座圧する.
+
+#### コード
+
+****
+
+{% include_code PKU/3666.cpp %}
+

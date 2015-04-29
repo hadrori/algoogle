@@ -1,0 +1,43 @@
+---
+layout: post
+title: "AOJ 1060 No Story"
+date: 2015-03-28 23:41:08 +0900
+comments: true
+category: AOJ
+tags: [math]
+---
+
+[No Story](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1060)
+
+#### 問題概要
+
+****
+
+LCMがL(<=1,000,000,000,000)になる2整数a,b(a<=b)の組の数
+
+#### 解法
+
+****
+
+{% math %}
+
+L = p_{0}^{e_{0}}p_{1}^{e_{1}}...p_{k}^{e_{k}}
+
+{% endmath %}
+
+pは素数とする.  
+このときある2数のLCMがLになるには, 各pについて2数のどちらかは {% m %} p^{e} {% em %}を含む.  
+もう片方のpは0からe乗のいずれかになる.  
+その組合せを考えれば良い.  
+
+{% math %}
+
+(1+\prod_{i=0}^{k} (2e_{i}+1))/2
+
+{% endmath %}
+
+#### コード
+
+****
+
+{% include_code AOJ/1060.cpp %}

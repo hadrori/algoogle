@@ -1,0 +1,32 @@
+---
+layout: post
+title: "PKU 3662 Telephone Lines"
+date: 2014-05-10 17:04:19 +0900
+comments: true
+category: PKU
+tags: [dijkstra]
+---
+
+[Telephone Lines](http://poj.org/problem?id=3662)
+
+#### 問題概要
+
+****
+
+電話線を場所1からNに引きたい. K本までのケーブルは無料で手に入る.  
+それよりもケーブルが必要なら, 必要なケーブルのうち最長のコストがかかる.  
+
+#### 解法
+
+****
+
+Dijkstraする.  
+各地点でそれまでにもらったケーブルの本数を状態として持つ.  
+あとは距離をmaxで取ればいい.  
+
+#### コード
+
+****
+
+{% include_code PKU/3662.cpp %}
+

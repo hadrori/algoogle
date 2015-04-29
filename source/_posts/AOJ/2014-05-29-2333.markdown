@@ -1,0 +1,31 @@
+---
+layout: post
+title: "AOJ 2333 My friends are small"
+date: 2014-05-29 18:08:35 +0900
+comments: true
+category: AOJ
+tags: [dp]
+---
+
+[My friends are small](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2333)
+
+#### 問題概要
+
+****
+
+N人の友達がいて, 重さの総和がWまで一緒に運べる(運べる余裕があるのに置いて行ったりはしない).  
+このとき運ぶ友達の組み合わせの総数を求めよ.
+
+#### 解法
+
+****
+
+重さの小さい順にソートしておいて, 「i番目まで全て運んで, かつi+1番目を運ばない」場合をすべて考える.  
+このときi+2番目以降を重さW-sum[i]の範囲で自由にえらぶナップサックを考えてDPすればよい.  
+それぞれの場合でw[i+1]以上の余裕ができない場合の数を足し合わせれば答えになる.
+
+#### コード
+
+****
+
+{% include_code AOJ/2333.cpp %}

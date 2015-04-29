@@ -1,0 +1,29 @@
+---
+layout: post
+title: "PKU 3255 Roadblocks"
+date: 2014-05-10 17:06:25 +0900
+comments: true
+category: PKU
+tags: [dijkstra]
+---
+
+[Roadblocks](http://poj.org/problem?id=3255)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+2番目に短いルートを探す.  
+各地点を訪れるのを2回まで許してDijkstraすればよい.  
+負辺がないので2回目に訪れるのは2番目に短いルートであるのは明らか.  
+
+#### コード
+
+****
+
+{% include_code PKU/3255.cpp %}
+

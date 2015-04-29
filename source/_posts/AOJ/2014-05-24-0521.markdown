@@ -1,0 +1,26 @@
+---
+layout: post
+title: "AOJ 0521 Change"
+date: 2014-05-24 13:35:53 +0900
+comments: true
+category: AOJ
+tags: [greedy]
+---
+
+[Change](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0521)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+greedyにやるだけ
+
+#### コード
+
+****
+
+{% include_code AOJ/0521.cpp %}

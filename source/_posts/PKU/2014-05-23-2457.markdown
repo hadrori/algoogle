@@ -1,0 +1,27 @@
+---
+layout: post
+title: "PKU 2457 Part Acquisition"
+date: 2014-05-23 15:22:16 +0900
+comments: true
+category: PKU
+tags: [bfs]
+---
+
+[Part Acquisition](http://poj.org/problem?id=2457)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+BFSで各objectまでの最短経路を出す.  
+そのときに各objectについてどのobjectから来たのかを保存しておく.  
+
+#### コード
+
+****
+
+{% include_code PKU/2457.cpp %}

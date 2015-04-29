@@ -4,12 +4,14 @@
     <li><a href="{{ site.subscribe_email }}" rel="subscribe-email" title="subscribe via email">Email</a></li>
   {% endif %}
 </ul>
-  {% if site.simple_search %}
-<form action="{{ site.simple_search }}" method="get">
+{% if site.simple_search %}
+<form action="{{ site.simple_search }}" id="cse-search-box">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
+    <input type="hidden" name="cx" value="012277257184632001359:xptk-jg-eyo" />
+    <input type="hidden" name="ie" value="UTF-8" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
-  {% endif %}
+
+{% endif %}
 {% include custom/navigation.html %}

@@ -1,0 +1,28 @@
+---
+layout: post
+title: "PKU 1950 Dessert"
+date: 2014-05-23 15:35:18 +0900
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Dessert](http://poj.org/problem?id=1950)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+入るやつを全探索する.  
+'.'でつなぎまくると数が大き(小さ)くなって明らかに無理なうえ, intに収まらないので適当な大き(小さ)さで枝刈り.  
+辞書順はdfsで +-. の順に埋めていけば自然に求まる.  
+
+#### コード
+
+****
+
+{% include_code PKU/1950.cpp %}

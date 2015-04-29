@@ -1,0 +1,28 @@
+---
+layout: post
+title: "AOJ 1186 Integral Rectangles"
+date: 2014-05-12 01:45:19 +0900
+comments: true
+category: AOJ
+tags: [implementation, binary-search]
+---
+
+[Integral Rectangles](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1186)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+長方形の構造体を作ってvectorにすべての長方形をつっこんでソートする.  
+あとは入力の長方形を探して, その次の長方形を返す.
+
+#### コード
+
+****
+
+{% include_code AOJ/1186.cpp %}
+

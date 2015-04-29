@@ -1,0 +1,28 @@
+---
+layout: post
+title: "PKU 3111 K Best"
+date: 2014-05-10 17:25:47 +0900
+comments: true
+category: PKU
+tags: [binary-search]
+---
+
+[K Best](http://poj.org/problem?id=3111)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+二分探索.  
+出力は宝石の番号なので, 判定時のソートのときに一緒に持たせておく.
+
+#### コード
+
+****
+
+{% include_code PKU/3111.cpp %}
+

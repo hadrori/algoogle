@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 3104 Drying"
+date: 2014-05-15 01:00:49 +0900
+comments: true
+category: PKU
+tags: [binary-search]
+---
+
+[Drying](http://poj.org/problem?id=3104)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+時間を2分探索する.
+
+#### コード
+
+****
+
+{% include_code PKU/3104.cpp %}

@@ -1,0 +1,32 @@
+---
+layout: post
+title: "ACM-ICPC Tokyo Regional 2014 B Miscalculation"
+date: 2014-10-24 03:06:40 +0900
+comments: true
+category: ICPC
+tags: [implementation]
+---
+
+[Miscalculation](http://judge.u-aizu.ac.jp/onlinejudge/cdescription.jsp?cid=ICPCOOC2014&pid=B)
+
+#### 問題概要
+
+****
+
+和と積の式と計算結果が与えられる.  
+左から計算した場合, 乗算を優先した場合のそれぞれの答えと一致するか調べよ.  
+ただし式中の数は1桁
+
+#### 解法
+
+****
+
+とりあえず左から計算して結果を覚えておく(これは簡単なのでいいでしょう).  
+次に乗算(a\*bとする)を0+(a\*b)に置き換える.  
+あとは左から足しちゃえばいい
+
+#### コード
+
+****
+
+{% include_code ICPC/2014/Tokyo/B.cpp %}

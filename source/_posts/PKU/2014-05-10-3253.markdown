@@ -1,0 +1,32 @@
+---
+layout: post
+title: "PKU 3253 Fence Repair"
+date: 2014-05-10 00:50:01 +0900
+comments: true
+category: PKU
+tags: [greedy]
+---
+
+[Fence Repair](http://poj.org/problem?id=3253)
+
+#### 問題概要
+
+****
+
+長さがsum(L)の板をN本のそれぞれの長さがL[i]の板になるように切りたい.  
+ただし板を長さxとy切断するときにx+yだけコストがかかる.  
+コストの最小を求めよ.  
+
+#### 解法
+
+****
+
+蟻本にあるとおり, 切断されたものをマージすると考える.  
+短いものからマージしたほうがコストが小さくなるのでpriority_queueに板を突っ込んでいき, 短いものを取り出してマージするのを繰り返せばいい.  
+
+#### コード
+
+****
+
+{% include_code PKU/3253.cpp %}
+

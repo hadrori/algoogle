@@ -1,0 +1,29 @@
+---
+layout: post
+title: "AOJ 2356 Palindromic Anagram"
+date: 2014-05-15 00:51:03 +0900
+comments: true
+category: AOJ
+tags: [math]
+---
+
+[Palindromic Anagram](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2356)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+各アルファベットの出現回数が奇数回なものが2個以上あったら回文にならない.  
+1個の時は入力のサイズが奇数以外では回文にならない.   
+それ以外について  
+それぞれの出現回数を半分にした文字列の並べ替え方の数が答え.  
+
+#### コード
+
+****
+
+{% include_code AOJ/2356.cpp %}

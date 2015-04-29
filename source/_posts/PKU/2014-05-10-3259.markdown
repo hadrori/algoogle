@@ -1,0 +1,30 @@
+---
+layout: post
+title: "PKU 3259 Wormholes"
+date: 2014-05-10 16:42:37 +0900
+comments: true
+category: PKU
+tags: [bellman-ford]
+---
+
+[Wormholes](http://poj.org/problem?id=3259)
+
+#### 問題概要
+
+****
+
+グラフに負閉路があればYES, そうでなければNO.  
+
+#### 解法
+
+****
+
+負閉路の検出はBellman-Fordを使うことでできる.  
+Bellman-Fordでは負閉路がなければ更新は|V|-1回以下のループで終わるはずなので|V|回目も試してみて更新が起これば負閉路があることになる. whileで回った回数を数えてもよい.  
+
+#### コード
+
+****
+
+{% include_code PKU/3259.cpp %}
+

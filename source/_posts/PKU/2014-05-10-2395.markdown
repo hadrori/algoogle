@@ -1,0 +1,29 @@
+---
+layout: post
+title: "PKU 2395 Out of Hay"
+date: 2014-05-10 17:10:17 +0900
+comments: true
+category: PKU
+tags: [dijkstra]
+---
+
+[Out of Hay](http://poj.org/problem?id=2395)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+地点0からDijkstraするだけ.  
+最小距離というのが和ではなくて辺の長さのmaxで更新される.  
+あとはその最大値.  
+
+#### コード
+
+****
+
+{% include_code PKU/2395.cpp %}
+

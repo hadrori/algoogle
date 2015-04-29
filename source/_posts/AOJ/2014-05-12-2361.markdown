@@ -1,0 +1,27 @@
+---
+layout: post
+title: "AOJ 2361 Sort"
+date: 2014-05-12 01:14:19 +0900
+comments: true
+category: AOJ
+tags: [dijkstra]
+---
+
+[Sort](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2361)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+ソートされた状態から各状態までの最小コストをダイクストラで求めて, その中で最大のものを求める.
+
+#### コード
+
+****
+
+{% include_code AOJ/2361.cpp %}
+

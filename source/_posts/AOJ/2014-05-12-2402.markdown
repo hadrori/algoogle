@@ -1,0 +1,28 @@
+---
+layout: post
+title: "AOJ 2402 Milky Way"
+date: 2014-05-12 01:29:41 +0900
+comments: true
+category: AOJ
+tags: [dijkstra, geometory]
+---
+
+[Milky Way](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2402)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+各星間の距離を求めてダイクストラする.  
+五芒星は5つの辺の情報で持たせて, 2つの五芒星の距離はそれぞれの星の辺同士の距離の最小値.  
+
+#### コード
+
+****
+
+{% include_code AOJ/2402.cpp %}
+

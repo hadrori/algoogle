@@ -1,0 +1,32 @@
+---
+layout: post
+title: "AOJ 2450 Do use segment tree"
+date: 2015-04-01 01:33:40 +0900
+comments: true
+category: AOJ
+tags: [heavy-light-decomposition, segment-tree]
+---
+
+[Do use segment tree](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2450)
+
+#### 問題概要
+
+****
+
+各頂点に重さを持つn(<=200,000)頂点の木が与えられる.  
+以下のクエリが合計でq(<=100,000)個くるのでその中の出力クエリに答えろ.  
+
+* 頂点aからbへのパス上の頂点の値をcに変更する
+* 頂点aからbへのパス上の連続する頂点の和の最大
+
+#### 解法
+
+****
+
+木をHL分解してセグ木で殴るだけ
+
+#### コード
+
+****
+
+{% include_code AOJ/2450.cpp %}

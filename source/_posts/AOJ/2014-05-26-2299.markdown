@@ -1,0 +1,27 @@
+---
+layout: post
+title: "AOJ 2299 Tiles are Colorful"
+date: 2014-05-26 18:07:10 +0900
+comments: true
+category: AOJ
+tags: [brute-force]
+---
+
+[Tiles are Colorful](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2299)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+愚直にやっても間に合うので空いてるタイルを試して消せたら消す.  
+というのをできなくなるまで繰り返す.  
+
+#### コード
+
+****
+
+{% include_code AOJ/2299.cpp %}

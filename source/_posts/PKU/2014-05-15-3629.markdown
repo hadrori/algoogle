@@ -1,0 +1,30 @@
+---
+layout: post
+title: "PKU 3629 Card Stacking"
+date: 2014-05-15 14:43:16 +0900
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Card Stacking](http://poj.org/problem?id=3629)
+
+#### 問題概要
+
+****
+
+K枚のデッキからN人に順番に配っていく. 自分は最後.  
+配るたびにP枚上からしたに入れる.  
+自分にくるカードは始めの状態での上から何枚目のやつか.  
+
+#### 解法
+
+****
+
+デッキをQueueでシミュレーションするだけ.
+
+#### コード
+
+****
+
+{% include_code PKU/3629.cpp %}
