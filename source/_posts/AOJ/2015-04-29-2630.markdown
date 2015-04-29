@@ -1,0 +1,35 @@
+---
+layout: post
+title: "AOJ 2630 Dictionary"
+date: 2015-04-29 14:21:30 +0900
+comments: true
+category: AOJ
+tags: [dp]
+---
+
+[Dictionary](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2630)
+
+#### 問題概要
+
+****
+
+n(<=50)個の文字列が辞書順に並んでいる．  
+しかし文字列の一部分が読めない．  
+元の文字列として考えられるのは何通りか．
+
+#### 解法
+
+****
+
+メモ化再帰します．  
+dp\[l\]\[r\]\[p\]\[c\] := 文字列\[l,r)のp文字目がc以上の場合の数  
+とすれば以下の2つの場合に分けられる．  
+
+* 文字列\[l,r)の位置pのすべてがc+1以上
+* 区間\[l,r)を2つに分割して，前半の位置pがcかつ後半の位置pがc+1以上
+
+#### コード
+
+****
+
+{% include_code AOJ/2630.cpp %}
