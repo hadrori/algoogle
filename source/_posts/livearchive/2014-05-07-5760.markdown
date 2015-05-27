@@ -7,7 +7,7 @@ category: LiveArchive
 tags: [dp]
 ---
 
-[Alice and Bob](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=9)
+[Alice and Bob](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=307&page=show_problem&problem=3771)
 
 #### 問題概要
 
