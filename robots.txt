@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://algoogle.hadrori.jp/sitemap.xml 
