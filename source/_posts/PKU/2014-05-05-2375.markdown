@@ -1,0 +1,31 @@
+---
+layout: post
+title: "PKU 2375 Cow Ski Area"
+date: 2014-05-05 00:23:34 +0900
+comments: true
+category: PKU
+tags: [union-find]
+---
+
+[Cow Ski Area](http://poj.org/problem?id=2375)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+いろいろ試したせいでずいぶんと汚いコードになってしまった.
+Union Findいらないのでは感あるけど移動できる同じ高さのエリアをまとめるのに使っている.
+そのエリアがそれより低いの場所に繋がっていないならbottom
+それより高い場所につながってないならtop
+としてtopとbottomをカウントし, 大きい方を返す.
+
+#### コード
+
+****
+
+{% include_code PKU/2375.cpp %}
+

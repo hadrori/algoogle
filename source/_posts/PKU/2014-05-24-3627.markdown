@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 3627 Bookshelf"
+date: 2014-05-24 12:59:52 +0900
+comments: true
+category: PKU
+tags: [greedy]
+---
+
+[Bookshelf](http://poj.org/problem?id=3627)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+ソートしてgreedyに選んでいくだけ
+
+#### コード
+
+****
+
+{% include_code PKU/3627.cpp %}

@@ -1,0 +1,38 @@
+---
+layout: post
+title: "Codeforces 434C Tachibana Kanade's Tofu"
+date: 2014-07-24 22:05:12 +0900
+comments: true
+category: Codeforces
+tags: [dp, aho-corasick]
+---
+
+[Tachibana Kanade's Tofu](http://codeforces.com/problemset/problem/434/C)
+
+#### 問題概要
+
+****
+
+m進数のn個のパターンとそのそれぞれにスコアv\[i\](0<=i<n)が与えられる.  
+m進数の区間\[l,r\]の値xについて, そのxの一部分にパターンiをu個含む場合v[i]*uだけxのスコアに加える.  
+このとき, 区間\[l,r\]にスコアがkを超えないものはいくつあるか.
+
+#### 解法
+
+****
+
+桁DPする.  
+\[l,r\]なので\[0,r\]と\[0,l-1\]に分けてやることで下を無視する.  
+上限は現在まで上限に沿ってきているかどうかの状態をDPに持たせる.  
+パターンにマッチするかはAho-Corasickでオートマトンを生成し, 各状態をDPに持たせれば良い.  
+またパターンにleading-0が含まれるのでDPの状態に現在の値がleading-0かどうかの状態も持たせる.  
+またスコアはKより大きい数はいらないので無視するかまとめて使わない部分に足してしまう.  
+dp\[digit\]\[state\]\[min(K+1,score)\]\[is leading-0\]\[is upper bound\]  
+みたいにすればよい.  
+あとは素直にループを回せば良い
+
+#### コード
+
+****
+
+{% include_code Codeforces/434C.cpp %}

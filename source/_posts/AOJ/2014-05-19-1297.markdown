@@ -1,0 +1,31 @@
+---
+layout: post
+title: "AOJ 1297 Swimming Jam"
+date: 2014-05-19 20:59:12 +0900
+comments: true
+category: AOJ
+tags: [data-structure, queue]
+---
+
+[Swimming Jam](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1297)
+
+#### 問題概要
+
+****
+
+プールに行きのレーンと帰りのレーンがある.  
+それぞれの人が決まった速さで決まった回数往復する.  
+ただし各レーンで追い越しは禁止されていてレーンの端でのみ順番が入れ替えられる.  
+最後1人が泳ぎ終わる時刻を求めよ.
+
+#### 解法
+
+****
+
+各レーンをqueueに見立ててやれば, 先頭が到着した時その時刻以前に到着する予定だった人すべてを同時に処理して反対のレーンのqueueに入れてやれば良い.  
+
+#### コード
+
+****
+
+{% include_code AOJ/1297.cpp %}

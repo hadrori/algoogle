@@ -1,0 +1,31 @@
+---
+layout: post
+title: "AOJ 1176 Planning Rolling Blackouts"
+date: 2014-05-18 10:18:28 +0900
+comments: true
+category: AOJ
+tags: [dp]
+---
+
+[Planning Rolling Blackouts](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1176)
+
+#### 問題概要
+
+****
+
+H*Wのマスにそれぞれ必要なコストと全体に使えるコストが決まっている. マスを適切に区切ることで1つの塊のコストの総和を引けば全体に使えるコストでその他のエリアのコストを賄えるようにする.  
+区切り方はそれぞれの区切られた長方形を縦, または横に一直線にしか区切ることが出来ない.  
+このとき別れるグループの数を最大化し, またそのときの余裕も最大化しろ.
+
+#### 解法
+
+****
+
+長方形の左上と右下を状態としてメモ化再帰する.  
+各長方形に対して, 縦に分割する場合と横に分割する場合をすべて試す.
+
+#### コード
+
+****
+
+{% include_code AOJ/1176.cpp %}

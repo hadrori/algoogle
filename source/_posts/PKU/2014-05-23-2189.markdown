@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 2189 Romeo Meets Juliet"
+date: 2014-05-23 15:05:58 +0900
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Romeo Meets Juliet](http://poj.org/problem?id=2189)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+左側を固定して伸ばせるだけ右に伸ばす. その最大の幅をみればよい
+
+#### コード
+
+****
+
+{% include_code PKU/2189.cpp %}

@@ -1,0 +1,34 @@
+---
+layout: post
+title: "AOJ 2566 Restore Calculation"
+date: 2014-05-10 02:01:25 +0900
+comments: true
+category: AOJ
+tags: [dp]
+---
+
+[Restore Calculation](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2566)
+
+#### 問題概要
+
+****
+
+虫食い算の解の数を求めよ
+
+#### 解法
+
+****
+
+dp[i][j] = i桁目にくる繰り上がりがjの時の場合の数  
+各桁について?の場所にくる数をすべて試す.  
+A,B,Cのi桁目の数をai, bi, ciとすると  
+if((ai + bi) % 10 == ci) dp[i+1][(ai + bi) / 10] += dp[i][0]  
+if((ai + bi + 1) % 10 == ci) dp[i+1][(ai + bi + 1) / 10] += dp[i][1]  
+でDPを更新していく.  
+
+#### コード
+
+****
+
+{% include_code AOJ/2566.cpp %}
+

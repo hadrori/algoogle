@@ -1,0 +1,27 @@
+---
+layout: post
+title: "PKU 3050 Hopscotch"
+date: 2014-05-25 23:51:37 +0900
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Hopscotch](http://poj.org/problem?id=3050)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+全探索する.  
+生成された数をsetに突っ込んでいく.
+
+#### コード
+
+****
+
+{% include_code PKU/3050.cpp %}

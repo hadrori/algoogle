@@ -1,0 +1,32 @@
+---
+layout: post
+title: "JOI 春合宿 2008 Nile.Com"
+date: 2014-09-04 02:29:08 +0900
+comments: true
+category: JOI
+tags: [dp]
+---
+
+[Nile.Com](http://joisc2008.contest.atcoder.jp/tasks/joisc2008_nile)
+
+#### 問題概要
+
+****
+
+各店でi日目に買う商品の値段が決まっている.  
+2日連続で同じ店で購入すると1割引, 3日以上連続だと3割引で商品を買える.  
+最小のコストを求めよ
+
+#### 解法
+
+****
+
+DP  
+dp\[\i]\[\j]\[\k] := i日目に店jで連続k回購入した時の最小のコスト  
+新しい店で買うときは前日までの最小のコストから遷移する(一区切りついて前の状態が関係なくなる).  
+
+#### コード
+
+****
+
+{% include_code JOI/2008/Nile.cpp %}

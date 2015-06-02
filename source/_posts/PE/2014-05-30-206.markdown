@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Project Euler 206 Concealed Square"
+date: 2014-05-30 00:44:24 +0900
+comments: true
+category: ProjectEuler
+tags: [dfs]
+---
+
+[Concealed Square](http://projecteuler.net/problem=206)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+全探索. 実行時間50秒だったのでよしとします.  
+2乗して1の位が0になる場合は10の位も0で確定されるのは明らかなのでこれは埋めておく.  
+
+#### コード
+
+****
+
+{% include_code PE/206.d %}

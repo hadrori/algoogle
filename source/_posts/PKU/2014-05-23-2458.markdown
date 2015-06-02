@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 2458 Rigging the Bovine Election"
+date: 2014-05-23 14:49:01 +0900
+comments: true
+category: PKU
+tags: [implementation, dfs]
+---
+
+[Rigging the Bovine Election](http://poj.org/problem?id=2458)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+全部試す
+
+#### コード
+
+****
+
+{% include_code PKU/2458.cpp %}

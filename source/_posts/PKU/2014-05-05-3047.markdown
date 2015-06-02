@@ -1,0 +1,30 @@
+---
+layout: post
+title: "PKU 3047 Bovine Birthday"
+date: 2014-05-05 00:46:28 +0900
+comments: true
+category: PKU
+tags: [zeller]
+---
+
+[Bovine Birthday](http://poj.org/problem?id=3047)
+
+#### 問題概要
+
+****
+
+日付から曜日を求めよ.
+
+#### 解法
+
+****
+
+Zellerの公式に入れるだけ.
+[Wikipedia ツェラーの公式](http://ja.wikipedia.org/wiki/%E3%83%84%E3%82%A7%E3%83%A9%E3%83%BC%E3%81%AE%E5%85%AC%E5%BC%8F)
+
+#### コード
+
+****
+
+{% include_code PKU/3047.cpp %}
+

@@ -1,0 +1,27 @@
+---
+layout: post
+title: "PKU 2377 Bad Cowtractors"
+date: 2014-05-04 17:39:01 +0900
+comments: true
+category: PKU
+tags: [spanning-tree, union-find]
+---
+
+[Bad Cowtractors](http://poj.org/problem?id=2377)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+最小全域木を求めるだけ. 辺が与えられるのでKruskalでやる.
+
+#### コード
+
+****
+
+{% include_code PKU/2377.cpp %}
+

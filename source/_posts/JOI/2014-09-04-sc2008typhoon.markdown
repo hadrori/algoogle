@@ -1,0 +1,37 @@
+---
+layout: post
+title: "JOI 春合宿 2008 Typhoon"
+date: 2014-09-04 17:27:48 +0900
+comments: true
+category: JOI
+tags: [binary-indexed-tree, sqrt-decomposition, compress]
+---
+
+[Typhoon](http://joisc2008.contest.atcoder.jp/tasks/joisc2008_typhoon)
+
+#### 問題概要
+
+****
+
+n個の台風の被害にあった区間\[s,t\]の情報が与えられる.  
+地点pに台風q号からr号までで被害にあった回数を答えるクエリm個を捌け
+
+#### 解法
+
+****
+
+まず場所の範囲が大きいのでクエリで聞かれる場所だけで座標圧縮する.  
+  
+n個の台風を平方分割する.  
+分割された部分までの台風の情報をまとめて累積で持つ.  
+分割部分からはみ出た部分はナイーブに計算する.  
+分割部分はBITで持つことにする.  
+  
+TLE厳し目なうえ, 分割数によってはMLEも厳しいのでsegreeを使う場合は気をつける  
+
+
+#### コード
+
+****
+
+{% include_code JOI/2008/Typhoon.cpp %}

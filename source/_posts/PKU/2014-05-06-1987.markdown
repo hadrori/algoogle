@@ -1,0 +1,31 @@
+---
+layout: post
+title: "PKU 1987 Distance Statistics"
+date: 2014-05-06 21:25:58 +0900
+comments: true
+category: PKU
+tags: [centroid-decomposition, divide-and-conquer]
+---
+
+[Distance Statistics](http://poj.org/problem?id=1987)
+
+#### 問題概要
+
+****
+
+頂点数N(<=40,000)の木の中で, 距離がK以下の頂点の組はいくつあるか.
+
+#### 解法
+
+****
+
+真っ当に考えれば分割統治で, 木の分割統治なので重心分解をする(詳しくは蟻本参照).  
+ただしPOJなのでグラフの構築にvectorなど使ったら当然TLEする.  
+問題の制約から, 各点からは4方向にしか辺が伸びないことを考えると大きさ4の配列を取ってサイズを覚えておくだけで十分なことがわかる.  
+
+#### コード
+
+****
+
+{% include_code PKU/1987.cpp %}
+

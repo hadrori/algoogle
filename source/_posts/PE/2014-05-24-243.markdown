@@ -1,0 +1,51 @@
+---
+layout: post
+title: "Project Euler 243 Resillience"
+date: 2014-05-24 15:09:36 +0900
+comments: true
+category: ProjectEuler
+tags: [math]
+---
+
+[Resillience](http://projecteuler.net/problem=243)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+いっぱい素数を含んだほうが約数いっぱいでうれしい.  
+既約になる数はオイラーの{% m %}\phi{% em %}関数で求められる.  
+オイラーの{% m %}\phi{% em %}関数の特徴で  
+
+{% math %}
+\begin{eqnarray*}
+\phi (mn) &=& \phi (m) \phi (n) & \\
+\phi (p) &=& p-1 & (pは素数)\\
+\end{eqnarray*}
+{% endmath %}
+
+から素数を順番にかけていって  
+{% m %}\prod \frac{\phi (p_k)}{p_k}{% em %}  
+がはじめて15499 / 94744を下回ったあたりに答えがある.  
+途中の計算で約分してしまわないように気をつける(分数を扱うものでやらないように).  
+ちなみにこの数は分母を-1してないので求める分数より小さくなっている.  
+その積の分母をqとする. 1から順に掛けていって  
+
+{% math %}
+\begin{eqnarray*}
+\frac{k\phi (q)}{qk-1} < \frac{15499}{94744}
+\end{eqnarray*}
+{% endmath %}  
+
+となるqkが答え.  
+
+
+#### コード
+
+****
+
+{% include_code PE/243.hs %}

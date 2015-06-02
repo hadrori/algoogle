@@ -1,0 +1,30 @@
+---
+layout: post
+title: "PKU 3579 Median"
+date: 2014-05-10 17:21:38 +0900
+comments: true
+category: PKU
+tags: [binary-search]
+---
+
+[Median](http://poj.org/problem?id=3579)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+中央値を探索する.  
+Xをソートすればi番目との差がn以上になる数は  
+X[i] + n以上になる数, つまりX[i] + nを更に二分探索してやって  
+全体の要素数からその位置を引いてやった数になる.
+
+#### コード
+
+****
+
+{% include_code PKU/3579.cpp %}
+

@@ -1,0 +1,49 @@
+---
+layout: post
+title: "AOJ 2326 Number Sorting"
+date: 2014-06-01 20:36:39 +0900
+comments: true
+category: AOJ
+tags: [dp, math]
+---
+
+[Number Sorting](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2326)
+
+#### 問題概要
+
+****
+
+閉区間[A,B]の間の部分列に順番がその辞書順と同じになるものはいくつあるか
+
+#### 解法
+
+****
+
+まず簡単なDPを考えると  
+dp[i] := iが最後になる数列の場合の数  
+となって2重ループで求められることがわかる  
+
+```
+for i in [A,B]
+    for j in [i+1,B]
+        if lex_ord(i,j)
+            dp[j] += dp[i]
+```
+
+しかしこれだと間に合わない.  
+数iより大きくて辞書順で小さくなる数jを考える.  
+例えばiを27とするとjは[100,270), [1000,2700), [10000,27000), ...となる.  
+このことからそれ以外の区間全体ににdp[i]を足してやることを考えれば良い.  
+このことを踏まえたDPを考えると  
+dp[i] := iに足される数の変化量  
+とすると前の例では足す数をgvとすると  
+dp[27] += gv  
+dp[100] -= gv  
+...  
+とやればよい.  
+
+#### コード
+
+****
+
+{% include_code AOJ/2326.cpp %}

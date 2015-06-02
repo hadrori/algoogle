@@ -1,0 +1,31 @@
+---
+layout: post
+title: "AOJ 2197 Sum of Consecutive Integers"
+date: 2014-05-15 15:46:12 +0900
+comments: true
+category: AOJ
+tags: [inchworm-method]
+---
+
+[Sum of Consecutive Integers](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2197)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+入力Nと等しくなる2つ以上の連続した数はいくつあるか.  
+leftとrightを決めてその間の合計がNより小さければright++  
+そうでなければleft++  
+等しくなったらカウントしてright++  
+rightがNに届いたら終了  
+
+
+#### コード
+
+****
+
+{% include_code AOJ/2197.cpp %}

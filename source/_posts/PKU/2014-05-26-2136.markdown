@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 2136 Vertical Histogram"
+date: 2014-05-26 00:16:54 +0900
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Vertical Histogram](http://poj.org/problem?id=2136)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+アルファベットの出現回数をカウントして, 最大の出現回数分ループを回してヒストグラムを表示する.
+
+#### コード
+
+****
+
+{% include_code PKU/2136.cpp %}

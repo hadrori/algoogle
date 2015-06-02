@@ -1,0 +1,32 @@
+---
+layout: post
+title: "PKU 1984 Navigation Nightmare"
+date: 2014-05-05 00:21:12 +0900
+comments: true
+category: PKU
+tags: [union-find]
+---
+
+[Navigation Nightmare](http://poj.org/problem?id=1984)
+
+#### 問題概要
+
+****
+
+時系列順に辺が与えられる. 最終的に全域木なる.  
+クエリが与えられて, ある時刻に2つの節点のマンハッタン距離が欲しい. 連結でないなら-1を出力する.  
+
+#### 解法
+
+****
+
+まず1点を固定してそこからの相対座標をだす. 木なので適当にdfsしてやればよい.  
+つぎに各クエリを時刻順にソートして各時刻までunion-findしてやれば連結かどうかの判定は簡単にできる.  
+マンハッタン距離はdfsしてだした相対座標からすぐ出せる.  
+
+#### コード
+
+****
+
+{% include_code PKU/1984.cpp %}
+

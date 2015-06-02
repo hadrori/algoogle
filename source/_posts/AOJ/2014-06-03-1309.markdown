@@ -1,0 +1,28 @@
+---
+layout: post
+title: "AOJ 1309 The Two Men of the Japanese Alps"
+date: 2014-06-03 23:18:59 +0900
+comments: true
+category: AOJ
+tags: [dijkstra]
+---
+
+[The Two Men of the Japanese Alps](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1309)
+
+#### 問題概要
+
+****
+
+始め山の両端に人がいてお互いが同じ高さを保ちながら移動するとき, 2人が出会うまでに移動する最小の距離はいくらか.
+
+#### 解法
+
+****
+
+2人が上りと下りの向きを変えるのはどこかの山の頂点に達した時なので, 止まる位置を各斜面の全ての山の高さの位置にしたDijkstraを考える.  
+
+#### コード
+
+****
+
+{% include_code AOJ/1309.cpp %}

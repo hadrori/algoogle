@@ -1,0 +1,27 @@
+---
+layout: post
+title: "PKU 2386 Lake Counting"
+date: 2014-05-25 23:54:18 +0900
+comments: true
+category: PKU
+tags: [dfs]
+---
+
+[Lake Counting](http://poj.org/problem?id=2386)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+'W'を見つけたら連結してるのをすべて'.'に変える.  
+その回数を数える.  
+
+#### コード
+
+****
+
+{% include_code PKU/2386.cpp %}

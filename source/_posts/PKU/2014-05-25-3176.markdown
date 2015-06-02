@@ -1,0 +1,27 @@
+---
+layout: post
+title: "PKU 3176 Cow Bowling"
+date: 2014-05-25 23:53:09 +0900
+comments: true
+category: PKU
+tags: [dp]
+---
+
+[Cow Bowling](http://poj.org/problem?id=3176)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+上から順にスコアを確定させていく.  
+次の行の行けるピンの位置のスコアを最大値に更新していけばいい
+
+#### コード
+
+****
+
+{% include_code PKU/3176.cpp %}

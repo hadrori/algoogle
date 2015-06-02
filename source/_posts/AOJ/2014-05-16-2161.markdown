@@ -1,0 +1,31 @@
+---
+layout: post
+title: "AOJ 2161 Defend the Bases"
+date: 2014-05-16 14:20:10 +0900
+comments: true
+category: AOJ
+tags: [binary-search, bipartite-matching]
+---
+
+[Defend the Bases](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2161)
+
+#### 問題概要
+
+****
+
+N個の軍隊とM個の基地のそれぞれの位置が与えられる. また軍隊は進む速さも与えられる.  
+このとき各基地に1つ以上の軍隊を送るときの最小の時間を求めよ.  
+
+#### 解法
+
+****
+
+時間を二分探索する.  
+ある時間limを超えないように辺を張った時の2部マッチングを行って結果がMであればok  
+制約にNとMの関係が書かれていないが, M<=Nらしい.  
+
+#### コード
+
+****
+
+{% include_code AOJ/2161.cpp %}

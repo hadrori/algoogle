@@ -1,0 +1,35 @@
+---
+layout: post
+title: "PKU 3622 Gourmet Grazers"
+date: 2014-05-06 21:23:36 +0900
+comments: true
+category: PKU
+tags: [greedy]
+---
+
+[Gourmet Grazers](http://poj.org/problem?id=3622)
+
+#### 問題概要
+
+****
+
+N匹の牛がいて, それぞれ価値Ai以上, 新鮮さBi以上の草しか食べない.<br>
+M個の草が売られていて, それぞれ価値Ci, 新鮮さDiとなっている<br>
+すべての牛に条件を満たす草を与えるときの価値の総和の最小を求めよ.
+
+
+#### 解法
+
+****
+
+草の条件が大きい牛から順にみていき, それぞれそれ以上になる草の価値を全てmultisetに突っ込む.<br>
+multisetに入っている価値のうち牛の条件をみたす最小の価値の草がその牛に与える草.<br>
+その価値より大きい草を与える意味は皆無.
+
+
+#### コード
+
+****
+
+{% include_code PKU/3622.cpp %}
+
