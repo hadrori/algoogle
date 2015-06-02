@@ -1,0 +1,32 @@
+---
+layout: post
+title: "PKU 3264 Balanced Lineup"
+date: 2014-05-04T17:42:00+09:00
+comments: true
+category: PKU
+tags: [segment-tree]
+---
+
+[Balanced Lineup](http://poj.org/problem?id=3264)
+
+#### 問題概要
+
+****
+
+各牛に高さが与えられる.  
+区間を各クエリで渡すのでその区間にいる牛の高さの差の最大を答えよ.  
+
+
+#### 解法
+
+****
+
+高さの最大と最小についてSegment Treeを実装するだけ.  
+(4532MSもかかってる……)
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3264.cpp" "cpp" >}}
+

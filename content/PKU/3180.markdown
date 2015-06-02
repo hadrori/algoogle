@@ -1,0 +1,29 @@
+---
+layout: post
+title: "PKU 3180 The Cow Prom"
+date: 2014-05-05T01:14:00+09:00
+comments: true
+category: PKU
+tags: [strongly-connected-component]
+---
+
+[The Cow Prom](http://poj.org/problem?id=3180)
+
+#### 問題概要
+
+****
+
+ある牛がロープを引っ張った時, それが伝播して自分が引っ張られるような組はいくつあるか.
+
+#### 解法
+
+****
+
+強連結成分分解してサイズが2以上の組を数える.
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3180.cpp" "cpp" >}}
+

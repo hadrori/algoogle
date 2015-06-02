@@ -1,0 +1,29 @@
+---
+layout: post
+title: "PKU 2183 Bovine Math Geniuses"
+date: 2014-05-25T23:56:00+09:00
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Bovine Math Geniuses](http://poj.org/problem?id=2183)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+数を10で割って, 10000でmodをとることで4桁の数を作る.  
+その数を2乗して1000000でmodを取る.  
+その数がすでに現れているかどうかチェックする.  
+チェックには1000000の大きさの配列をつくっておけばいい.  
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/2183.cpp" "cpp" >}}

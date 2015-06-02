@@ -1,0 +1,32 @@
+---
+layout: post
+title: "AOJ 2177 Champernowne Constant"
+date: 2014-05-13T23:07:00+09:00
+comments: true
+category: AOJ
+tags: [math]
+---
+
+[Champernowne Constant](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2177)
+
+#### 問題概要
+
+****
+
+小数点以下に1以上の整数を順に横に繋げた数を考える.  
+小数第N位からK文字取り出せ.
+
+#### 解法
+
+****
+
+あらかじめある桁数未満の長さの合計を長さを出しておけば, 開始位置の桁数がわかる.  
+その桁の何文字目から始まるかもわかるので, 桁数で割ればその位置を含む数がわかる.  
+同様に桁数で割ったあまりを取ればその文字の頭何文字が含まれないかわかる.  
+あとは数字を順につなげていくだけ. 
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/2177.cpp" "cpp" >}}

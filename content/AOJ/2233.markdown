@@ -1,0 +1,29 @@
+---
+layout: post
+title: "AOJ 2233 Carrot Tour"
+date: 2014-05-27T23:16:00+09:00
+comments: true
+category: AOJ
+tags: [dijkstra, geometory]
+---
+
+[Carrot Tour](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2233)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+一つ前の都市と現在地から次にどこに行けるかリストアップしておく.  
+2直線の角度はcomlex使えばarg(z1) - arg(z2) = arg(z1/z2)  
+あとは探索する.  
+前, 現在の都市と持ってるにんじんの数に対しての距離をメモしてやればよい.
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/2233.cpp" "cpp" >}}

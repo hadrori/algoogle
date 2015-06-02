@@ -1,0 +1,32 @@
+---
+layout: post
+title: "AOJ 0574 Nails"
+date: 2015-03-24T18:41:00+09:00
+comments: true
+category: AOJ
+tags: [imos-method]
+---
+
+[Nails](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0574)
+
+#### 問題概要
+
+****
+
+1辺に釘をn本使った正三角形を作る.  
+各行iにはi本の釘が並んでいる.  
+釘を輪ゴムで正三角形を作るように囲む.  
+それをm個の輪ゴムで行う.  
+輪ゴムの囲い方を指定したとき, 輪ゴムで囲われた釘の本数を求めよ.
+
+#### 解法
+
+****
+
+三角形に対して[いもす法](http://imoz.jp/algorithms/imos_method.html)を使うだけ.
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/0574.cpp" "cpp" >}}

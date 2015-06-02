@@ -1,0 +1,31 @@
+---
+layout: post
+title: "JOI 春合宿 2007 Route"
+date: 2014-08-26T21:50:00+09:00
+comments: true
+category: JOI
+tags: [dijkstra, geometory]
+---
+
+[Route](http://joisc2007.contest.atcoder.jp/tasks/joisc2007_route)
+
+#### 問題概要
+
+****
+
+n個の座標と, それらを繋ぐ重複しないm個のコスト付きの辺が与えられる.   
+3頂点を進むときそれらの成す角が鋭角にならないようにしか進めない.  
+1番目の頂点から2番目の頂点へ行く最小のコストを求めよ.
+
+#### 解法
+
+****
+
+1つ前の頂点と現在の頂点を状態とするDijkstraをやればよい.  
+鋭角かどうかは内積をとるなり, argを出して差をとるなりしてやれば良い.
+
+#### コード
+
+****
+
+{{< includeCode "/JOI/2007/Route.cpp" "cpp" >}}

@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 2388 Who's in the Middle"
+date: 2014-05-26T00:21:00+09:00
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Who's in the Middle](http://poj.org/problem?id=2388)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+ソートして真ん中の値を取るだけ
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/2388.cpp" "cpp" >}}

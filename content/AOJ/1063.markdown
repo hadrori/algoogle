@@ -1,0 +1,29 @@
+---
+layout: post
+title: "AOJ 1063 Watchin' TVA"
+date: 2014-05-24T13:29:00+09:00
+comments: true
+category: AOJ
+tags: [greedy]
+---
+
+[Watchin' TVA](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1063)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+番組表は時刻でソートしておく.  
+必ず見たいものを入力の段階で抜いておく.  
+同時にその番組とかぶる番組も抜いておく.  
+番組はすべて30分なのであとは貪欲法で頭から取っていけばいいことになる.  
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1063.cpp" "cpp" >}}

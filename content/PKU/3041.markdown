@@ -1,0 +1,33 @@
+---
+layout: post
+title: "PKU 3041 Asteroids"
+date: 2014-05-04T16:19:00+09:00
+comments: true
+category: PKU
+tags: [bipartite-matching, max-flow]
+---
+
+[Asteroids](http://poj.org/problem?id=3041)
+
+#### 問題概要
+
+****
+
+N*Nのテーブル上にK個点がある.<br>
+縦, もしくは横に無限に長い線を引くとき, すべての点をカバーするには最小何本の線が必要か.
+
+
+#### 解法
+
+****
+
+2部グラフの最小点カバーなので最大マッチングを求めれば良い.<br>
+縦線を0~N-1, 横線をN~2*N-1と2つにわけて縦線と横線でマッチングする.
+
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3041.cpp" "cpp" >}}
+

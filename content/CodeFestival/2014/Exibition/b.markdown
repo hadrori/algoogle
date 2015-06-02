@@ -1,0 +1,56 @@
+---
+layout: post
+title: "Code Festival 2014 Exibition B カッコつけ"
+date: 2014-11-11T21:26:00+09:00
+comments: true
+category: CodeFestival
+tags: [self-balancing-binary-search-tree, sqrt-decomposition]
+---
+
+[カッコつけ](http://code-festival-2014-exhibition-open.contest.atcoder.jp/tasks/code_festival_exhibition_b)
+
+#### 問題概要
+
+****
+
+開き括弧と閉じ括弧からなる文字列がある.  
+Q個のクエリが与えられるので処理しろ.  
+クエリは以下のいずれか
+
+* 1箇所削除
+* '('を挿入
+* ')'を挿入
+* 区間\[l,r\]の部分文字列について, balancedにするのに削除する最小の数
+
+#### 解法
+
+****
+
+解説スライド[CODE FESTIVAL 2014 エキシビジョン 解説](http://www.slideshare.net/chokudai/codefestival2014ex)  
+スライドでは式が唐突に出てきていたのでそこを中心に書く.  
+また解法は平方分割しか書いてないので平衡二分探索木についても少し.  
+  
+とりあえず'('を+1, ')'を-1として累積和を考える.  
+区間の先頭の値(加算前)をx, 区間の最小値をy, 区間の末尾の値(加算後)をzとする.  
+yがx未満であるとき, 負になる分の')'をyの位置以前で取り除くことで最小値を非負にできる. またこれが最適なのは自明.   
+次にzがxより大きい場合, それ以前の'('を末尾に近いものから取り除くことでbalancedにできる. これが最適なのも自明.  
+つまり必要な数は  
+
+<div> $ {\displaystyle
+
+(x-y)+((z+(x-y))-x) = x-2y+z
+
+} $</div>
+
+となる. 最小値yはx以下, 始めの操作後はzがz+x-yとなりこれはx以上なので常にこれが成り立つ.  
+あとは区間addと区間minをとれる平衡二分探索木に投げるだけ.  
+平方分割に対して平衡二分探索木が実装がつらいというのは誤解で, どうせ人々は平衡二分探索木のライブラリを持っていて, 今回の問題に対応するような拡張はかなり一般的で難しくない(というか持っている人も多いと思う).  
+区間addは遅延評価, 区間minはsegtreeのRMQみたいなかんじでやればよい.  
+遅延評価でやれば回転とかをややこしく考えなくて良い.  
+コードは赤黒木だがTreapとかならもっと単純で良い.
+
+#### コード
+
+****
+
+{{< includeCode "/CodeFestival/2014/exhibition/b.cpp" "cpp" >}}

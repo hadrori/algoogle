@@ -1,0 +1,29 @@
+---
+layout: post
+title: "PKU 2456 Aggressive cows"
+date: 2014-05-05T23:18:00+09:00
+comments: true
+category: PKU
+tags: [binary-search]
+---
+
+[Aggressive cows](http://poj.org/problem?id=2456)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+最大の最小化なので2分探索.
+xはソートしておく.
+その距離でできるかは左から条件を満たすように詰めて置いてみればよい.
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/2456.cpp" "cpp" >}}
+

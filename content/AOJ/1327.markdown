@@ -1,0 +1,42 @@
+---
+layout: post
+title: "AOJ 1327 One-Dimensional Cellular Automaton"
+date: 2014-05-13T17:58:00+09:00
+comments: true
+category: AOJ
+tags: [matrix]
+---
+
+[One-Dimensional Cellular Automaton](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1327)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+遷移行列を作って右から同じ物をひたすら掛けていく.  
+遷移行列はN=3の場合
+
+<div> $ {\displaystyle
+\begin{eqnarray}
+\left[
+\begin{array}{ccc}
+B & A & 0 \\
+C & B & A \\
+0 & C & B \\
+\end{array} 
+\right]
+\end{eqnarray}
+
+} $</div>
+
+のように決まる.
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1327.cpp" "cpp" >}}

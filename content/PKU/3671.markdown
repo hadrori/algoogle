@@ -1,0 +1,27 @@
+---
+layout: post
+title: "PKU 3671 Dining Cows"
+date: 2014-05-26T00:07:00+09:00
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Dining Cows](http://poj.org/problem?id=3671)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+1と2の境界をすべてチェックする.  
+1の個数を各位置までそれぞれもつ
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3671.cpp" "cpp" >}}

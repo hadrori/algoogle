@@ -1,0 +1,27 @@
+---
+layout: post
+title: "AOJ 2245 Dice Room"
+date: 2014-05-30T00:34:00+09:00
+comments: true
+category: AOJ
+tags: [implementation]
+---
+
+[Dice Room](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2245)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+出入口の組み合わせは高々12通りなので手数を手元で全部書き出しておく.  
+あとは入力のなかで条件を満たす最小のものをだす. 糞コード
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/2245.cpp" "cpp" >}}

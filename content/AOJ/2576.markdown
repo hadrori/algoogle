@@ -1,0 +1,32 @@
+---
+layout: post
+title: "AOJ 2576 Doctor Course Is Recommended"
+date: 2014-05-25T01:10:00+09:00
+comments: true
+category: AOJ
+tags: [dp]
+---
+
+[Doctor Course Is Recommended](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2576)
+
+#### 問題概要
+
+****
+
+D個のマスに'D'とマークすることが許される.  
+マスが1個の問題とマスが2個の問題がいくつかあり, それぞれに配点が決まっている.  
+このとき得られる得点の最大値はいくらか.
+
+#### 解法
+
+****
+
+dp[i] := マークがi個以下の時の得点の最大値  
+で答えがD(もしくはDD)の問題が見つかるたびに更新すればよい.  
+更新はiが大きい方からやること
+
+#### 
+
+****
+
+{{< includeCode "/AOJ/2576.cpp" "cpp" >}}

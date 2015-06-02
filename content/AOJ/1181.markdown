@@ -1,0 +1,28 @@
+---
+layout: post
+title: "AOJ 1181 Biased Dice"
+date: 2014-05-26T18:09:00+09:00
+comments: true
+category: AOJ
+tags: [implementation]
+---
+
+[Biased Dice](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1181)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+サイコロの各位置に対応するように大きさ6の配列に数字を入れる.  
+フィールドにその位置の高さと数字を入れて, サイコロがそれ以上動けなくなったら更新.  
+その時のトップの数字のカウントを増やして, その下の数字のカウントを減らす.
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1181.cpp" "cpp" >}}

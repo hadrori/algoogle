@@ -1,0 +1,32 @@
+---
+layout: post
+title: "AOJ 0536 Shuffle"
+date: 2015-03-25T03:25:00+09:00
+comments: true
+category: AOJ
+tags: [implementation]
+---
+
+[Shuffle](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0536)
+
+#### 問題概要
+
+****
+
+n(<=1,000,000,000)枚の1からnまでの数字が書かれたカードがある.  
+上から1枚目からx枚目とy枚目からn枚目までのカードの位置をまとめて入れ替える.  
+このような操作をm(<=5,000)回分与える.  
+操作後, 上からp枚目からq枚目までのr以下の数字が書かれたカードの枚数を答えよ.
+
+#### 解法
+
+****
+
+r以下の数の区間を持つ.  
+あとは区間の列に対して区間を切り取る操作さえ書ければよい.  
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/0536.cpp" "cpp" >}}

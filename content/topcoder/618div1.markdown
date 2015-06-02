@@ -1,0 +1,38 @@
+---
+layout: post
+title: "SRM 618 Div1"
+date: 2014-05-24T14:01:00+09:00
+comments: true
+category: TopCoder
+tags: [dp]
+---
+
+#### Easy
+
+****
+
+[Family](http://community.topcoder.com/stat?c=problem_statement&pm=10541&rd=15851)  
+親同士に辺を張って交互に2色に塗るだけ. 矛盾したらImpossible.
+
+#### コード
+
+****
+
+{{< includeCode "/topcoder/618div1easy.cpp" "cpp" >}}
+
+#### Medium
+
+****
+
+[LongWordsDiv1](http://community.topcoder.com/stat?c=problem_statement&pm=13111&rd=15851)  
+使う文字を左からA, B, ...とする. 答えは最後に並べ替えた分かければ良い.<br>
+このとき作られる文字列は2パターンある.<br>
+AaAとAaAbAというパターン(a, bはA以外で作られた文字列).<br>
+1つ目は明らかにBC..CBにAをつけただけなので使う文字が1つ分少ない場合の数.<br>
+2つ目もa, bで使われる文字数の組み合わせを全て回してやればよい.<br>
+
+#### コード
+
+****
+
+{{< includeCode "/topcoder/618div1medium.cpp" "cpp" >}}

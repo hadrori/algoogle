@@ -1,0 +1,33 @@
+---
+layout: post
+title: "Codeforces 460C Present"
+date: 2014-08-21T10:26:00+09:00
+comments: true
+category: Codeforces
+tags: [binary-search]
+---
+
+[Present](http://codeforces.com/problemset/problem/460/C)
+
+#### 問題概要
+
+****
+
+n個の花があって, 水をやると1日長さ1だけ伸びる.  
+1日に連続したw個だけ水をやることができ, m日間水をやる.  
+一番低い花の高さの最大を求めよ.
+
+#### 解法
+
+****
+
+一番低い花の高さを2分探索する.  
+判定は左から順に見ていって, 花の高さがkに届かないならそこからの区間に足りない日数分水をやる.  
+これがm日でできるならtrue. そうでないならfalse.  
+またある花iにそれまで与えられた水の量は花i-w+1からi-1までを区間の始まりとする場合の数で, これは今左から順に見ていっているのでO(1)で求められる.  
+
+#### コード
+
+****
+
+{{< includeCode "/Codeforces/460C.cpp" "cpp" >}}

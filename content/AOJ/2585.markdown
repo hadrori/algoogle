@@ -1,0 +1,32 @@
+---
+layout: post
+title: "AOJ 2585 1 Day Passport"
+date: 2014-08-15T02:36:00+09:00
+comments: true
+category: AOJ
+tags: [dijkstra, dp]
+---
+
+[1 Day Passport](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2585)
+
+#### 問題概要
+
+****
+
+路線図の区間の料金, 時間, 会社の情報が与えられる.  
+p種類の1日乗車券があり, それぞれ料金が決まっていて購入すると乗り放題になる会社(複数あり)が決まっている.  
+このとき時間h以内にsからtまで行く最小のコストを求めよ.  
+
+#### 解法
+
+****
+
+1日乗車券で乗り放題なのをbitで持ち, 乗り放題な会社の集合に対する最小の1日乗車券の組合せの料金をDPする.  
+あとは乗り放題な会社の集合それぞれでDijkstraをする.  
+Dijkstraの状態は現在の場所と時間.  
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/2585.cpp" "cpp" >}}

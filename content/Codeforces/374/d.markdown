@@ -1,0 +1,37 @@
+---
+layout: post
+title: "Codeforces 374D Inna and Sequence"
+date: 2014-07-13T14:56:00+09:00
+comments: true
+category: Codeforces
+tags: [data-structure, binary-indexed-tree, binary-search]
+---
+
+[Inna and Sequence](http://codeforces.com/problemset/problem/374/D)
+
+#### 問題概要
+
+****
+
+空の列wとm個の値が昇順に並んだ列aがある. 
+入力が0か1だったらwの後ろにそれをつなげる.  
+入力が-1だったら列wのa[i]番目の値をそれぞれ消し, その後詰める.  
+操作後のwを出力しろ
+
+#### 解法
+
+****
+
+まず入力をwに加えるものとwからいくつ消すかに分ける.  
+wに加えるものを一度すべて並べたと考える.  
+i番目を使うなら1, そうでないなら0とすればそこまでの和で壊されてないもののうち何番目かがわかる.  
+これはBITで効率的に実装できる.  
+壊れてないもののうちi番目の値を破壊するときは大きい方から順に和が初めてiになる場所を二分探索して探せば良い.  
+その場所に0にすれば(-1加えれば)そこが破壊されたことになり, 以降の和も変化して順番が更新される.  
+全ての破壊が終わったら1になっている場所の値を順に出力すればよい
+
+#### コード
+
+****
+
+{{< includeCode "/Codeforces/374D.cpp" "cpp" >}}

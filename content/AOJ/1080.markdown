@@ -1,0 +1,35 @@
+---
+layout: post
+title: "AOJ 1080 Everything Starts With Your Vote"
+date: 2014-05-05T23:06:00+09:00
+comments: true
+category: AOJ
+tags: [binary-search]
+---
+
+[Everything Starts With Your Vote](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1080)
+
+#### 問題概要
+
+****
+
+名前と予想獲得票数がN人分与えられる.  
+さらにその中から自分が好きなM人に合計で最大L票入れるとき, 獲得票数がK位以内になる好きなキャラの数を最大化したい.  
+最大で何人がK位以内に入れるでしょう.  
+なお獲得票数が同じ場合順位は名前の辞書順できまる.  
+
+#### 解法
+
+****
+
+K位以内に入る好きなキャラの数で2分探索.  
+好きなキャラがK位以内にm人入るとき, 好きでないキャラがK以内に入る数はK-m人.  
+よって自分の好きなキャラの上位m人に好きでないキャラのK-m+1位を超えるように票を入れればいい.  
+名前の比較を考慮することを忘れないようにする.  
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1080.cpp" "cpp" >}}
+

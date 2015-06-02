@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Project Euler 205 Dice Game"
+date: 2014-05-27T23:39:00+09:00
+comments: true
+category: ProjectEuler
+tags: [probabilities]
+---
+
+[Dice Game](http://projecteuler.net/problem=205)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+それぞれ1~36までの値が出る場合の数を出しておいて  
+ピーターの各出目に対して勝つ場合の数を計算する.  
+あとは全体の場合の数で割ればいい.
+
+#### コード
+
+****
+
+{{< includeCode "/PE/205.d" "d" >}}

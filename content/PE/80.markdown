@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Project Euler 80 Square root digital expansion"
+date: 2014-05-24T15:07:00+09:00
+comments: true
+category: ProjectEuler
+tags: [math]
+---
+
+[Square root digital expansion](http://projecteuler.net/problem=80)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+平方根を計算する.  
+この問題では小数点の位置は関係ないので, それを無視して各桁をリストに入れた形でやるとよい
+
+#### コード
+
+****
+
+{{< includeCode "/PE/80.hs" "haskell" >}}

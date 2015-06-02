@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 2140 Herd Sums"
+date: 2014-05-15T15:35:00+09:00
+comments: true
+category: PKU
+tags: [inchworm-method]
+---
+
+[Herd Sums](http://poj.org/problem?id=2140)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+連続した数の和なのでしゃくとりでやる.  
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/2140.cpp" "cpp" >}}

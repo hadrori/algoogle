@@ -1,0 +1,30 @@
+---
+layout: post
+title: "AOJ 2297 Rectangular Stamps"
+date: 2014-05-23T19:27:00+09:00
+comments: true
+category: AOJ
+tags: [bfs]
+---
+
+[Rectangular Stamps](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2297)
+
+#### 問題概要 
+
+****
+
+複数の形の異なる長方形のスタンプがN個ある.  
+4*4のエリアを3色の目的の色分けにするには最小で何回スタンプを押せばよいか.
+
+#### 解法
+
+****
+
+正しくない色で塗られている場合, それらは塗られていないのと同じなのでエリアが正しく塗られているかどうかを16bitで持てばよい.  
+状態数は高々65536なのであとは愚直にbfsする.
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/2297.cpp" "cpp" >}}

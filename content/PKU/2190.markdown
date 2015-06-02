@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 2190 ISBN"
+date: 2014-05-26T00:18:00+09:00
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[ISBN](http://poj.org/problem?id=2190)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+?の部分を試すだけ. 一番右の時は10まで試せる
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/2190.cpp" "cpp" >}}

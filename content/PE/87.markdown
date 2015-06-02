@@ -1,0 +1,29 @@
+---
+layout: post
+title: "Project Euler 87 Prime power triples"
+date: 2014-05-24T13:51:00+09:00
+comments: true
+category: ProjectEuler
+tags: [math]
+---
+
+[Prime power triples](http://projecteuler.net/problem=87)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+全探索する.  
+はじめListをnubするようにしてたら計算終わらず,  
+Setにしてみたらすぐ終わるようになった.  
+nubはソートされてない前提なのでO(n^2)かかってしまう
+
+#### コード
+
+****
+
+{{< includeCode "/PE/87.hs" "haskell" >}}

@@ -1,0 +1,32 @@
+---
+layout: post
+title: "AOJ 2212 Stolen Jewel"
+date: 2014-05-04T15:04:00+09:00
+comments: true
+category: AOJ
+tags: [aho-corasick]
+---
+  
+[Stolen Jewel](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2212)
+
+#### 問題概要
+  
+***
+
+
+#### 解法
+
+***
+
+禁止パターンはAho-Corasickで検出する。
+各地点の座標とそのときのTrie木の位置でBFSする。
+ゴールに辿りつけなかったら-1
+
+
+#### コード
+
+***
+
+{{< includeCode "/AOJ/2212.cpp" "cpp" >}}
+
+

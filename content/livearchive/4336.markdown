@@ -1,0 +1,36 @@
+---
+layout: post
+title: "LiveArchive 4336 Palindromic paths"
+date: 2015-05-27T20:52:00+09:00
+comments: true
+category: LiveArchive
+tags: [dp]
+---
+
+[Palindromic paths](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=307&page=show_problem&problem=2337)
+
+#### 問題概要
+
+****
+
+N(2<=N<=50)頂点のグラフがある．  
+頂点番号を0からN-1まで割り当てるとき，頂点の組について番号の小さい方の頂点から大きい方の頂点へ1文字のラベル付きの辺が張られている．  
+0からN-1までのパスを考える時，ラベルを順に並べて回文になるもののうち最長のものを求めよ．  
+複数ある場合は辞書順最小のものを求めよ．
+
+#### 解法
+
+****
+
+DPする．  
+パスの両端の頂点を近づけていく感じ．  
+dp\[u\]\[v\] := 頂点0からu，頂点N-1からvまで進んだ時の最長の文字列  
+更新はuから進む辺とvから戻る辺をみて，同じラベルの辺があったらそれを加えて縮める．  
+答えの更新は，辺(u,v)のラベルと今の文字列の反転を加えたものでする．  
+u,vが同じならそのまま反転したものを加える．
+
+#### コード
+
+****
+
+{{< includeCode "/livearchive/4336.cpp" "cpp" >}}

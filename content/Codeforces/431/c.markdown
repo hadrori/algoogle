@@ -1,0 +1,30 @@
+---
+layout: post
+title: "Codeforces 431C k-Tree"
+date: 2014-07-04T16:23:00+09:00
+comments: true
+category: Codeforces
+tags: [tree, dp]
+---
+
+[k-Tree](http://codeforces.com/problemset/problem/431/C)
+
+#### 問題概要
+
+****
+
+k分木の拡張点から子への各辺の重さをそれぞれ1からkとしたとき  
+根から少なくとも1つ重さd以上の辺を使ったパスのうち重さの総和がnになるものはいくつか
+
+#### 解法
+
+****
+
+dp[i][j][k] := 深さiで条件を満たしているかがjのとき, 重さの総和がkになる場合の数  
+とすれば深さnまで配るDPを繰り返せばよい
+
+#### コード
+
+****
+
+{{< includeCode "/Codeforces/431C.cpp" "cpp" >}}

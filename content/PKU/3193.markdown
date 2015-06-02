@@ -1,0 +1,35 @@
+---
+layout: post
+title: "PKU 3193 Cow Phrasebook"
+date: 2014-05-15T16:07:00+09:00
+comments: true
+category: PKU
+tags: [data-structure, string]
+---
+
+[Cow Phrasebook](http://poj.org/problem?id=3193)
+
+#### 問題概要
+
+****
+
+辞書と牛の言葉が与えられる.  
+牛の言葉の中で, 辞書にある文字列の0文字目から牛の言葉の長さ分まで一致するものがある数はいくらか
+
+#### 解法
+
+****
+
+トライ木を作ればいい.  
+abc  
+ade  
+bcfg  
+みたいな文字列があるとき, 図のような木をつくる.  
+![pku3193-01](/images/pku3193-01.png)  
+rootから木を辿ってもし文字列の途中で辿れなくなったら一致するものはない.  
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3193.cpp" "cpp" >}}

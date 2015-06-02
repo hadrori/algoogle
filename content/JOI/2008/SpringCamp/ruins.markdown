@@ -1,0 +1,31 @@
+---
+layout: post
+title: "JOI 春合宿 2008 Ruins"
+date: 2014-09-04T15:59:00+09:00
+comments: true
+category: JOI
+tags: [geometory, dp]
+---
+
+[Ruins](http://joisc2008.contest.atcoder.jp/tasks/joisc2008_ruins)
+
+#### 問題概要
+
+****
+
+n個の点が与えられる.  
+その点のうちいくつかを使って凸多角形を作る. 作れる凸多角形のうち最大の頂点数を求めよ
+
+#### 解法
+
+****
+
+頂点を一つ決める.  
+その頂点とその左側にある点だけを使って凸多角形を作るDPをする.  
+dp\[i\]\[j\] := 最後に辺ijを使った時の最大の頂点数  
+  
+#### コード
+
+****
+
+{{< includeCode "/JOI/2008/Ruins.cpp" "cpp" >}}

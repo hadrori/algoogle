@@ -1,0 +1,54 @@
+---
+layout: post
+title: "LiveArchive 4333 Paper Presentation"
+date: 2015-05-27T20:25:00+09:00
+comments: true
+category: LiveArchive
+tags: [dp]
+---
+
+[Paper Presentation](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=307&page=show_problem&problem=2334)
+
+#### 問題概要
+
+****
+
+2M(M<=8)人の科学者が論文を発表する．  
+発表は2つのセクションに分かれていて，それぞれでM人ずつ発表する．  
+論文は依存する他の論文のあとに同じセクションで発表しなければならない．  
+依存関係が与えられる時，考えられる発表順の個数を求めよ．
+
+#### 解法
+
+****
+
+bitDPします．  
+
+<div> $ {\displaystyle
+
+dp[s] := 発表済みの論文の集合がsのときの場合の数  
+
+} $</div>
+
+与えられる依存関係から各論文について，その論文発表するまでに発表されていなければならない論文の集合と  
+後に発表されなければならない論文の集合を持っておく．  
+更新は  
+まだ発表されていない論文iと発表済みの論文sについて  
+sにiの前に発表されなければならない論文がすべて含まれているなら
+
+<div> $ {\displaystyle
+
+dp[s \cup \{i\}] += dp[s]
+
+} $</div>
+
+となる．  
+またセクションについての条件を満たすため，M人の発表が終わったらそのM人の後に発表しなければならない論文は存在しないことを確かめる．  
+
+#### コード
+
+****
+
+コードでは依存関係が逆になっているが発表順を逆にやっているだけなので問題無い．
+
+{{< includeCode "/livearchive/4333.cpp" "cpp" >}}

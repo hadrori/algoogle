@@ -1,0 +1,26 @@
+---
+layout: post
+title: "AOJ 0012 A Point in a Triangle"
+date: 2014-05-27T23:47:00+09:00
+comments: true
+category: AOJ
+tags: [geometory]
+---
+
+[A Point in a Triangle](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0012)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+多角形と点の包含関係をやればいい
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/0012.cpp" "cpp" >}}

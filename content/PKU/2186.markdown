@@ -1,0 +1,34 @@
+---
+layout: post
+title: "PKU 2186 Popular Cows"
+date: 2014-05-05T01:06:00+09:00
+comments: true
+category: PKU
+tags: [strongly-connected-component]
+---
+
+[Popular Cows](http://poj.org/problem?id=2186)
+
+#### 問題概要
+
+****
+
+牛達が人気だと思う人を挙げる.  
+推移律が成り立つとき, 自分以外の全ての牛から人気だと思われている牛の数を求めよ.  
+
+
+#### 解法
+
+****
+
+強連結成分分解すると分解された強連結成分どうしはDAGになるのでその終端を見る.  
+終端はそこから辺が伸びてない強連結成分.  
+該当する強連結成分が複数ある場合は0.  
+そうでなければ終端の強連結成分の要素数が答え.  
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/2186.cpp" "cpp" >}}
+

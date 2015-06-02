@@ -1,0 +1,42 @@
+---
+layout: post
+title: "Codeforces 453B Little Pony and Harmony Chest"
+date: 2014-08-03T00:41:00+09:00
+comments: true
+category: Codeforces
+tags: [dp]
+---
+
+[Little Pony and Harmony Chest](http://codeforces.com/problemset/problem/453/B)
+
+#### 問題概要
+
+****
+
+長さnのどの2つの要素も互いに素な数列bを考える.  
+数列aが与えられるとき
+
+<div> $ {\displaystyle
+
+\sum^{n}_{i=1}\mid a_{i}-b_{i}\mid
+
+} $</div>
+
+を最小にするbを求めよ
+
+#### 解法
+
+****
+
+数列bに使われる数は1から58まで(上限はもっと低くできるはずだがこれで十分). それより大きいのはは1を使ったほうがいいので無視する.  
+全ての数の素因数を予め列挙してbitで持っておく.  
+あとはbitDPすればよい  
+dp\[i\]\[j\] := i番目までで使った素因数の集合がjのときの和の最小値  
+また数列の復元のために前の状態と使った数を保存しておく.  
+
+
+#### コード
+
+****
+
+{{< includeCode "/Codeforces/453B.cpp" "cpp" >}}

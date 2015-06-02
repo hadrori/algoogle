@@ -1,0 +1,35 @@
+---
+layout: post
+title: "AOJ 1089 Strawberry Cake"
+date: 2014-05-15T14:48:00+09:00
+comments: true
+category: AOJ
+tags: [geometory, binary-search]
+---
+
+[Strawberry Cake](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1089)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+求める直線の角度(ラジアン)を2分探索で求める.  
+  
+lb, ub の中心の角度の直線が分割する, 左側の多角形について  
+元の多角形の半分より大きかったら求める角度はもっと小さいはずなので ub = (lb + ub) / 2  
+小さかったらもっと大きいので lb = (lb + ub) / 2  
+等しかったらその角度が求める角度.  
+  
+lb, ub の初期値について  
+多角形を真横に切った時の上の部分が半分より小さい場合は上記のようになるが  
+半分より大きい時は, 挙動が逆になるので、lb と ub を入れ替えておく.  
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1089.cpp" "cpp" >}}

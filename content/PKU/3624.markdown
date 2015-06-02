@@ -1,0 +1,27 @@
+---
+layout: post
+title: "PKU 3624 Charm Bracelet"
+date: 2014-05-13T16:36:00+09:00
+comments: true
+category: PKU
+tags: [dp]
+---
+
+[Charm Bracelet](http://poj.org/problem?id=3624)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+そのままナップザック問題  
+dp[j] := 重さj以下の時の価値の最大
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3624.cpp" "cpp" >}}

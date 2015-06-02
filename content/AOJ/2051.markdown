@@ -1,0 +1,28 @@
+---
+layout: post
+title: "AOJ 2051 Rotation Estimation"
+date: 2014-05-27T23:20:00+09:00
+comments: true
+category: AOJ
+tags: [geometory]
+---
+
+[Rotation Estimation](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2051)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+各星座について座標の平均を中心にする.  
+片方を固定してもう片方を1つ目の点が相手の各点に一致するように順に回転させて調べていく.  
+比較するときは座標でソートしておけばいい.  
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/2051.cpp" "cpp" >}}

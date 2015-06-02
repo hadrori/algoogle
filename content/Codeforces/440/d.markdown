@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Codeforces 440D Berland Federalization"
+date: 2014-06-30T21:21:00+09:00
+comments: true
+category: Codeforces
+tags: [tree, dp]
+---
+
+[Berland Federalization](http://codeforces.com/problemset/problem/440/D)
+
+#### 問題概要
+
+****
+
+N(<=400)頂点の木がありその中でちょうどK頂点の連結な部分を取り出した時, その部分とその外の頂点とつながっている辺の数は最小でいくらか.  
+またその時の辺を答えよ.
+
+#### 解法
+
+****
+
+問題文は言い換えると木からK頂点の部分木を取り出した時, 最小でいくつの木に分解されるか.  
+根付き木として考えて,  
+dp[i][j] := 頂点iを根とする部分木からj頂点の連結な部分を取り出した時の分解される数の最小  
+とすればよい.  
+その時の辺は適当にbitsetで持ってdp配列の更新と一緒に更新した.  
+bitsetのcount()を使えばdp配列もいらないが, どれくらい遅くなるのか不明だったので分けた.  
+あとは子の部分木についてわかれば, 重さの組を全て試せば良い.
+
+#### 
+
+****
+
+{{< includeCode "/Codeforces/440D.cpp" "cpp" >}}

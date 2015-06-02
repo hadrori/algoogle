@@ -1,0 +1,27 @@
+---
+layout: post
+title: "PKU 3251 Big Square"
+date: 2014-05-23T14:46:00+09:00
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Big Square](http://poj.org/problem?id=3251)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+'J' の場所を2個選んでそれを1辺とする正方形2個を作ってみてできるなら答えとmax取る.  
+O(N^4)になるが実際には現在の最高値と2点の距離で大量に簡単に枝刈りできるので割りと余裕.  
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3251.cpp" "cpp" >}}

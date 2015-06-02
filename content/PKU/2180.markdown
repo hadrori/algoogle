@@ -1,0 +1,29 @@
+---
+layout: post
+title: "PKU 2180 Bale Figures"
+date: 2014-05-26T00:01:00+09:00
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Bale Figures](http://poj.org/problem?id=2180)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+最初のやつから25以上離れないらしいのでbaleがある場所を配列でもつ.  
+また, 各baleについても番号に対して座標をもつ.  
+あとは逐一チェックするだけ.  
+面積は毎回6足して6方向にbaleがあるなら-2していく  
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/2180.cpp" "cpp" >}}

@@ -1,0 +1,28 @@
+---
+layout: post
+title: "PKU 3619 Speed Reading"
+date: 2014-05-26T00:08:00+09:00
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Speed Reading](http://poj.org/problem?id=3619)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+読んで休むのを1つのブロックとしてそれがいくつ入るかをまず見る.  
+ちょうど入るなら最後の休む分を引いた時間が答え.  
+そうでないなら余るページ数を読むのにかかる時間を足した時間が答え.  
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3619.cpp" "cpp" >}}

@@ -1,0 +1,27 @@
+---
+layout: post
+title: "AOJ 1162 Discrete Speed"
+date: 2014-05-12T01:35:00+09:00
+comments: true
+category: AOJ
+tags: [dijkstra]
+---
+
+[Discrete Speed](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1162)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+現在地, スピード, 直前の場所をひとつの頂点と考えたグラフでダイクストラする.  
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1162.cpp" "cpp" >}}
+

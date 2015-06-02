@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Project Euler 68 Magic 5-gon ring"
+date: 2014-05-28T00:02:00+09:00
+comments: true
+category: ProjectEuler
+tags: [implementation]
+---
+
+[Magic 5-gon ring](http://projecteuler.net/problem=68)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+重複してる部分を分離して, 図のように番号を振ったものを考える  
+[pe68-01](/images/pe68-01.png)  
+おなじ所に入っている番号の数字は連動する.  
+これをDFSで枝刈りしながら埋めていく.  
+枝刈りは簡単で, 3n-1番目(n = 2,3,4,5)を埋めるとき  
+0~2番目の総和と3n-3~3n-1までの総和が等しくなるか判定すればいい.  
+
+#### コード
+
+****
+
+{{< includeCode "/PE/68.d" "d" >}}

@@ -1,0 +1,28 @@
+---
+layout: post
+title: "AOJ 2545 Lion"
+date: 2014-05-10T13:57:00+09:00
+comments: true
+category: AOJ
+tags: [implementation]
+---
+
+[Lion](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2545)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+入力の制限から全探索してもよさそうだとわかるので全て試して,  
+条件に合うもののうち合計が最大になる檻のなかのライオンの数を求める.
+
+#### 
+
+****
+
+{{< includeCode "/AOJ/2545.cpp" "cpp" >}}
+

@@ -1,0 +1,34 @@
+---
+layout: post
+title: "AOJ 1254 Color the Map"
+date: 2014-05-25T16:22:00+09:00
+comments: true
+category: AOJ
+tags: [geometory, graph-coloring, inclusion-exclusion]
+---
+
+[Color the Map](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1254)
+
+#### 問題概要
+
+****
+
+多角形とその所属が与えられる.  
+となりあう多角形が同じ色にならないように色を塗る時最小の彩色数を求めよ.
+
+#### 解法
+
+****
+
+隣り合うかどうかは各辺について平行かどうかと線分が重なっているかどうかを見ればよい.  
+グラフがk-彩色可能かという問題はNP完全.  
+包除原理を用いてやると`$O(2^NN)$`で最小の彩色数を求めることができる([指数時間アルゴリズム入門](http://www.slideshare.net/wata_orz/ss-12131479)).  
+今回は実際に全て塗って試すことでも十分間に合う.  
+
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1254-1.cpp" "cpp" >}}
+{{< includeCode "/AOJ/1254-2.cpp" "cpp" >}}

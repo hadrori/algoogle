@@ -1,0 +1,38 @@
+---
+layout: post
+title: "Project Euler 65 Convergents of e"
+date: 2014-05-24T15:19:00+09:00
+comments: true
+category: ProjectEuler
+tags: [math]
+---
+
+[Convergents of e](http://projecteuler.net/problem=65)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+連分数の分子は
+
+<div> $ {\displaystyle
+\begin{eqnarray}
+p_n=\left\{ \begin{array}{ll}  
+1 & (n=0)\\  
+a_0 & (n=1)\\  
+a_{n-1} p_{n-1} + p_{n-2} & (n\geq2) \\  
+\end{array} \right.  
+\end{eqnarray}
+} $</div>  
+
+で計算できるので計算して桁を全て足し合わせればいい
+
+#### コード
+
+****
+
+{{< includeCode "/PE/65.hs" "haskell" >}}

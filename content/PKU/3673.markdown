@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 3673 Cow Multiplication"
+date: 2014-05-26T00:19:00+09:00
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Cow Multiplication](http://poj.org/problem?id=3673)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+それぞれの数字を各桁でばらして組み合わせ.
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3673.cpp" "cpp" >}}

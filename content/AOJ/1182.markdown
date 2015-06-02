@@ -1,0 +1,31 @@
+---
+layout: post
+title: "AOJ 1182 Railway Connection"
+date: 2014-05-27T18:18:00+09:00
+comments: true
+category: AOJ
+tags: [warshall-floyd]
+---
+
+[Railway Connection](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1182)
+
+#### 問題概要
+
+****
+
+駅と駅を繋ぐ路線には鉄道会社と距離が決まっている.  
+各鉄道会社の距離に応じた運賃の計算方法が与えられるとき, 駅sから駅gまでの最小の運賃を求めよ.
+
+#### 解法
+
+****
+
+鉄道会社ごとにwarshall-floydで駅から駅までの最短距離を求めておく.  
+距離は高々20000なのでこれも予め鉄道会社ごとに距離に対する運賃を求めておく.  
+あとは各駅間の最小の運賃をwarshall-floydで求めればよい.
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1182.cpp" "cpp" >}}

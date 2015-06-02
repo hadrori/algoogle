@@ -1,0 +1,15 @@
+baseurl = "http://algoogle.hadrori.jp"
+title = "Algoogle"
+disqusShortname = "Algoogle"
+
+[taxonomies]
+  category = "category"
+  tag      = "tags"
+
+[params]
+  description = "Algorithms for Programming Contest"
+  author = "hadrori"
+  languageCode = "ja"
+  countryCode = "ja"
+  [params.socialtwitter]
+    twitter = "hadrori"

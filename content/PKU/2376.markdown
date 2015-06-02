@@ -1,0 +1,30 @@
+---
+layout: post
+title: "PKU 2376 Cleaning Shifts"
+date: 2014-05-15T14:38:00+09:00
+comments: true
+category: PKU
+tags: [greedy]
+---
+
+[Cleaning Shifts](http://poj.org/problem?id=2376)
+
+#### 問題概要
+
+****
+
+N匹の牛に対して仕事できる時間の区間が与えられるので, 時間Tまでの間すべてをカバーする最小の牛の数を求める.
+
+#### 解法
+
+****
+
+greedyにやればいい.  
+現在カバーしてる範囲から仕事を始められる牛のうち, 一番遅くまで仕事する牛を選べば明らかに最適.  
+開始時刻でソートしておく.
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/2376.cpp" "cpp" >}}

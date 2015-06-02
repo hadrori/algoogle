@@ -1,0 +1,32 @@
+---
+layout: post
+title: "PKU 3663 Costume Party"
+date: 2014-05-05T23:17:00+09:00
+comments: true
+category: PKU
+tags: [binary-search]
+---
+
+[Costume Party](http://poj.org/problem?id=3663)
+
+#### 問題概要
+
+****
+
+長さの和がS以下になるペアの組み方の総数を求める
+
+#### 解法
+
+****
+
+ペアを全て調べるとO(N^2)で間に合わない.  
+片方の長さlを固定すると, もう片方はS-l以下でなければならない.  
+よって長さをソートしておいて2分探索でS-l以下で最大のものを探す.  
+組み合わせなので自分よりあとかつ, 探索結果の位置以前の部分の数が答えに加えられる.  
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3663.cpp" "cpp" >}}
+

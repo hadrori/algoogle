@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Project Euler 301 Nim"
+date: 2014-05-04T17:14:00+09:00
+comments: true
+category: ProjectEuler
+tags: [grundy-number]
+---
+
+[Nim](http://projecteuler.net/problem=301)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+Nimなので3つのxorとって0以外だったらカウント
+
+#### コード
+
+****
+
+{{< includeCode "/PE/301.d" "d" >}}
+

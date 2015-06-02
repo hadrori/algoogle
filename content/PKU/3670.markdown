@@ -1,0 +1,32 @@
+---
+layout: post
+title: "PKU 3670 Eating Together"
+date: 2014-05-13T16:28:00+09:00
+comments: true
+category: PKU
+tags: [dp]
+---
+
+[Eating Together](http://poj.org/problem?id=3670)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+123の順と321の順の両方試す.  
+各牛について  
+dp[i][j] := i の番号を j にするときの変更の最小回数  
+123の順でやるときは i 番目のカードの番号を j にするには  
+j 以下の番号から遷移できる.  
+321の順でやるときは i 番目のカードの番号を j にするには  
+j 以上の番号から遷移できる.  
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3670.cpp" "cpp" >}}

@@ -1,0 +1,28 @@
+---
+layout: post
+title: "PKU 3183 Stump Removal"
+date: 2014-05-23T15:18:00+09:00
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[PKU](http://poj.org/problem?id=3183)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+左から順にみていって, 山になっているところで取り除く.  
+同じ数字が連続する場合次の山は下りから始めることにする.  
+最後にのぼりのまま終わった場合はNを出力する  
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3183.cpp" "cpp" >}}

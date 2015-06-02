@@ -1,0 +1,50 @@
+---
+layout: post
+title: "LiveArchive 4332 Blocks for kids"
+date: 2015-05-28T14:38:00+09:00
+comments: true
+category: LiveArchive
+tags: [matrix]
+---
+
+[Blocks for kids](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=307&page=show_problem&problem=2333)
+
+#### 問題概要
+
+****
+
+4種類のピースがあって，高さ2で横がいくらかのパネルをそのピースを回転させずに使って埋める．  
+横がのパネルが渡された時，2人に分割して渡して敷き詰めさせるときの敷き詰め方の場合の数を求めよ．  
+
+
+#### 解法
+
+****
+
+長さxのパネルの埋め方`$f(x)$`は
+
+<div> $ {\displaystyle
+
+f(0) = 1\\
+f(1) = 2\\
+f(x) = 2(f(x-1)+f(x-2))
+
+} $</div>
+
+長さxのパネルを2人に分けて埋めるときの場合の数`$g(x)$`は
+
+<div> $ {\displaystyle
+
+g(0) = 1\\
+g(1) = 4\\
+g(x) = 2(g(x-1)+g(x-2))+f(x)
+
+} $</div>
+
+これで遷移行列を作って行列累乗すればよい
+
+#### コード
+
+****
+
+{{< includeCode "/livearchive/4332.cpp" "cpp" >}}

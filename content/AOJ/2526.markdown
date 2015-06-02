@@ -1,0 +1,31 @@
+---
+layout: post
+title: "AOJ 2526 Pie Chart is as easy as pie."
+date: 2014-05-27T23:22:00+09:00
+comments: true
+category: AOJ
+tags: [geometory]
+---
+
+[Pie Chart is as easy as pie.](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2526)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+割合が与えられるので, 最初に中心, 扇の角2つを出す.  
+この3点からもとの扇型の三角形部分の面積を出して扇形から引く.  
+次に中心を移動後の点に変えた三角形を足せば移動後の面積が出る.  
+ただし中心点が弦と弧の間(凹んだ形の扇型)だったらはじめの三角形の面積は足す.  
+移動後の点が弦と弧の間だったらあとの三角形は引く.  
+この2つの判定はccwですればよい.  
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/2526.cpp" "cpp" >}}

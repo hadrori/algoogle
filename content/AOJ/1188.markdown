@@ -1,0 +1,33 @@
+---
+layout: post
+title: "AOJ 1188 Hierarchical Democracy"
+date: 2014-05-12T01:51:00+09:00
+comments: true
+category: AOJ
+tags: [parsing]
+---
+
+[Hierarchical Democracy](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1188)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+一番下の階層から決定していけば良さそうなのでDFS的に潜っていく.  
+一番はじめの段階はn/2+1を返せばいい  
+あとの階層については, それより下の階層を決定したら  
+小さいのから順に勝てる数まで取っていって, その合計を返す.  
+  
+"[" "]"の扱いについては, "["がその階層の始まり, "]"がその階層の終わりで  
+再帰すればあまり気にならない.  
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1188.cpp" "cpp" >}}
+

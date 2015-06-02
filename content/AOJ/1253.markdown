@@ -1,0 +1,31 @@
+---
+layout: post
+title: "AOJ 1253 Dice Puzzle"
+date: 2014-05-24T12:46:00+09:00
+comments: true
+category: AOJ
+tags: [implementation]
+---
+
+[Dice Puzzle](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1253)
+
+#### 問題概要
+
+****
+
+3\*3\*3の立方体の各位置に隣り合う面の和が7になるようにサイコロを置く.  
+このとき立方体の上から見える数字と前から見える数字が与えられる. ただし0の場合はなんでもよい   
+右から見える数字の総和としてありえるものを求めよ.
+
+#### 解法
+
+****
+
+全ての位置に対して全ての向きのサイコロを置いてみる.  
+枝刈りで大量に刈れるので問題なく全探索できる.
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1253.cpp" "cpp" >}}

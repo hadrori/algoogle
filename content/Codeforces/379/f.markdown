@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Codeforces 379F New Year Tree"
+date: 2014-07-09T02:04:00+09:00
+comments: true
+category: Codeforces
+tags: [tree, lowest-common-ancestor]
+---
+
+[New Year Tree](http://codeforces.com/problemset/problem/379/F)
+
+#### 問題概要
+
+****
+
+はじめに根1とその3つの子2~4がある.  
+q(<=5e5)回の以下のクエリを捌け.  
+
+* 頂点vに2つの頂点を加え, 木の直径を答える
+
+#### 解法
+
+****
+
+木の直径は一番離れた2点の距離.  
+初期では頂点2, 3の距離が当てはまる.  
+頂点を追加するたびにその頂点と, 現在の直径で使われている2点の距離をみる.  
+もし距離が大きくなるなら頂点を交換する.  
+距離はLCAを求めればよいのでO(log n)で計算可能.  
+
+#### コード
+
+****
+
+{{< includeCode "/Codeforces/379F.cpp" "cpp" >}}

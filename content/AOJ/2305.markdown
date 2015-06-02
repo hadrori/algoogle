@@ -1,0 +1,29 @@
+---
+layout: post
+title: "AOJ 2305 Beautiful Currency"
+date: 2014-05-28T11:30:00+09:00
+comments: true
+category: AOJ
+tags: [dp]
+---
+
+[Beautiful Currency](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2305)
+
+#### 問題概要
+
+****
+
+数列aの数値を変更してa[i+1]をa[i]が必ず割り切るような数列にしたい.  
+数値を変更したときにかかるコスト(|b-a|/a)の最大の最小はいくらか.
+
+#### 解法
+
+****
+
+dp[i][j] := i番目の数をjにする時のiまでのコストの最大の最小値  
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/2305.cpp" "cpp" >}}

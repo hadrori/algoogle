@@ -1,0 +1,29 @@
+---
+layout: post
+title: "AOJ 1501 Grid"
+date: 2014-05-14T08:46:00+09:00
+comments: true
+category: AOJ
+tags: [modulo, math]
+---
+
+[Grid](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1501)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+境界を超えると反対側の境界に出るので, 元のグリッドを8方向に元のグリッド1つ分拡張したグリッドを考える.  
+元の点bの位置をそれぞれ8方向に拡張された位置に移動させた点と  
+点aの位置の距離が一番小さくなる点をリストアップする.  
+あとはaからそれぞれの点まで行く組み合わせを合計すればいい.
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1501.cpp" "cpp" >}}

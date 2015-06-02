@@ -1,0 +1,27 @@
+---
+layout: post
+title: "PKU 2141 Message Decowding"
+date: 2014-05-26T00:22:00+09:00
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Message Decowding](http://poj.org/problem?id=2141)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+文字に対応する変換が与えられるので素直にやればよい.
+大文字の場合も処理する.
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/2141.cpp" "cpp" >}}

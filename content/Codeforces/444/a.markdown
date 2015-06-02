@@ -1,0 +1,63 @@
+---
+layout: post
+title: "Codeforces 444A DZY Loves Physics"
+date: 2014-08-23T15:07:00+09:00
+comments: true
+category: Codeforces
+tags: [math]
+---
+
+[DZY Loves Physics](http://codeforces.com/contest/444/problem/A)
+
+#### 問題概要
+
+****
+
+辺と頂点に重さのあるグラフGが与えられる(連結とは限らない)  
+このグラフの部分グラフHを考える.  
+ただしHは連結で, それに含まれる頂点同士にGで辺が存在する場合は必ずHにもその辺が含まれる.
+そのようなHのうち(頂点の重さの総和)/(辺の重さの総和)の最大を求めよ
+
+
+#### 解法
+
+****
+
+最適な場合は辺1つの場合(存在しない場合は0).  
+ある連結な頂点を共有せず, 互いに対して辺をもつグラフAとBを考える.  
+AとBの頂点の重さと辺の重さをそれぞれ(v,e), (w,f)とする.  
+またAとBを繋ぐ時に増える辺の重さをgとする.  
+これらを連結したほうが良い場合というのは以下の2式が共に成り立つ場合になる.
+
+<div> $ {\displaystyle
+
+\frac{v}{e} < \frac{v+w}{e+f+g}\\
+\frac{w}{f} < \frac{v+w}{e+f+g}\\
+
+} $</div>
+
+この2式を変形すると
+
+<div> $ {\displaystyle
+
+\frac{f+g}{e} < \frac{w}{v}\\
+\frac{w}{v} < \frac{f}{e+g}\\
+
+} $</div>
+
+これから
+
+<div> $ {\displaystyle
+
+\frac{f+g}{e} < \frac{f}{e+g}
+
+} $</div>
+
+が導かれる. これはgが1以上であるので矛盾する. よって連結したほうが良い場合は存在しない.
+
+
+#### コード
+
+****
+
+{{< includeCode "/Codeforces/444A.cpp" "cpp" >}}

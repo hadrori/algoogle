@@ -1,0 +1,30 @@
+---
+layout: post
+title: "PKU 3614 Sunscreen"
+date: 2014-05-10T00:36:00+09:00
+comments: true
+category: PKU
+tags: [greedy]
+---
+
+[Sunscreen](http://poj.org/problem?id=3614)
+
+#### 問題概要
+
+****
+
+日焼け止めを牛に塗りたい. 各牛には有効なspfの範囲があり, 各日焼け止めはspfと使える数が決まっている.<br>
+
+#### 解法
+
+****
+
+spfが小さいものから日焼け止めを選び, それが使える牛をリストアップする.<br>
+そのなかでspfの上限が小さい牛から順に選べば良い.
+
+#### コード
+
+****
+
+{{< includeCode "/PKU/3614.cpp" "cpp" >}}
+

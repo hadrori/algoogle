@@ -1,0 +1,29 @@
+---
+layout: post
+title: "AOJ 1156 Twirling Robot"
+date: 2014-05-12T01:38:00+09:00
+comments: true
+category: AOJ
+tags: [dijkstra]
+---
+
+[Twirling Robot](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1156)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+各パネルの指示の方向はコスト0, 他の方向は与えられたコストでその方向の隣のパネルに辺を張る.   
+位置と向きを点とする.   
+辺が張れたらダイクストラすればいい.   
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1156.cpp" "cpp" >}}
+

@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Project Euler 102 Triangle containment"
+date: 2014-05-27T23:43:00+09:00
+comments: true
+category: ProjectEuler
+tags: [geometory]
+---
+
+[Triangle containment](http://projecteuler.net/problem=102)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+[AOJ 0012](/AOJ/0012/)とほぼ同じ.
+
+#### コード
+
+****
+
+{{< includeCode "/PE/102.cpp" "cpp" >}}

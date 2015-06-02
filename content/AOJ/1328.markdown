@@ -1,0 +1,31 @@
+---
+layout: post
+title: "AOJ 1328 Find the Outlier"
+date: 2014-05-13T18:08:00+09:00
+comments: true
+category: AOJ
+tags: [matrix]
+---
+
+[Find the Outlier](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1328)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+i = 0 ... d+2のうち2つを取り除いて  
+(d+1)*(d+1)の大きさの行列A(行はi,列はその累乗)とその2つの位置を取り除いたvで  
+Ax=v  
+となるxを求める. (線形方程式の解)  
+そのxを取り除いた2つについて適応させた時に, もとのvと片方だけ一致しなかった場合それが答えになる.  
+あと結構誤差るっぽいのでEPSいろいろ試す. 
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/1328.cpp" "cpp" >}}

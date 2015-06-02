@@ -1,0 +1,29 @@
+---
+layout: post
+title: "AOJ 2249 Road Construction"
+date: 2014-05-18T18:21:00+09:00
+comments: true
+category: AOJ
+tags: [dijkstra]
+---
+
+[Road Construction](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2249)
+
+#### 問題概要
+
+****
+
+首都から各エリアまでの最短距離を維持しつつ, 道の建設費用を最小化しろ
+
+#### 解法
+
+****
+
+首都から各エリアまでDijkstraする.  
+最短距離でたどり着く辺が複数ある場合, priority_queueの中でコストが小さいものが優先して出てくるようにすれば良い.
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/2249.cpp" "cpp" >}}

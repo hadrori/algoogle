@@ -1,0 +1,33 @@
+---
+layout: post
+title: "AOJ 1068 School of Killifish"
+date: 2015-03-27T00:58:00+09:00
+comments: true
+category: AOJ
+tags: [segment-tree]
+---
+
+[School of Killifish](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1068)
+
+#### 問題概要
+
+****
+
+2次元グリッド上(面積は最大でも1,000,000)についてq(<=1,000)個のクエリを捌く.  
+各クエリはグリッド上の部分長方形内の最小値を聞くもの.
+
+#### 解法
+
+****
+
+2次元segtreeを書けば良い.  
+ただしvectorで配列を取ったりするとMLEするので配列で書くこと.  
+縦横の上限で配列は取れないので1次元配列に展開する.
+
+#### コード
+
+****
+
+コメントアウトされてるのはvectorで実装したもの.
+
+{{< includeCode "/AOJ/1068.cpp" "cpp" >}}
