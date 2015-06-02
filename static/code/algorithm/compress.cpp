@@ -1,5 +1,5 @@
 map<int,int> zip;
-int unzip[MAP];
+int unzip[MAX];
 
 int compress(vector<int> &x)
 {
