@@ -1,0 +1,32 @@
+---
+layout: post
+title: "AOJ 2527 MLE"
+date: 2014-05-26 18:58:35 +0900
+comments: true
+category: AOJ
+tags: [sqrt-decomposition]
+---
+
+[MLE](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2527)
+
+#### 問題概要
+
+****
+
+擬似乱数を生成するコードがある.  
+これによって初期値x0でn個の乱数を生成するときk番目の値はいくらか.
+
+#### 解法
+
+****
+
+生成される乱数を適当な大きさの区間で分ける.  
+そうするとk番目の値を含む区間がわかるので, もう一度乱数を生成して求めた区間の数だけ集める.  
+あとはそれをソートしてやればk番目の値がわかる.  
+10^8ぐらいの計算量になるが操作が軽いので問題なく間にあう.  
+
+#### コード
+
+****
+
+{% include_code AOJ/2527.cpp %}

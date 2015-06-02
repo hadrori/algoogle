@@ -1,0 +1,31 @@
+---
+layout: post
+title: "AOJ 2169 Colored Octahedra"
+date: 2014-05-17 14:19:07 +0900
+comments: true
+category: AOJ
+tags: [implementation]
+---
+
+[Colored Octahedra](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2169)
+
+#### 問題概要
+
+****
+
+8枚の正三角形の色が渡されるので, 何通りの正八面体が作れるか.  
+ただし回転しておなじになるものは重複して数えない.
+
+#### 解法
+
+****
+
+8枚なのでとりあえず順列を全て試す.  
+まだ未チェックだったら答えに追加し, その順列と回転してできる順列をチェック済みにする.  
+回転は右に回すのと手前に回すのを新しい順列が作られる限り繰り返せばよい.
+
+#### コード
+
+****
+
+{% include_code AOJ/2169.cpp %}

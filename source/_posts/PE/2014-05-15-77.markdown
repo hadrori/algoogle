@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Project Euler 77 Prime summations"
+date: 2014-05-15 16:18:40 +0900
+comments: true
+category: ProjectEuler
+tags: [math]
+---
+
+[Prime summations](http://projecteuler.net/problem=77)
+
+#### 問題概要
+
+****
+
+数を素数の和として表すとき, その表し方が5000通りを超える最初の数を求めよ
+
+#### 解法
+
+****
+
+素数に区切るのを再帰する. 組み合わせを無視するために現在の区切りの素数よりおおきい素数を次に使わないようにする.  
+
+#### コード
+
+****
+
+EulerをHaskellで解くときはarithmoiというパッケージを使っています.  
+[The arithmoi package](http://hackage.haskell.org/package/arithmoi-0.4.1.0)
+
+{% include_code PE/77.hs %}

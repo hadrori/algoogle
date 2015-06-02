@@ -1,0 +1,28 @@
+---
+layout: post
+title: "PKU 1000 A+B Problem"
+date: 2014-05-15 16:16:04 +0900
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[A+B Problem](http://poj.org/problem?id=1000)
+
+#### 問題概要
+
+****
+
+A+Bをしろ
+
+#### 解法
+
+****
+
+A+Bをする
+
+#### コード
+
+****
+
+{% include_code PKU/1000.cpp %}

@@ -1,0 +1,28 @@
+---
+layout: post
+title: "PKU 3185 The Water Bowls"
+date: 2014-05-25 23:35:22 +0900
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[The Water Bowls](http://poj.org/problem?id=3185)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+左端から見ていって1があったらそこが左側になるようにひっくり返す. そのときのひっくり返す回数.  
+右端から見ていって1があったらそこが右側になるようにひっくり返す. そのときのひっくり返す回数.  
+の最小値.  
+
+#### コード
+
+****
+
+{% include_code PKU/3185.cpp %}

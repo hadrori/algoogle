@@ -1,0 +1,30 @@
+---
+layout: post
+title: "AOJ 2583 JAG-channel"
+date: 2014-08-14 00:17:22 +0900
+comments: true
+category: AOJ
+tags: [implementation]
+---
+
+[JAG-channel](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2583)
+
+#### 問題概要
+
+****
+
+ファイル構成を与えるので指定された木の形で出力しろ
+
+#### 解法
+
+****
+
+'.'は全部' 'に置き換える.  
+最後の'.'だけ'+'にする.  
+'+'の上に' 'があったら'+'にぶつかるまで上って途中を全て'|'にする.
+
+#### コード
+
+****
+
+{% include_code AOJ/2583.cpp %}

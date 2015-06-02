@@ -1,0 +1,33 @@
+---
+layout: post
+title: "ACM-ICPC Tokyo Regional 2014 A Bit String Reordering"
+date: 2014-10-24 03:06:39 +0900
+comments: true
+category: ICPC
+tags: [greedy]
+---
+
+[Automotive Navigation](http://judge.u-aizu.ac.jp/onlinejudge/cdescription.jsp?cid=ICPCOOC2014&pid=A)
+
+#### 問題概要
+
+****
+
+目標のビット列が与えられる.
+今現在のビット列から隣同士を最小何回swapさせれば目標のビット列になるか.
+ただし元の列は0と1どちらかわからない(どちらかが何個続くという情報の列が与えられる).
+元の列から目標の列は生成可能.
+
+#### 解法
+
+****
+
+左から詰めていけばよい.  
+現在のビットが目標と違ったらそれより先にあるもののうち最初に現れる目標の値の場所とswapし, その距離をコストとする.  
+その間に目標と違う値が敷き詰められているので目標の値を順にswapさせてきても影響がないためそれで問題ない.
+
+#### コード
+
+****
+
+{% include_code ICPC/2014/Tokyo/A.cpp %}

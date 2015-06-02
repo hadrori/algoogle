@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 3048 Max Factor"
+date: 2014-05-25 23:39:44 +0900
+comments: true
+category: PKU
+tags: [math]
+---
+
+[Max Factor](http://poj.org/problem?id=3048)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+素数列作っておいて割って試すだけ.  
+
+#### コード
+
+****
+
+{% include_code PKU/3048.cpp %}

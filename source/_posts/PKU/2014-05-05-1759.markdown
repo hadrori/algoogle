@@ -1,0 +1,29 @@
+---
+layout: post
+title: "PKU 1759 Garland"
+date: 2014-05-05 23:55:28 +0900
+comments: true
+category: PKU
+tags: [binary-search]
+---
+
+[Garland](http://poj.org/problem?id=1759)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+H2を決めればBが一意に決まる.  
+基本的にH2を小さくすればBも小さくなるのでH2を二分探索する.  
+判定部分は途中のHが負になる場合は失敗, それ以外は成功.
+
+#### 
+
+****
+
+{% include_code PKU/1759.cpp %}
+

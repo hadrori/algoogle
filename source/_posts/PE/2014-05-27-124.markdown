@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Project Euler 124 Ordered radicals"
+date: 2014-05-27 23:37:08 +0900
+comments: true
+category: ProjectEuler
+tags: [math]
+---
+
+[Ordered radicals](http://projecteuler.net/problem=124)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+100000までの数それぞれについて素因数を出して, その積でソートする.
+
+#### コード
+
+****
+
+{% include_code PE/124.cpp %}

@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 3173 Parkside's Triangle"
+date: 2014-05-26 00:13:15 +0900
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Parkside's Triangle](http://poj.org/problem?id=3173)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+順番に表に埋めていけばよい
+
+#### コード
+
+****
+
+{% include_code PKU/3173.cpp %}

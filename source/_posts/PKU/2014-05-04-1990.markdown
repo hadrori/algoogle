@@ -1,0 +1,34 @@
+---
+layout: post
+title: "PKU 1990 MooFest"
+date: 2014-05-04 15:21:07 +0900
+comments: true
+category: PKU
+tags: [binary-indexed-tree]
+---
+
+[MooFest](http://poj.org/problem?id=1990)
+
+#### 問題概要
+
+****
+
+各牛に場所xと聞こえる音量vが与えられるとき,  
+{% m %}\sum_{i=0}^N \sum_{j=i+1}^N |x_i - x_j| \times max(v_i, v_j){% em %}  
+を求めよ.
+
+#### 解法
+
+****
+
+vの小さい牛から順に, その牛よりvの小さい牛について  
+左にいる牛の数とその距離の総和, 右にいる牛の数とその距離の総和が出せれば, 距離の差を取ってvをかければその牛のvを使うものの総和が出せる.  
+これをBITを用いることで計算する.  
+各x座標についてそこまでの牛の数の和についてのBITと距離の和についてのBITを用いればよい.  
+
+#### コード
+
+****
+
+{% include_code PKU/1990.cpp %}
+

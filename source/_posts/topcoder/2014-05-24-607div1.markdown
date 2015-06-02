@@ -1,0 +1,28 @@
+---
+layout: post
+title: "SRM 607 Div1"
+date: 2014-05-24 14:15:02 +0900
+comments: true
+category: TopCoder
+tags: [dp]
+---
+
+#### Easy
+
+****
+
+[PalindromicSubstringsDiv1](http://community.topcoder.com/stat?c=problem_statement&pm=12964&rd=15840)  
+
+回文は真ん中からよむといいらしい.  
+dp[l][r] := l から r までのsubstringが回文である確率.  
+S[l] == S[r] ならdp[l+1][r-1]の確率で回文  
+どっちかだけ'?'なら dp[l+1][r-1] / 26 の確率で回文  
+どっちも'?'なら dp[l+1][r-1] * 26 / 26^2の確率で回文  
+それ以外では回文にならない  
+あとはそれぞれのsubstringが回文になる期待値を足し合わせればいい  
+
+#### コード
+
+****
+
+{% include_code topcoder/607div1easy.cpp %}

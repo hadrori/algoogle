@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 3628 Bookshelf 2"
+date: 2014-05-24 13:01:40 +0900
+comments: true
+category: PKU
+tags: [dfs]
+---
+
+[Bookshelf 2](http://poj.org/problem?id=3628)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+N<=20なので全探索すればよい
+
+#### 
+
+****
+
+{% include_code PKU/3628.cpp %}

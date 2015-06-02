@@ -1,0 +1,26 @@
+---
+layout: post
+title: "PKU 2181 Jumping Cows"
+date: 2014-05-26 00:00:03 +0900
+comments: true
+category: PKU
+tags: [implementation]
+---
+
+[Jumping Cows](http://poj.org/problem?id=2181)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+数値を山みたいにみて, てっぺんで足して, 凹んでるとこで引くのを繰り返す.
+
+#### コード
+
+****
+
+{% include_code PKU/2181.cpp %}

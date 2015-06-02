@@ -1,0 +1,31 @@
+---
+layout: post
+title: "AOJ 1243 Weather Forecast"
+date: 2014-05-16 02:31:50 +0900
+comments: true
+category: AOJ
+tags: [dp]
+---
+
+[Weather Forecast](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1243)
+
+#### 問題概要
+
+****
+
+D日間の祭りのスケジュールが与えられるので, それを避けるように毎日2*2のエリアに雨を降らせる.  
+雨雲は1日に上下左右に0~2マス進める.  
+また各エリアは7日間連続で雨が降らないことがないようにする.
+
+#### 解法
+
+****
+
+シミュレーションする. ただし一度通った状態は無視するようにしないとTLEする.  
+雲の位置, その日の予定, 連続して雨の降っていない日数はすべてbitで管理するとコードがすっきりして便利.  
+
+#### コード
+
+****
+
+{% include_code AOJ/1243.cpp %}

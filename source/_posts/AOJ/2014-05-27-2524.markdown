@@ -1,0 +1,39 @@
+---
+layout: post
+title: "AOJ 2524 Mysterious Operator"
+date: 2014-05-27 23:27:20 +0900
+comments: true
+category: AOJ
+tags: [brute-force]
+---
+
+[Mysterious Operator](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2524)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+2つの数の差を頭に, 和を後ろに置くという操作.  
+元の式が  
+x + y = z  
+だとするとz = |x - y| * (int)log10(x + y) + x + y  
+まあlog10あたりが面倒くさいので文字列でやるのが楽でよい  
+x - y = a  
+x + y = b  
+とすると  
+x = (a + b) / 2  
+y = (b - a) / 2  
+とわかる.  
+つまり, 適当な場所で区切ったときの前後の和が2で割り切れれば,  
+その組み合わせがひとつあることになる.  
+それをすべての区切り方で試せばいい. 
+
+#### コード
+
+****
+
+{% include_code AOJ/2524.cpp %}

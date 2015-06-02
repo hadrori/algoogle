@@ -1,0 +1,30 @@
+---
+layout: post
+title: "PKU 2392 Space Elevator"
+date: 2014-05-12 10:54:30 +0900
+comments: true
+category: PKU
+tags: [dp]
+---
+
+[Space Elevator](http://poj.org/problem?id=2392)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+aの大きさ順にソートして, 小さいやつからブロックを置くのは明らかにわかる.  
+あるブロックまでで作れるのはその前のブロックが作れるものにhを足したもの  
+またそれをc回繰り返したもの.  
+それをDPすればいい.  
+dp[i] := 高さ i が作れる  
+
+#### コード
+
+****
+
+{% include_code PKU/2392.cpp %}
