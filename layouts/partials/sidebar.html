@@ -13,7 +13,7 @@
     </div>
     <div id="tag-wrapper">
       <h4> Tags </h4>
-      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}<a href="/tags/{{ $name | urlize }}">{{ lower $name }} ({{ $taxonomy.Count }})</a>{{ end }}
+      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}<a href="/tags/{{ $name | urlize }}">{{ lower $name }} ({{ $taxonomy.Count }})</a>&nbsp;{{ end }}
     </div>
   </ul>
 </div>
