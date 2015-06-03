@@ -1,6 +1,6 @@
 ---
 type: page
-title: Algorithm
+title: Library
 comments: true
 sharing: true
 footer: true
