@@ -1,25 +1,19 @@
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
-    <li class="sidebar-brand"><a href="{{ .Site.BaseUrl }}/"><h1 class="brand">{{ .Site.Title }}</h1></a><h3>{{ .Site.Params.Description }}</h3></li>
+    <li class="sidebar-brand"><a href="{{ .Site.BaseURL }}/"><h1 class="brand">{{ .Site.Title }}</h1></a><h3>{{ .Site.Params.Description }}</h3></li>
     <hr />
     <div id="recent-entry-wrapper">
       <h4> Recent Entries </h4>
-      {{ range first 5 .Site.Pages }}
-      <li><span><a href="{{ .Permalink }}">{{ .Title }}</a></span></li>
-      {{ end }}
+      {{ range first 5 .Site.Pages }}<li><span><a href="{{ .Permalink }}">{{ .Title }}</a></span></li>{{ end }}
     </div>
     <ht />
     <div id="category-wrapper">
       <h4> Categories </h4>
-      {{ range $name, $taxonomy := .Site.Taxonomies.category }}
-      <li><a href="/category/{{ $name | urlize }}">{{ upper $name }} ({{ $taxonomy.Count }})</a></li>
-      {{ end }}
+      {{ range $name, $taxonomy := .Site.Taxonomies.category }}<li><a href="/category/{{ $name | urlize }}">{{ upper $name }} ({{ $taxonomy.Count }})</a></li>{{ end }}
     </div>
     <div id="tag-wrapper">
       <h4> Tags </h4>
-      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-      <a href="/tags/{{ $name | urlize }}">{{ lower $name }} ({{ $taxonomy.Count }})</a>
-      {{ end }}
+      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}<a href="/tags/{{ $name | urlize }}">{{ lower $name }} ({{ $taxonomy.Count }})</a>{{ end }}
     </div>
   </ul>
 </div>
