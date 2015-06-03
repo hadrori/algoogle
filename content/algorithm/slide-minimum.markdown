@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "スライド最小値"
+tags: [slide-min-max]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(1)$`
   
 #### 解説
@@ -36,7 +39,3 @@ dequeのfrontに常に区間の最小値のうち一番後の位置が入るよ�
 #### 問題
 
 ***  
-
-{% for post in site.tags['slide-min-max'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

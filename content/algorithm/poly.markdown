@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "多項式"
+tags: []
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 |
 積     |  `$O(N \log N)$`
 逆元   |  `$O(N \log N)$`

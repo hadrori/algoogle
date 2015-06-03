@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Binary Search"
+tags: [binary-search]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(\log N)$`
   
 N := 区間の幅  
@@ -54,6 +57,3 @@ ok(mid)がfalseなら, uはmidより多きいのでlb=midとする.
 #### 問題
 
 ***  
-{% for post in site.tags['binary-search'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

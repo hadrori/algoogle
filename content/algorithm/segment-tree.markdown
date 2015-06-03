@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Segment Tree"
+tags: [segment-tree]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量(RMQ) | `$O(\log N)$`
 用途 | 区間に対するクエリの処理
   
@@ -37,6 +40,3 @@ Segment Treeは主に区間に対するクエリを処理するために使わ�
 #### 問題
 
 ***  
-{% for post in site.tags['segment-tree'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

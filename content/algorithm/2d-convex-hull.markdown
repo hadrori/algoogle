@@ -1,5 +1,5 @@
 ---
-type: page
+type: algorithm
 title: "凸包"
 comments: true
 sharing: true

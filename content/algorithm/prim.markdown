@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Prim法"
+tags: [spanning-tree]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(E \log V)$`
 用途| 最小全域木を求める
   
@@ -33,7 +36,3 @@ Dijkstra法と似ている.
 #### 問題
 
 ***  
-
-{% for post in site.tags['spanning-tree'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

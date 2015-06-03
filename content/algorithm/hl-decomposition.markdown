@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "HL分解"
+tags: [heavy-light-decomposition]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量(構築) | `$O(N)$`
 計算量(LCA) | `$O(\log N)$`
   
@@ -34,6 +37,3 @@ N := 頂点数
 #### 問題
 
 ***  
-{% for post in site.tags['heavy-light-decomposition'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

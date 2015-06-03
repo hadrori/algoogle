@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Dijkstra法"
+tags: [dijkstra]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(E \log V)$`
 用途| 負辺のないグラフで単一始点最短路を求める.
   
@@ -35,7 +38,3 @@ Dijkstra法ではまだ調べていない頂点のうち, 始点から一番近�
 #### 問題
 
 ***  
-
-{% for post in site.tags['dijkstra'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

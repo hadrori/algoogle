@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Aho-Corasick法"
+tags: [aho-corasick]
 comments: true
 sharing: true
 ---
@@ -8,7 +9,8 @@ sharing: true
 #### 基本情報
   
 ***
-
+ |
+|:--|:--|
 計算量 | `$O(N+M)$`
 用途| 入力文字列に対してマッチするパターンを検索  
   
@@ -44,8 +46,4 @@ Aho-Corasick法では, このトライ木を利用してで入力文字列の連
 #### 問題
 
 ***  
-
-{% for post in site.tags['aho-corasick'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}
 

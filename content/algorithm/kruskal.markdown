@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Kruskal法"
+tags: [spanning-tree]
 comments: true
 sharing: true
 ---
@@ -8,7 +9,8 @@ sharing: true
 #### 基本情報
   
 ***
-
+ | 
+|:--|:--|
 計算量 | `$O(E \log V)$`
 用途| 最小全域木(森)を求める
   
@@ -33,6 +35,3 @@ V := 頂点数
 #### 問題
 
 ***  
-{% for post in site.tags['spanning-tree'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

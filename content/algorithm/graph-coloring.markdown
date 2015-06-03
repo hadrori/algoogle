@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "彩色数"
+tags: [graph-coloring]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(2^{N}N)$`
 空間 | `$O(N)$`
   
@@ -33,8 +36,4 @@ N := 頂点数
 #### 問題
 
 ***
-
-{% for post in site.tags['graph-coloring'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}
 

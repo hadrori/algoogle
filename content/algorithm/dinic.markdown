@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Dinic法"
+tags: [max-flow]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(EV^2)$`
 用途| 最大流を求める
   
@@ -35,7 +38,3 @@ Dinic法は一般に最悪ケースよりもかなり高速に動作する.
 #### 問題
 
 ***  
-
-{% for post in site.tags['max-flow'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

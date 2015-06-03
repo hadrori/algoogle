@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "永続赤黒木"
+tags: []
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 |
 merge | `$O(\log N)$`
 split | `$O(\log N)$`

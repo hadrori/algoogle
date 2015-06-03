@@ -1,5 +1,5 @@
 ---
-type: page
+type: algorithm
 title: "円"
 comments: true
 sharing: true

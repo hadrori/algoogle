@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "有理数"
+tags: []
 comments: true
 sharing: true
 ---

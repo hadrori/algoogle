@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Wavelet-Matrix"
+tags: []
 published: false
 comments: true
 sharing: true
@@ -10,6 +11,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 |
 完備辞書 | 
 rank | `$O(1)$`

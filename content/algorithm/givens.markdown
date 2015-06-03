@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "線形方程式の解(Givens)"
+tags: [givens]
 comments: true
 sharing: true
 ---
@@ -27,7 +28,3 @@ Givens回転を用いたQR分解によって線形方程式を解く.
 #### 問題
 
 ***
-
-{% for post in site.tags['givens'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

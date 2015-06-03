@@ -1,5 +1,5 @@
 ---
-type: page
+type: algorithm
 title: "Segment Tree(2D RMQ)"
 comments: true
 sharing: true

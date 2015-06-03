@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "積(行列)"
+tags: [matrix]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
 
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(N^3)$`
 
 #### 解説
@@ -24,7 +27,3 @@ sharing: true
 #### 問題
 
 ***
-
-{% for post in site.tags['matrix'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

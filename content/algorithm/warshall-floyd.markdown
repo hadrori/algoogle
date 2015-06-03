@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Warshall-Floyd法"
+tags: [warshall-floyd]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(N^3)$`
 用途| 全点対最短路を求める
   
@@ -40,6 +43,3 @@ dist[i][j] = min(dist[i][j], dist[i][k+1] + dist[k+1][j]);
 #### 問題
 
 ***  
-{% for post in site.tags['warshall-floyd'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

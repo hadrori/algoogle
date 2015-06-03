@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "最小費用流"
+tags: [min-cost-flow]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(FE\log V)$`
 用途| 最大流を求める
   
@@ -30,7 +33,3 @@ F := 流量
 #### 問題
 
 ***  
-
-{% for post in site.tags['min-cost-flow'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

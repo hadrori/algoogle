@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Binary Indexed Tree(Range Add)"
+tags: [binary-indexed-tree-range-add]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(\log N)$`
 用途 | 区間の和を求める. 区間に値を加える.
   
@@ -39,6 +42,3 @@ BITでやらなくてもSegment Treeでやればいいですが, BITを使って
 #### 問題
 
 ***  
-{% for post in site.tags['binary-indexed-tree-range'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

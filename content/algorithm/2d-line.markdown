@@ -1,5 +1,5 @@
 ---
-type: page
+type: algorithm
 title: "直線と線分"
 comments: true
 sharing: true

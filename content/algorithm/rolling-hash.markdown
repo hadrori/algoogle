@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Rolling-Hash法(Rabin-Karp法)"
+tags: [rolling-hash]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 |
 構築 | `$O(N)$`
 空間 | `$O(N)$`

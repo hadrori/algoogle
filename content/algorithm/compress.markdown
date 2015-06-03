@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "座標圧縮"
+tags: [compress]
 comments: true
 sharing: true
 ---
@@ -34,4 +35,5 @@ N := 圧縮する座標の数
 #### 問題
 
 ***  
+
 

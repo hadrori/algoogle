@@ -1,5 +1,5 @@
 ---
-type: page
+type: algorithm
 title: "点"
 comments: true
 sharing: true

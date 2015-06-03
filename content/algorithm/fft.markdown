@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "高速フーリエ変換"
+tags: [fft]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(N \log N)$`
 用途 | フーリエ変換する
   
@@ -25,32 +28,36 @@ invを指定すると逆変換
 結構誤差る
 
 
-{% math %}
+<div> $ {\displaystyle
 
 F(t) = \sum_{x=0}^{N-1} f(x)e^{-i\frac{2\pi tx}{N}}\\
+\displaystyle
 f(x) = \frac{1}{N} \sum_{t=0}^{N-1} F(t)e^{i\frac{2\pi tx}{N}}
 
-{% endmath %}
+} $ </div>
 
 畳み込みを利用したいときに使うことが多い  
 fとgは周期Nの周期関数とすると
 
-{% math %}
+<div> $ {\displaystyle
 
 (f*g)(x) = \sum_{n=0}^{N-1} f(n)g(x-n)\\
+\displaystyle
 F(f*g) = F(f)F(g)
 
-{% endmath %}
+} $ </div>
 
 畳み込みを使うと多項式f, gの掛け算が以下のようにかける
 
-{% math %}
+<div> $ {\displaystyle
 
 f = \sum_{i=0}^{N-1} a_{i} x^{i}\\
+\displaystyle
 g = \sum_{i=0}^{N-1} b_{i} x^{i}\\
+\displaystyle
 \sum^{2N-2}_{j=0} \left( \sum_{i=0}^{j} a_{i}b_{j-i} \right) x^{j}
 
-{% endmath %}
+} $ </div>
 
 #### コード
 
@@ -61,7 +68,3 @@ g = \sum_{i=0}^{N-1} b_{i} x^{i}\\
 #### 問題
 
 ***  
-
-{% for post in site.tags['fft'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

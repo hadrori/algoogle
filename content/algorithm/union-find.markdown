@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Union Find Tree"
+tags: [union-find]
 comments: true
 sharing: true
 ---
@@ -9,12 +10,13 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(\alpha (N))$`
 用途 | データの集合の併合と同じ集合に属しているかの判定
   
 N := 頂点数  
 `$\alpha$` := アッカーマン関数の逆関数
-
   
 #### 解説
 
@@ -35,6 +37,3 @@ Union Find木では共通の親を持つかどうかで同じ木に属してい�
 #### 問題
 
 ***  
-{% for post in site.tags['union-find'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

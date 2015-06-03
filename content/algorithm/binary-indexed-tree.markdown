@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "Binary Indexed Tree"
+tags: [binary-indexed-tree]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(\log N)$`
 用途 | 区間の和を求める. 値を加える.
   
@@ -38,6 +41,3 @@ BIT(Binary Indexed Tree)は区間の和を求めるのと1つの場所の値に�
 #### 問題
 
 ***  
-{% for post in site.tags['binary-indexed-tree'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

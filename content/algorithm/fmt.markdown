@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "高速剰余変換"
+tags: [fmt]
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 | `$O(N \log N)$`
 用途 | 剰余環上でフーリエ変換する
   
@@ -34,7 +37,3 @@ mod周りが面倒なのでmintクラスを使うことも考えたがパフォ�
 #### 問題
 
 ***  
-
-{% for post in site.tags['fft'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}

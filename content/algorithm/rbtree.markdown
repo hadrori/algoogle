@@ -1,6 +1,7 @@
 ---
-type: page
+type: algorithm
 title: "赤黒木(insert/delete)"
+tags: []
 comments: true
 sharing: true
 ---
@@ -9,6 +10,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 |
 insert | `$O(\log N)$`
 erase | `$O(\log N)$`

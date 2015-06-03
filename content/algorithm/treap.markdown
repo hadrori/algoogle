@@ -1,5 +1,5 @@
 ---
-type: page
+type: algorithm
 title: "Treap"
 comments: true
 sharing: true
@@ -9,6 +9,8 @@ sharing: true
   
 ***
 
+ | 
+|:--|:--|
 計算量 |
 insert | `$O(\log N)$`
 erase | `$O(\log N)$`
