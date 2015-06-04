@@ -41,7 +41,3 @@ N := 文字列の長さ
 
 ***
 
-{% for post in site.tags['rolling-hash'] %}
-* [{{post.title | cdata_escape}}]({{post.url}})
-{% endfor %}
-

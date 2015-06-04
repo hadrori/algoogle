@@ -3,22 +3,22 @@
 {{ template "partials/header.html" . }}
 <body>
   <div id="wrapper">
-    {{ template "partials/sidebar.html" . }}
-    {{ template "partials/navbar.html" . }}
-
-    <div id="article">
-      {{ if eq .Data.Singular "category" }}
-      <h1>{{ upper .Title }}</h1>
-      {{ else }}
-      <h1>{{ .Title }}</h1>
-      {{ end }}
-      <ul class="posts">
-        {{ range .Data.Pages }}
-        <li><span><a href="{{ .Permalink }}">{{ .Title }}</a><time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</time></span></li>
+    <div id="main-wrapper">
+      <div id="article">
+        {{ if eq .Data.Singular "category" }}
+        <div class="article-title">{{ upper .Title }}</div>
+        {{ else }}
+        <div class="article-title">{{ .Title }}</div>
         {{ end }}
-      </ul>
+        <ul class="posts">
+          {{ range .Data.Pages }}
+          <li><span><a href="{{ .Permalink }}">{{ .Title }}</a><time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</time></span></li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ template "partials/footer.html" . }}
     </div>
-    {{ template "partials/footer.html" . }}
+    {{ template "partials/sidebar.html" . }}
   </div>
 </body>
 </html>

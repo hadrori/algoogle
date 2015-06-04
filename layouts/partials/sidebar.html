@@ -2,18 +2,39 @@
   <ul class="sidebar-nav">
     <li class="sidebar-brand"><a href="{{ .Site.BaseURL }}/"><h1 class="brand">{{ .Site.Title }}</h1></a><h3>{{ .Site.Params.Description }}</h3></li>
     <hr />
+    <div class="profile">
+      <table>
+        <tr>
+          <td rowspan="2" style="width:80px"><img src="http://s.gravatar.com/avatar/d004222bc46e6e9c7223ee776abdd129?s=80" class="avatar"/></td>
+          <td>hadrori</td>
+        </tr>
+        <tr>
+          <td><a href="https://twitter.com/hadrori" class="twitter-follow-button" data-show-count="false">Follow @hadrori</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td>
+        </tr>
+      </table>
+    </div>
+    
+    <hr />
+    <div id="content-wrapper">
+      <h4><a href="/about/">About</a></h4>
+      <h4><a href="/library/">Library</a></h4>
+      <h4><a href="/links/">Links</a></h4>
+    </div>
+    <hr />    
     <div id="recent-entry-wrapper">
       <h4> Recent Entries </h4>
-      {{ range first 5 .Site.Pages }}<li><span><a href="{{ .Permalink }}">{{ .Title }}</a></span></li>{{ end }}
+      {{ range first 5 .Site.Pages }}<div><a href="{{ .Permalink }}">{{ .Title }}</a></div>{{ end }}
     </div>
-    <ht />
+    <hr />
     <div id="category-wrapper">
       <h4> Categories </h4>
-      {{ range $name, $taxonomy := .Site.Taxonomies.category }}<li><a href="/category/{{ $name | urlize }}">{{ upper $name }} ({{ $taxonomy.Count }})</a></li>{{ end }}
+      {{ range $name, $taxonomy := .Site.Taxonomies.category }}<div><a href="/category/{{ $name | urlize }}">{{ upper $name }} ({{ $taxonomy.Count }})</a></div>{{ end }}
     </div>
+    <hr />
     <div id="tag-wrapper">
       <h4> Tags </h4>
-      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}<a href="/tags/{{ $name | urlize }}">{{ lower $name }} ({{ $taxonomy.Count }})</a>&nbsp;{{ end }}
+      <div class="contents">{{ range $name, $taxonomy := .Site.Taxonomies.tags }}<a href="/tags/{{ $name | urlize }}">{{ lower $name }}({{ $taxonomy.Count }})</a>&nbsp;{{ end }}</div>
+      <br/><br/><br/>
     </div>
   </ul>
 </div>

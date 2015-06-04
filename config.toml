@@ -1,5 +1,6 @@
 baseurl = "http://algoogle.hadrori.jp"
 title = "Algoogle"
+description = "Algorithm for Programming Contest"
 disqusShortname = "Algoogle"
 
 [taxonomies]
@@ -7,7 +8,6 @@ disqusShortname = "Algoogle"
   tag      = "tags"
 
 [params]
-  description = "Algorithms for Programming Contest"
   author = "hadrori"
   languageCode = "ja"
   countryCode = "ja"
