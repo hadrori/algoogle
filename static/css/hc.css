@@ -114,30 +114,58 @@ p
 {
   padding:30px;
   width:100%;
-  transition:all .5s ease 0
-}
-
-.navbar a 
-{
-  text-decoration: none;
-  border-bottom: 1px #b1b1b1 solid;
 }
 
 #main-wrapper
 {
-    float: left;
-    width:70%;
-    min-width:500px;
-    padding-right:10px;
+  float: left;
+  width:75%;
+  padding-right:10px;
 }
 
 #sidebar-wrapper
 {
   float: left;
-  width:30%;
-  min-width:300px;
+  width:25%;
   background-color:#fff;
   padding-top:30px;
+}
+
+#tag-wrapper .contents
+{
+  padding:10px;
+  padding-left:20px;
+}
+  
+@media screen and (max-width: 799px) {
+
+  #wrapper
+  {
+    padding: 0px;
+    width:100%;
+  }
+
+  #main-wrapper
+  {
+      float: center;
+      padding: 30px;
+      width:100%;
+  }
+
+  #sidebar-wrapper
+  {
+    float: center;
+    align: center;
+    text-align: center;
+    width:100%;
+    background-color:#fff;
+    padding-top:30px;
+  }
+  
+  #tag-wrapper .contents
+  {
+      padding:10px;
+  }
 }
 
 .sidebar-nav
@@ -310,13 +338,6 @@ ul,ol
 #tag-wrapper a
 {
   text-decoration:underline;
-}
-
-#tag-wrapper .contents
-{
-  padding:10px;
-  padding-left:20px;
-  max-width:300px;
 }
 
 #social-wrapper
@@ -771,73 +792,6 @@ time
 #article h1,#article h2,#article h3
 {
     color:#21759b;
-}
-
-@media (max-width:767px) {
-
-#wrapper {
-  padding-left: 0;
-  padding-top: 20px;
-}
-
-#sidebar-wrapper {
-    border-top: none;
-    left: 0px;
-}
- .nav-toggle {
-    display: ;
-  }
-#wrapper.active {
-  position: relative;
-  left: 250px;
-}
-
-#wrapper.active #sidebar-wrapper {
-  left: 250px;
-  width: 250px;
-  transition: all 0.7s ease 0s;
-}
-
-.inset {
-  padding: 15px;
-}
-.navbar 
-{
-  display: inherit;
-  background-color: #ededed;
-  margin-top: -20px;
-}
-
-}
-
-@media screen and (max-width: 500px) {
-  #welcome-greeting h2 {
-   font-size: 15px; 
-   transition: all 0.2s ease 0s;
-   font-weight: 200;
-   line-height: 30px;
-
-  }
-  .container {
-    width: 100%;
-    margin: 0 0 0 0;
-    padding: 15px 15px 0 15px;
-  }
-
-  #article {
-      padding: 0 10px 0 10px;
-  }
-
-  #profile-image {
-   display:block !important;
-  }
-
-.showcase-wrapper {
-  width: 100%;
-  height: 50%;
-  font-size: small;
-}
-
 }
 
 code.has-jax {
