@@ -1,0 +1,30 @@
+---
+layout: post
+title: "AOJ 2082 Goofy Converter"
+date: 2015-06-27T02:32:00+09:00
+comments: true
+category: AOJ
+tags: [brute-force]
+---
+
+[Goofy Converter](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2082)
+
+#### 問題概要
+
+****
+
+`$L_{i} = \sum_{j=i}^{i+M-1}K_{j}$`となるLが与えられるので，それを満たすKを求めよ．  
+複数ある場合はそのうちの1つ，なければGoofyと出力せよ．
+
+#### 解法
+
+****
+
+最初のm個を決めたら全部決まるので，`$2^m$`全部試す
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/2082.cpp" "cpp" >}}
+
