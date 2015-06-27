@@ -1,0 +1,33 @@
+---
+layout: post
+title: "AOJ 0291 Mystery of an Ancient Ruin"
+date: 2015-06-27T15:28:00+09:00
+comments: true
+category: AOJ
+tags: [matrix, parsing]
+---
+
+[Mystery of an Ancient Ruin](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0291)
+
+#### 問題概要
+
+****
+
+あみだくじ`A`と`B`をつなげることを`A+B`と表現する．  
+また，繰り返しはかっこで括ることができる．例えば`A+B+A+B`は`2(A+B)`となる．  
+縦棒の数がN(<=12)，あみだくじの種類数がK(<=26)のとき，与えられる式のあみだくじの結果を求めよ．
+
+#### 解法
+
+****
+
+`A+B`はそれぞれのあみだくじの遷移行列をX，Yとすると`YX`と表せる．  
+係数はその意味から`2(A+B)`だったら`$(YX)^2$`となる．  
+あとは適当に構文解析しながら行列累乗してやればよい．
+
+#### コード
+
+****
+
+{{< includeCode "/AOJ/0291.cpp" "cpp" >}}
+
