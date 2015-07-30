@@ -6,7 +6,7 @@ sharing: true
 footer: true
 ---
 
-## Algorithm for Programming Contest  
+## Library
 
 1. ### 文字列
    * #### 比較
