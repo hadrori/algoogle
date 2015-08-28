@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Typical DP Contest H - ナップザック"
+date: 2015-08-28 22:09:45 +0900
+comments: true
+category: TDPC
+tags: [dp]
+---
+
+[H - ナップザック](http://tdpc.contest.atcoder.jp/tasks/tdpc_knapsack)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+色ごとにDPする．  
+dp\[i\]\[j\] := 重さi以下でj色以下のときの価値の最大  
+これを色ごとに順にやっていく．  
+ある色について更新するとき，元のdp配列は破壊せずにとっておく．  
+色の種類数を無視して更新していったあと，元の配列とのmaxを取っていく．  
+この際更新したほうの色数は全部+1して考えることで色の種類数のつじつまが合う．
+
+#### コード
+
+****
+
+{% include_code TDPC/H.cpp %}

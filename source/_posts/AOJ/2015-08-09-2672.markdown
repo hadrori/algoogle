@@ -1,0 +1,32 @@
+---
+layout: post
+title: "AOJ 2672 Rescue a Postal Worker"
+date: 2015-08-09 00:20:11 +0900
+comments: true
+category: AOJ
+tags: [dijkstra, dp]
+---
+
+[Rescue a Postal Worker](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2672)
+
+#### 問題概要
+
+****
+
+n(<=1000)頂点の無向グラフがある．  
+pから始めて，k(<=6)箇所に落ちている手紙をそれぞれk箇所の指定された家に届けるとき，すべて配り終えるまでの最短の時間を求めよ．
+
+#### 解法
+
+****
+
+手紙が落ちている場所と届ける家以外はいらないので，それら+始点の間の距離をDijkstraで求めておく．  
+それらの間でbitDPする．  
+dp\[i\]\[j\] := すでに訪れた頂点集合iでjにいるときの最短時間  
+届け先には手紙を拾ってからじゃないとダメなように遷移させればよい．
+
+#### コード
+
+****
+
+{% include_code AOJ/2672.cpp %}

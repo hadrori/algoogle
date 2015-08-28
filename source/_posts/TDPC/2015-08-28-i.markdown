@@ -1,0 +1,29 @@
+---
+layout: post
+title: "Typical DP Contest I - イウィ"
+date: 2015-08-28 23:29:55 +0900
+comments: true
+category: TDPC
+tags: [dp]
+---
+
+[I - イウィ](http://tdpc.contest.atcoder.jp/tasks/tdpc_iwi)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+dp\[l\]\[r\] := \[l,r)で消せる文字の数の最大  
+として\[l,r)の幅が小さいほうからDPする．  
+更新は区間を2つに分割したやつの和の最大をとっていく．  
+それの他に，区間の両端が'i'で，間の'w'で区切って区切られたの部分がそれぞれ全部消せるならdp\[l\]\[r\] = r-lになる．
+
+#### コード
+
+****
+
+{% include_code TDPC/I.cpp %}

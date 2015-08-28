@@ -111,14 +111,14 @@ task :new_post, :title do |t, args|
   open(filename, 'w') do |post|
     post.puts "---"
     post.puts "layout: post"
-    post.puts "title: \"LiveArchive #{title.gsub(/&/,'&amp;')}\""
+    post.puts "title: \"AOJ #{title.gsub(/&/,'&amp;')}\""
     post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"
     post.puts "comments: true"
-    post.puts "category: LiveArchive"
+    post.puts "category: AOJ"
     post.puts "tags: []"
     post.puts "---"
     post.puts ""
-    post.puts "[](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=307&page=show_problem&problem=)"
+    post.puts "[](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=#{title.gsub(/&/,'&amp;')})"
     post.puts ""
     post.puts "#### "
     post.puts ""
@@ -132,7 +132,7 @@ task :new_post, :title do |t, args|
     post.puts ""
     post.puts "****"
     post.puts ""
-    post.puts "{% include_code livearchive/#{title.gsub(/&/,'&amp;')}.cpp %}"
+    post.puts "{% include_code AOJ/#{title.gsub(/&/,'&amp;')}.cpp %}"
   end
 end
 
