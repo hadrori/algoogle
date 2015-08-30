@@ -1,0 +1,30 @@
+---
+layout: post
+title: "Typical DP Contest M - 家"
+date: 2015-08-30 13:18:04 +0900
+comments: true
+category: TDPC
+tags: [dp, matrix]
+---
+
+[M - 家](http://tdpc.contest.atcoder.jp/tasks/tdpc_house)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+まず1階だけの時の各部屋間の移動方法の数を求める．  
+dp\[i\]\[j\]\[k\] := iから始めて回った部屋の集合jで今いる部屋がkのときのiからkまでの移動の方法数  
+として2部屋間の移動の方法を数えるbitDPをする．  
+  
+あとはこの2部屋間の移動方法数の行列をH乗してやって，部屋1から部屋1までの数を見れば良い．
+
+#### コード
+
+****
+
+{% include_code TDPC/M.cpp %}
