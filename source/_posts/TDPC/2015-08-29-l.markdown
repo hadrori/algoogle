@@ -1,0 +1,34 @@
+---
+layout: post
+title: "Typical DP Contest L - 猫"
+date: 2015-08-29 22:35:49 +0900
+comments: true
+category: TDPC
+tags: [dp]
+---
+
+[L - 猫](http://tdpc.contest.atcoder.jp/tasks/tdpc_cat)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+ある猫iから距離1以内にいる1番左の猫をl\[i\]とすると，lは単調非減少．  
+dp\[i\]\[j\] := 猫iまででiの距離1以内にいる一番左の猫がjのときの最大値  
+とすると
+
+{% math %}
+dp[i][j] = max\{dp[i-1][k] \mid k \leq j\}+\sum_{l=j}^{i} f[i][l]
+{% endmath %}
+
+と更新できる．これはjを順に見ていけばそれぞれO(1)で計算可能．  
+
+#### コード
+
+****
+
+{% include_code TDPC/L.cpp %}

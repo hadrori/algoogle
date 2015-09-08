@@ -1,0 +1,33 @@
+---
+layout: post
+title: "Typical DP Contest P - うなぎ"
+date: 2015-09-08 18:50:42 +0900
+comments: true
+category: TDPC
+tags: [dp]
+---
+
+[P - うなぎ](http://tdpc.contest.atcoder.jp/tasks/tdpc_eel)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+適当に根をつけて木DPします．  
+dp\[i\]\[j\]\[k\] := 頂点i以下の部分木でj本のパスを書いて頂点iの次数がkのときの場合の数  
+  
+更新は頂点iに子を順に加えていく感じのDPをする．  
+dp2\[l\]\[m\]\[n\] := l番目の子まででi以下の部分木にj本のパスを書いて頂点iの次数がnのときの場合の数  
+  
+このdp2の更新は頂点iとその子に辺を加えるかどうかを全てのパターンでやればよい．  
+次数0同士つなぐんだったらパスの本数が1増えるとか全部やる．
+
+#### コード
+
+****
+
+{% include_code TDPC/P.cpp %}

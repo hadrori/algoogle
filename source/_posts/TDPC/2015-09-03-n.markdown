@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Typical DP Contest N - 木"
+date: 2015-09-03 14:34:38 +0900
+comments: true
+category: TDPC
+tags: [dp]
+---
+
+[N - 木](http://tdpc.contest.atcoder.jp/tasks/tdpc_tree)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+dp\[i\]\[j\] := jを親とする頂点iの部分木でのiから辺を生やしていく時の辺の生やし方の場合の数  
+最初に使う辺を決める．  
+iの子の部分木について求まったら，各子供の辺の伸ばし方の順番の組み合わせと一緒に掛け合わせていけば良い．
+
+#### コード
+
+****
+
+{% include_code TDPC/N.cpp %}

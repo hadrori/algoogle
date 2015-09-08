@@ -1,0 +1,36 @@
+---
+layout: post
+title: "Typical DP Contest T - フィボナッチ"
+date: 2015-09-01 22:19:40 +0900
+comments: true
+category: TDPC
+tags: [dp]
+---
+
+[T - フィボナッチ](http://tdpc.contest.atcoder.jp/tasks/tdpc_fibonacci)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+{% math %}
+
+F = x^N mod\ (x^K-\sum_{i=0}^{K-1} x^i)
+
+{% endmath %}
+
+としたとき，F(1)が答え  
+xをN乗するときに上のmodをとりながら計算すればよい  
+計算量は空間 {% m %}O(K){% em %}, 時間 {% m %}O(K^2\log N){% em %}  
+  
+FFT使えば時間 {% m %}O(K\log K\log N){% em %}には落とせそうかと思ったけど誤差が厳しい．
+
+#### コード
+
+****
+
+{% include_code TDPC/T.cpp %}

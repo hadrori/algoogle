@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Typical DP Contest K - ターゲット"
+date: 2015-08-29 18:37:30 +0900
+comments: true
+category: TDPC
+tags: [dp, longest-increasing-subsequence]
+---
+
+[K - ターゲット](http://tdpc.contest.atcoder.jp/tasks/tdpc_target)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+円の左端の大きい順でソートして，そのときの右端の列の最長部分増加列を求めればよい．
+
+#### コード
+
+****
+
+{% include_code TDPC/K.cpp %}
