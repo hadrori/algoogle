@@ -1,0 +1,32 @@
+---
+layout: post
+title: "AOJ 0611 Silk Road"
+date: 2015-10-04 17:17:58 +0900
+comments: true
+category: AOJ
+tags: [dp]
+---
+
+[Silk Road](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0611)
+
+#### 問題概要
+
+****
+
+都市0から都市N(<=1000)へ移動したい．  
+都市iから都市i+1にj日目に移動するとき，{% m %}D_{i}\times C_{j}{% em %}だけ疲労度がたまる．  
+M(<=1000)日以内に移動するとき，都市0から都市Nまで移動した時の疲労度の最小を求めよ．
+
+#### 解法
+
+****
+
+DPします．  
+dp\[i\]\[j\] := 都市iにj日目にいる時の疲労度の最小
+
+
+#### コード
+
+****
+
+{% include_code AOJ/0611.cpp %}
