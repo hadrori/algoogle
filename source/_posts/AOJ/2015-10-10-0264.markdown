@@ -1,0 +1,28 @@
+---
+layout: post
+title: "AOJ 0264 Finite Field Calculator"
+date: 2015-10-10 15:39:16 +0900
+comments: true
+category: AOJ
+tags: [parsing]
+---
+
+[Finite Field Calculator](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0264)
+
+#### 問題概要
+
+****
+
+数式を与えられたmodの上で計算しろ．
+
+#### 解法
+
+****
+
+普通に構文解析すれば良い．  
+
+#### コード
+
+****
+
+{% include_code AOJ/0264.cpp %}
