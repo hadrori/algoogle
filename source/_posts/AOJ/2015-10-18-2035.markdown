@@ -1,0 +1,30 @@
+---
+layout: post
+title: "AOJ 2035 It Prefokery Pio"
+date: 2015-10-18 15:17:32 +0900
+comments: true
+category: AOJ
+tags: [dp]
+---
+
+[It Prefokery Pio](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2035)
+
+#### 問題概要
+
+****
+
+与えられる文字列の部分列のうち，最長の回文を求めよ．
+
+#### 解法
+
+****
+
+長さについてDPして復元する．  
+dp\[l\]\[r\] := 区間\[l,r\]で最長の回文の長さ  
+メモ化再帰が復元の経路を保存するのに楽で良い．
+
+#### コード
+
+****
+
+{% include_code AOJ/2035.cpp %}
