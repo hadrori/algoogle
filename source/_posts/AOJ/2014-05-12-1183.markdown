@@ -4,7 +4,7 @@ title: "AOJ 1183 Chain-Confined Path"
 date: 2014-05-12 01:23:54 +0900
 comments: true
 category: AOJ
-tags: [geometory, dijkstra]
+tags: [geometry, dijkstra]
 ---
 
 [Chain-Confined Path](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1183)

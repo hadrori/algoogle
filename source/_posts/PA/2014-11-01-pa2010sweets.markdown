@@ -4,7 +4,7 @@ title: "PA 2010 Sweets"
 date: 2014-11-01 22:15:50 +0900
 comments: true
 category: PA
-tags: [math, line-sweep, geometory]
+tags: [math, line-sweep, geometry]
 ---
 
 [Sweets](http://main.edu.pl/en/archive/pa/2010/cuk)

@@ -4,7 +4,7 @@ title: "JOI 春合宿 2008 Ruins"
 date: 2014-09-04 15:59:01 +0900
 comments: true
 category: JOI
-tags: [geometory, dp]
+tags: [geometry, dp]
 ---
 
 [Ruins](http://joisc2008.contest.atcoder.jp/tasks/joisc2008_ruins)

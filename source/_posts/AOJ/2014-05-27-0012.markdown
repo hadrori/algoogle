@@ -4,7 +4,7 @@ title: "AOJ 0012 A Point in a Triangle"
 date: 2014-05-27 23:47:00 +0900
 comments: true
 category: AOJ
-tags: [geometory]
+tags: [geometry]
 ---
 
 [A Point in a Triangle](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0012)

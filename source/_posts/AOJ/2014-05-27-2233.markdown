@@ -4,7 +4,7 @@ title: "AOJ 2233 Carrot Tour"
 date: 2014-05-27 23:16:40 +0900
 comments: true
 category: AOJ
-tags: [dijkstra, geometory]
+tags: [dijkstra, geometry]
 ---
 
 [Carrot Tour](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2233)

@@ -4,7 +4,7 @@ title: "AOJ 2051 Rotation Estimation"
 date: 2014-05-27 23:20:40 +0900
 comments: true
 category: AOJ
-tags: [geometory]
+tags: [geometry]
 ---
 
 [Rotation Estimation](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2051)

@@ -4,7 +4,7 @@ title: "JOI 春合宿 2007 Route"
 date: 2014-08-26 21:50:02 +0900
 comments: true
 category: JOI
-tags: [dijkstra, geometory]
+tags: [dijkstra, geometry]
 ---
 
 [Route](http://joisc2007.contest.atcoder.jp/tasks/joisc2007_route)

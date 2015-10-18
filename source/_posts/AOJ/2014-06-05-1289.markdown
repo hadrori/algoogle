@@ -4,7 +4,7 @@ title: "AOJ 1289 Spherical Mirrors"
 date: 2014-06-05 22:54:02 +0900
 comments: true
 category: AOJ
-tags: [geometory]
+tags: [geometry]
 ---
 
 [Spherical Mirrors](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1289)

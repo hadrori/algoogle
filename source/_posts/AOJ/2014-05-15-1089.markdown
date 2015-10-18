@@ -4,7 +4,7 @@ title: "AOJ 1089 Strawberry Cake"
 date: 2014-05-15 14:48:20 +0900
 comments: true
 category: AOJ
-tags: [geometory, binary-search]
+tags: [geometry, binary-search]
 ---
 
 [Strawberry Cake](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1089)

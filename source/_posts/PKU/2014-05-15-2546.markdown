@@ -4,7 +4,7 @@ title: "PKU 2546 Circular Area"
 date: 2014-05-15 01:08:06 +0900
 comments: true
 category: PKU
-tags: [geometory]
+tags: [geometry]
 ---
 
 [Circular Area](http://poj.org/problem?id=2546)

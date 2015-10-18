@@ -4,7 +4,7 @@ title: "JOI 春合宿 2008 Belt"
 date: 2014-09-04 03:10:07 +0900
 comments: true
 category: JOI
-tags: [geometory]
+tags: [geometry]
 ---
 
 [Belt](http://joisc2008.contest.atcoder.jp/tasks/joisc2008_belt)

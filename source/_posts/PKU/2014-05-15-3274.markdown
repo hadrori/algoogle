@@ -4,7 +4,7 @@ title: "PKU 3274 Alignment of the Planets"
 date: 2014-05-15 15:13:23 +0900
 comments: true
 category: PKU
-tags: [geometory]
+tags: [geometry]
 ---
 
 [Alignment of the Planets](http://poj.org/problem?id=3274)

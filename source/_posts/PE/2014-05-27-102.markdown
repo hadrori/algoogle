@@ -4,7 +4,7 @@ title: "Project Euler 102 Triangle containment"
 date: 2014-05-27 23:43:22 +0900
 comments: true
 category: ProjectEuler
-tags: [geometory]
+tags: [geometry]
 ---
 
 [Triangle containment](http://projecteuler.net/problem=102)

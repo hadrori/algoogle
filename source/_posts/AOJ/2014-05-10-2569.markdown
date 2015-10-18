@@ -4,7 +4,7 @@ title: "AOJ 2569 Putter"
 date: 2014-05-10 01:48:21 +0900
 comments: true
 category: AOJ
-tags: [geometory]
+tags: [geometry]
 ---
 
 [Putter](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2569)

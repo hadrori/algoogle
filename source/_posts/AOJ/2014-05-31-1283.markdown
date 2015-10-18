@@ -4,7 +4,7 @@ title: "AOJ 1283 Most Distant Point from the Sea"
 date: 2014-05-31 01:36:54 +0900
 comments: true
 category: AOJ
-tags: [geometory, binary-search]
+tags: [geometry, binary-search]
 ---
 
 [Most Distant Point from the Sea](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1283)
