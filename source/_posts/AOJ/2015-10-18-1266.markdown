@@ -1,0 +1,28 @@
+---
+layout: post
+title: "AOJ 1266 How I Wonder What You Are!"
+date: 2015-10-18 15:24:24 +0900
+comments: true
+category: AOJ
+tags: [geometry]
+---
+
+[How I Wonder What You Are!](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1266)
+
+#### 問題概要
+
+****
+
+原点からの向きと角度がいくつか与えられるので，その範囲にある点の数を求めよ．
+
+#### 解法
+
+****
+
+望遠鏡と，原点から星までの直線の成す角を求めて比較すれば良い
+
+#### コード
+
+****
+
+{% include_code AOJ/1266.cpp %}
