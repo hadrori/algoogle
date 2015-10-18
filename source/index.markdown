@@ -53,7 +53,7 @@ footer: true
    * [赤黒木(insert/delete)](/algorithm/rbtree.html)
    * [赤黒木(merge/split)](/algorithm/rbtree_merge.html)
    * [永続赤黒木](/algorithm/prbtree.html)
-   {% comment %} * [Wavelet-Matrix](/algorithm/wavelet.html) {% endcomment %}
+   * [Wavelet-Matrix](/algorighm/wavelet.html)
 6. ### テクニック
    * [座標圧縮](/algorithm/compress.html)
    * [スライド最小値](/algorithm/slide-minimum.html)
