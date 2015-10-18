@@ -1,0 +1,36 @@
+---
+layout: post
+title: "AOJ 1083 The Incubator"
+date: 2015-10-18 16:26:37 +0900
+comments: true
+category: AOJ
+tags: [binary-indexed-tree]
+---
+
+[The Incubator](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1083)
+
+#### 問題概要
+
+****
+
+以下のクエリをQ個を捌く
+
+- 新しい個体に番号xを割り当てて列の末尾に入れる
+- 列のx番目の個体を列から取り除く
+- 列のx番目の個体番号を出力する
+- 番号xの個体を列から取り除く
+
+#### 解法
+
+****
+
+BITで列に入っているかを管理する．  
+削除はその位置に-1, 追加は末尾に1を加える．  
+1が立っている位置のうち左からx番目というのは2分探索すれば求まる．  
+番号xの位置はmapで持って，位置yの番号は配列で持てば良い．
+
+#### コード
+
+****
+
+{% include_code AOJ/1083.cpp %}
