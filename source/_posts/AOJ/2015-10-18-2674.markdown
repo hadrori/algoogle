@@ -1,0 +1,32 @@
+---
+layout: post
+title: "AOJ 2674 Disordered Data Detection"
+date: 2015-10-18 15:55:39 +0900
+comments: true
+category: AOJ
+tags: [wavelet-matrix, data-structure]
+---
+
+[Disordered Data Detection](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2674)
+
+#### 問題概要
+
+****
+
+長さDの整数列xがある．  
+- 閉区間\[l,r\]にx\[i\]<min(x\[l\],x\[r\])-eまたはmax(x\[l\],x\[r\])+e<x\[i\]となるiの個数を求めよ  
+というクエリがQ個くるのでそれに答えよ
+
+#### 解法
+
+****
+
+データ構造で殴る．具体的にはwavelet行列．  
+区間[l,r)に値が\[a,b)に含まれるような値の個数は最大値をMとすると {% m %}O(\log{M}){% em %}で求められる．  
+非負数は扱えないので適当に下駄を履かせる．
+
+#### コード
+
+****
+
+{% include_code AOJ/2674.cpp %}
