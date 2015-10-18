@@ -1,0 +1,30 @@
+---
+layout: post
+title: "AOJ 2664 Shopping"
+date: 2015-10-18 16:17:58 +0900
+comments: true
+category: AOJ
+tags: [union-find]
+---
+
+[Shopping](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2664)
+
+#### 問題概要
+
+****
+
+N個の材料がある．i番目の材料はx\[i\]円で買える．  
+幾つかの材料は魔法で別の材料にすることができる．AからBにできるならBからAにもできる．  
+必要な材料費の最小を求めよ．
+
+#### 解法
+
+****
+
+Union Fnidで関係をマージしてグループ中の最小額を採用すればいい．
+
+#### コード
+
+****
+
+{% include_code AOJ/2664.cpp %}
