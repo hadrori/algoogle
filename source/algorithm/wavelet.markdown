@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wavelet-Matrix"
-published: false
+published: true
 comments: true
 sharing: true
 ---
