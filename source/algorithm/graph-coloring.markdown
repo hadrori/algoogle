@@ -37,4 +37,3 @@ N := 頂点数
 {% for post in site.tags['graph-coloring'] %}
 * [{{post.title | cdata_escape}}]({{post.url}})
 {% endfor %}
-
