@@ -31,4 +31,4 @@ W : 幅
 
 ***
 
-[AOJ 1068 School of Killifish](/AOJ/1068/)
+[AOJ 1068 School of Killifish](/aoj/1068/)

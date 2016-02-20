@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wavelet-Matrix"
-published: false
+published: true
 comments: true
 sharing: true
 ---
@@ -69,3 +69,11 @@ maximum以外はverified．
 
 {% include_code algorithm/wavelet.cpp %}
 
+
+#### 問題
+
+***  
+
+{% for post in site.tags['wavelet-matrix'] %}
+* [{{post.title | cdata_escape}}]({{post.url}})
+{% endfor %}
