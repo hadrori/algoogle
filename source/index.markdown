@@ -20,10 +20,13 @@ footer: true
    * #### フロー  
         - [Ford-Fulkerson法(最大流)](/algorithm/ford-fulkerson.html)
         - [Dinic法(最大流)](/algorithm/dinic.html)
+        - [最小費用流](/algorithm/min-cost-flow.html)
    * #### 木
         - [Prim法(最小全域木)](/algorithm/prim.html)
         - [Kruskal法(最小全域木)](/algorithm/kruskal.html)
         - [HL分解](/algorithm/hl-decomposition.html)
+   * [関節点](/algorithm/articulation-point.html)
+   * [橋](/algorithm/bridge.html)
    * [彩色数](/algorithm/graph-coloring.html)
 3. ### Math  
    * #### 整数
