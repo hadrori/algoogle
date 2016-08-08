@@ -1,0 +1,29 @@
+---
+layout: post
+title: "Project Euler 88 Product-sum numbers"
+date: 2016-08-08 20:53:59 +0900
+comments: true
+category: ProjectEuler
+tags: [brute-force]
+---
+
+[Product-sum numbers](https://projecteuler.net/problem=88)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+1以外の部分の和をs，積をp，長さをlとするとp-s+lが1を含む全体の長さとなる．  
+この値は，数列に2以上の値を追加するたびに単調に増加していく．  
+つまりこの値が12000を越えない範囲で2以上の値を追加しながら探索していけばよい．  
+積と和の差なんてすぐ大きくなるので，探索する空間はそんなに大きくない．
+
+#### コード
+
+****
+
+{% include_code PE/88.cpp %}
