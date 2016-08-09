@@ -1,0 +1,40 @@
+---
+layout: post
+title: "Project Euler 169 Exploring the number of different ways a number can be expressed as a sum of powers of 2"
+date: 2016-08-08 20:53:59 +0900
+comments: true
+category: ProjectEuler
+tags: [brute-force]
+---
+
+[Exploring the number of different ways a number can be expressed as a sum of powers of 2](https://projecteuler.net/problem=169)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+タイトル長すぎ．  
+DPします．  
+i番目のビットが立っているときそのビットの値を表現するには
+
+- 2^iを使う
+- iより小さいjについて，2^(j+1)から2^(i-1)まで1回ずつ使って，2^jを2回使う
+
+という場合が考えられる．これの考え方で上位ビットから以下のようなdpを考える．
+
+```
+dp[i][j] := 10^25の最上位ビットからi番目までのビットを表現するのに，j+1~i-1番目のビットが1回ずつ，jビット目が2回使われてるときの場合の数
+```
+
+更新はコード見てください．
+
+
+#### コード
+
+****
+
+{% include_code PE/169.cpp %}
