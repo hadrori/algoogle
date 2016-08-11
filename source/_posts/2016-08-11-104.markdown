@@ -1,0 +1,45 @@
+---
+layout: post
+title: "Project Euler 104 Pandigital Fibonacci ends"
+date: 2016-08-11 14:30:57 +0900
+comments: true
+category: ProjectEuler
+tags: [math]
+---
+
+[Pandigital Fibonacci ends](https://projecteuler.net/problem=104)
+
+#### 問題概要
+
+****
+
+#### 解法
+
+****
+
+桁が爆発するので愚直にやると遅い．  
+下9桁はmod 10^9で計算してpandigitalかチェックする．  
+ここで，第n項のフィボナッチ数は以下の式で出せる
+
+{% math %}
+\phi = \frac{1+\sqrt{5}}{2}
+F_{n} = \lfloor \frac{\phi^n}{\sqrt{5}} + \frac{1}{2} \rfloor
+{% endmath %}
+
+10を底としてlogを取ると
+
+{% math %}
+\log_{10} F_{n} = n \log_{10} \phi - \frac{1}{2}\log_{10} 5
+{% endmath %}
+
+10のe乗はeの整数部分は桁数-1になるのは明らか．  
+つまり {% m %} \log_{10} F_{n} {% em %} の整数部分を8にして整数部分を取れば上位9桁が取れる．
+{% math %}
+\lfloor 10^{\log_{10} F_{n} - \lfloor \log_{10} F_{n} \rfloor + 8} \rfloor
+{% endmath %}
+
+#### コード
+
+****
+
+{% include_code PE/104.cpp %}
