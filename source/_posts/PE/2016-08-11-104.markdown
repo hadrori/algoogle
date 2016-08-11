@@ -32,8 +32,8 @@ F_{n} = \lfloor \frac{\phi^n}{\sqrt{5}} + \frac{1}{2} \rfloor
 \log_{10} F_{n} = n \log_{10} \phi - \frac{1}{2}\log_{10} 5
 {% endmath %}
 
-10のe乗はeの整数部分は桁数-1になるのは明らか．  
-つまり {% m %} \log_{10} F_{n} {% em %} の整数部分を8にして整数部分を取れば上位9桁が取れる．
+10のe乗の桁数はe+1になるのは明らか．  
+つまり以下のように {% m %} \log_{10} F_{n} {% em %} の整数部分を8にしてフィボナッチ数の上位9桁を取ればよい．
 {% math %}
 \lfloor 10^{\log_{10} F_{n} - \lfloor \log_{10} F_{n} \rfloor + 8} \rfloor
 {% endmath %}
