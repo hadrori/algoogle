@@ -5,6 +5,7 @@ date: 2014-05-24 13:51:56 +0900
 comments: true
 category: ProjectEuler
 tags: [math]
+published: false
 ---
 
 [Prime power triples](http://projecteuler.net/problem=87)

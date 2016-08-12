@@ -5,6 +5,7 @@ date: 2014-05-24 13:57:27 +0900
 comments: true
 category: ProjectEuler
 tags: [math]
+published: false
 ---
 
 [Diophantine equation](http://projecteuler.net/problem=66)

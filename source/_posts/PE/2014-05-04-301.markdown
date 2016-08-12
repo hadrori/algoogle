@@ -5,6 +5,7 @@ date: 2014-05-04 17:14:29 +0900
 comments: true
 category: ProjectEuler
 tags: [grundy-number]
+published: false
 ---
 
 [Nim](http://projecteuler.net/problem=301)

@@ -5,6 +5,7 @@ date: 2014-05-27 23:43:22 +0900
 comments: true
 category: ProjectEuler
 tags: [geometry]
+published: false
 ---
 
 [Triangle containment](http://projecteuler.net/problem=102)

@@ -5,6 +5,7 @@ date: 2014-05-27 23:59:24 +0900
 comments: true
 category: ProjectEuler
 tags: [math]
+published: false
 ---
 
 [Singular integer right triangles](http://projecteuler.net/problem=75)

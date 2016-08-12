@@ -5,6 +5,7 @@ date: 2014-05-24 15:07:03 +0900
 comments: true
 category: ProjectEuler
 tags: [math]
+published: false
 ---
 
 [Square root digital expansion](http://projecteuler.net/problem=80)

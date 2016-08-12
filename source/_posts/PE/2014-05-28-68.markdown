@@ -5,6 +5,7 @@ date: 2014-05-28 00:02:52 +0900
 comments: true
 category: ProjectEuler
 tags: [implementation]
+published: false
 ---
 
 [Magic 5-gon ring](http://projecteuler.net/problem=68)
